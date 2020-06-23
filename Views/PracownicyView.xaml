@@ -1,0 +1,92 @@
+﻿<local:Filtrowanie1ViewBase x:Class="UrlopyApiXaml.Views.PracownicyView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:UrlopyApiXaml.Views"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800">
+
+    <UserControl.Resources>
+        <ResourceDictionary Source="/Content/Styles/Delegacje.xaml"  />
+    </UserControl.Resources>
+    
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50"/>
+            <RowDefinition Height="60"/>
+            <RowDefinition Height="60"/>
+            <RowDefinition Height="60"/>
+            <RowDefinition Height="60"/>
+            <RowDefinition Height="60"/>
+            <RowDefinition Height="60"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="2*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        
+        <Label Grid.Column="0" Grid.Row="0" Content="Imię i nazwisko" Margin="0,6,0,0" Background="LightGray" Padding="12" FontSize="14"/>
+        <Label Grid.Column="1" Grid.Row="0" Content="Dział" Margin="0,6,0,0" Background="LightGray" Padding="12" FontSize="14"/>
+        <Label Grid.Column="2" Grid.Row="0" Content="Nazwa działu" Margin="20,6,0,0" Background="LightGray" Padding="12" FontSize="14"/>
+        <DockPanel Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="1" Style="{StaticResource dzieckoStackPanel}">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="2*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="40"/>
+                </Grid.ColumnDefinitions>
+                <Label Grid.Column="0" Content="Marek Nowak" FontSize="20"/>
+                <Label Grid.Column="1" Content="Brak działu" FontSize="20"/>
+                <Button Grid.Column="2" Style="{DynamicResource PrzyciskHover}">Edytuj</Button>
+            </Grid>
+        </DockPanel>
+        <DockPanel Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="2" Style="{StaticResource dzieckoStackPanel}">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="2*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="40"/>
+                </Grid.ColumnDefinitions>
+                <Label Grid.Column="0" Content="Alek Mosoń" FontSize="20"/>
+                <Label Grid.Column="1" Content="Brak działu" FontSize="20"/>
+                <Button Grid.Column="2" Style="{DynamicResource PrzyciskHover}">Edytuj</Button>
+            </Grid>
+        </DockPanel>
+        <DockPanel Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="3" Style="{StaticResource dzieckoStackPanel}">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="2*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="40"/>
+                </Grid.ColumnDefinitions>
+                <Label Grid.Column="0" Content="Katarzyna Bezzębna" FontSize="20"/>
+                <Label Grid.Column="1" Content="Brak działu" FontSize="20"/>
+                <Button Grid.Column="2" Style="{DynamicResource PrzyciskHover}">Edytuj</Button>
+            </Grid>
+        </DockPanel>
+        <DockPanel Grid.Column="2" Grid.Row="1" Style="{StaticResource dzieckoStackPanel}" Margin="21,0,20,0">
+            <Label Content="Brak działu" FontSize="20" />
+            <Label Content="3" FontSize="20" HorizontalAlignment="Right"/>
+        </DockPanel>
+        <DockPanel Grid.Column="2" Grid.Row="2" Style="{StaticResource dzieckoStackPanel}" Margin="21,0,20,0">
+            <Label Content="Archiwum" FontSize="20"/>
+            <Label Content="0" FontSize="20" HorizontalAlignment="Right"/>
+        </DockPanel>
+        <DockPanel Grid.Column="2" Grid.Row="3" Style="{StaticResource dzieckoStackPanel}" Margin="21,0,20,0">
+            <Label Content="Sprzedaż" FontSize="20"/>
+            <Label Content="1" FontSize="20" HorizontalAlignment="Right"/>
+        </DockPanel>
+        <DockPanel Grid.Column="2" Grid.Row="4" Style="{StaticResource dzieckoStackPanel}" Margin="21,0,20,0">
+            <Label Content="Produkcja" FontSize="20"/>
+            <Label Content="14" FontSize="20" HorizontalAlignment="Right"/>
+        </DockPanel>
+        <DockPanel Grid.Column="2" Grid.Row="4" Style="{StaticResource dzieckoStackPanel}" Margin="21,0,20,0">
+            <Label Content="Kadry" FontSize="20"/>
+            <Label Content="120" FontSize="20" HorizontalAlignment="Right"/>
+        </DockPanel>
+
+    </Grid>
+</local:Filtrowanie1ViewBase>

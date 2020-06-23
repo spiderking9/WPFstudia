@@ -1,0 +1,157 @@
+﻿<UserControl x:Class="UrlopyApiXaml.Views.PrzegladView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             mc:Ignorable="d" 
+             d:DesignHeight="300" d:DesignWidth="300">
+
+    <UserControl.Resources>
+        <ResourceDictionary Source="/Content/Styles/Przyciski.xaml"  />
+    </UserControl.Resources>
+    <ScrollViewer HorizontalScrollBarVisibility="Auto">
+    <Grid Margin="20,0,0,0" >
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50"/>
+            <RowDefinition Height="50"/>
+            <RowDefinition Height="40"/><!--przerwa-->
+            <RowDefinition Height="50"/>                  <!--Zarządzanie urlopami-->
+            <RowDefinition Height="20"/>                   <!--trzy przyciski tutaj damy 3 x columndefinition-->
+            <RowDefinition Height="10"/><!--przerwa-->
+            <RowDefinition Height="40"/> 
+            <RowDefinition Height="40"/>
+            <RowDefinition Height="40"/>                 <!--Twój grafik pracy-->
+            <RowDefinition Height="40"/> 
+            <RowDefinition Height="10"/> <!--przerwa-->
+            <RowDefinition Height="100"/>               <!--tabela-->
+            <RowDefinition Height="40"/> <!--przerwa-->
+            <RowDefinition Height="40"/>                <!--Twoje statystyki-->
+            <RowDefinition Height="40"/>                <!--trzy przyciski tutaj damy 3 x columndefinition-->
+            <RowDefinition Height="10"/> <!--przerwa-->
+            <RowDefinition Height="150"/>               <!--szesc okienek z statystykami-->
+        </Grid.RowDefinitions>
+        <Label Grid.Row="0" Content="Rejestr Czasu Pracy" FontSize="20" />
+        <Button Grid.Row="1" Content="Wirtualne RCP (Dodaj sttatus)" Width="300" HorizontalAlignment="Left" />
+        <Label Grid.Row="3" Content="Zarządzanie urlopami" FontSize="20" />
+        <Label Grid.Row="4" Content="Wykorzystane Uw 0d" FontSize="14" Padding="2"/>
+        <Grid Grid.Row="6">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" MaxWidth="300"/>
+                <ColumnDefinition Width="10"/>
+                <ColumnDefinition Width="*" MaxWidth="300"/>
+                <ColumnDefinition Width="10"/>
+                <ColumnDefinition Width="*" MaxWidth="300"/>
+            </Grid.ColumnDefinitions>
+            <Button Grid.Column="0" Content="Złóż nowy wniosek"/>
+            <Button Grid.Column="2" Content="Lista twoich wniosków"/>
+            <Button Grid.Column="4" Content="Lista podań"/>
+        </Grid>
+        <Label Grid.Row="8" Content="Twój grafik pracy" FontSize="20"/>
+        <Grid Grid.Row="9">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" MaxWidth="20"/>
+                <ColumnDefinition Width="*" MaxWidth="120"/>
+                <ColumnDefinition Width="*" MaxWidth="20"/>
+            </Grid.ColumnDefinitions>
+            <Button Grid.Column="0" Content="&#60;" />
+            <Button Grid.Column="1" Content="16.06 - 28.06.2020"/>
+            <Button Grid.Column="2" Content=">"/>
+        </Grid>
+        <Grid Grid.Row="11">
+                <Grid.Resources>
+                    <Style TargetType="Label">
+                        <Setter Property="Background" Value="White"/>
+                    </Style>
+                </Grid.Resources>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Style="{StaticResource ColumnDefinitionStandardowy}"/>
+                <ColumnDefinition Style="{StaticResource ColumnDefinitionStandardowy}"/>
+                <ColumnDefinition Style="{StaticResource ColumnDefinitionStandardowy}"/>
+                <ColumnDefinition Style="{StaticResource ColumnDefinitionStandardowy}"/>
+                <ColumnDefinition Style="{StaticResource ColumnDefinitionStandardowy}"/>
+                <ColumnDefinition Style="{StaticResource ColumnDefinitionStandardowy}"/>
+                <ColumnDefinition Style="{StaticResource ColumnDefinitionStandardowy}"/>
+                <ColumnDefinition Style="{StaticResource ColumnDefinitionStandardowy}"/>
+                <ColumnDefinition Style="{StaticResource ColumnDefinitionStandardowy}"/>
+                <ColumnDefinition Style="{StaticResource ColumnDefinitionStandardowy}"/>
+                <ColumnDefinition Style="{StaticResource ColumnDefinitionStandardowy}"/>
+                <ColumnDefinition Style="{StaticResource ColumnDefinitionStandardowy}"/>
+                <ColumnDefinition Style="{StaticResource ColumnDefinitionStandardowy}"/>
+                <ColumnDefinition Style="{StaticResource ColumnDefinitionStandardowy}"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="40"/>
+                <RowDefinition Height="60"/>
+            </Grid.RowDefinitions>
+            <Label Grid.Row="0" Grid.Column="0" Content="15.06 Pn" BorderBrush="LightGray" BorderThickness="1" Margin="0,0,0.5,0.5" Padding="15,10,0,0"/>
+            <Label Grid.Row="1" Grid.Column="0" BorderBrush="LightGray" BorderThickness="1" Margin="0,0.5,0.5,0" />
+            <Label Grid.Row="0" Grid.Column="1" Content="16.06 Pn" Style="{StaticResource LabelInTableTop}" />
+            <Label Grid.Row="1" Grid.Column="1" Style="{StaticResource LabelInTableBotom}"/>
+            <Label Grid.Row="0" Grid.Column="2" Content="17.06 Wt" Style="{StaticResource LabelInTableTop}" />
+            <Label Grid.Row="1" Grid.Column="2" Style="{StaticResource LabelInTableBotom}"/>
+            <Label Grid.Row="0" Grid.Column="3" Content="18.06 Sr" Style="{StaticResource LabelInTableTop}" />
+            <Label Grid.Row="1" Grid.Column="3" Style="{StaticResource LabelInTableBotom}"/>
+            <Label Grid.Row="0" Grid.Column="4" Content="19.06 Cz" Style="{StaticResource LabelInTableTop}" />
+            <Label Grid.Row="1" Grid.Column="4" Style="{StaticResource LabelInTableBotom}"/>
+            <Label Grid.Row="0" Grid.Column="5" Content="20.06 Pt" Style="{StaticResource LabelInTableTop}" />
+            <Label Grid.Row="1" Grid.Column="5" Style="{StaticResource LabelInTableBotom}"/>
+            <Label Grid.Row="0" Grid.Column="6" Content="21.06 So" Style="{StaticResource LabelInTableTop}" />
+            <Label Grid.Row="1" Grid.Column="6" Style="{StaticResource LabelInTableBotom}"/>
+            <Label Grid.Row="0" Grid.Column="7" Content="22.06 Ni" Style="{StaticResource LabelInTableTop}" />
+            <Label Grid.Row="1" Grid.Column="7" Style="{StaticResource LabelInTableBotom}"/>
+            <Label Grid.Row="0" Grid.Column="8" Content="23.06 Pn" Style="{StaticResource LabelInTableTop}" />
+            <Label Grid.Row="1" Grid.Column="8" Style="{StaticResource LabelInTableBotom}"/>
+            <Label Grid.Row="0" Grid.Column="9" Content="24.06 Wt" Style="{StaticResource LabelInTableTop}" />
+            <Label Grid.Row="1" Grid.Column="9" Style="{StaticResource LabelInTableBotom}"/>
+            <Label Grid.Row="0" Grid.Column="10" Content="25.06 Sr" Style="{StaticResource LabelInTableTop}" />
+            <Label Grid.Row="1" Grid.Column="10" Style="{StaticResource LabelInTableBotom}"/>
+            <Label Grid.Row="0" Grid.Column="11" Content="26.06 Cz" Style="{StaticResource LabelInTableTop}" />
+            <Label Grid.Row="1" Grid.Column="11" Style="{StaticResource LabelInTableBotom}"/>
+            <Label Grid.Row="0" Grid.Column="12" Content="27.06 Pt" Style="{StaticResource LabelInTableTop}" />
+            <Label Grid.Row="1" Grid.Column="12" Style="{StaticResource LabelInTableBotom}"/>
+            <Label Grid.Row="0" Grid.Column="13" Content="28.06 So" Style="{StaticResource LabelInTableTop}" />
+            <Label Grid.Row="1" Grid.Column="13" Style="{StaticResource LabelInTableBotom}"/>
+        </Grid>
+        <Label Grid.Row="13" Content="Twoje statystyki" FontSize="20"/>
+        <Grid Grid.Row="14">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" MaxWidth="20"/>
+                <ColumnDefinition Width="*" MaxWidth="120"/>
+                <ColumnDefinition Width="*" MaxWidth="20"/>
+            </Grid.ColumnDefinitions>
+            <Button Grid.Column="0" Content="&#60;" />
+            <Button Grid.Column="1" Content="CZERWIEC 2020"/>
+            <Button Grid.Column="2" Content=">"/>
+        </Grid>
+        <Grid Grid.Row="16">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="200"/>
+                <ColumnDefinition Width="10"/>
+                <ColumnDefinition Width="200"/>
+                <ColumnDefinition Width="10"/>
+                <ColumnDefinition Width="200"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="70"/>
+                <RowDefinition Height="10"/>
+                <RowDefinition Height="70"/>
+            </Grid.RowDefinitions>
+            <Border Grid.Row="0" Grid.Column="0">
+                <Label Content="Czas pracy&#10;O h" FontSize="15"/>
+            </Border>
+            <Border Grid.Row="0" Grid.Column="2">
+                <Label Content="Nadgodziny&#10;O h" FontSize="15"/>
+            </Border>
+            <Border Grid.Row="0" Grid.Column="4">
+                <Label Content="Spóźnienia, braki normy&#10;O h" FontSize="15"/>
+            </Border>
+            <Border Grid.Row="2" Grid.Column="0">
+                <Label Content="Obecnosci&#10;O dni" FontSize="15"/>
+            </Border>
+            <Border Grid.Row="2" Grid.Column="2">
+                <Label Content="Nieobecnośći&#10;O dni" FontSize="15"/>
+            </Border>
+        </Grid>
+    </Grid>
+    </ScrollViewer>
+</UserControl>

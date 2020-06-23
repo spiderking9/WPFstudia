@@ -1,0 +1,128 @@
+﻿<Window x:Class="MVVMFirma.Views.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"  
+        Title="Aplikacja Urlopowa" Height="300" Width="300" WindowState="Maximized" Background="AliceBlue"
+        xmlns:vm="clr-namespace:MVVMFirma.Views"
+        >
+    <Window.Resources>
+        <ResourceDictionary Source="MainWindowResources.xaml"  />
+    </Window.Resources>
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="150"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="40"/>
+            <RowDefinition Height="40"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="30"/>
+        </Grid.RowDefinitions>
+        <Menu Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" Margin="2,5,2,0" Style="{StaticResource MenuPanel}">
+            <MenuItem Header="_Przegląd" InputGestureText="alt+p" Command="{Binding PrzegladCommand}">
+                <MenuItem.Icon>
+                    <TextBlock Text="&#xf06e;"/>
+                </MenuItem.Icon>
+            </MenuItem>
+            <MenuItem Header="_RCP">
+                <MenuItem.Icon>
+                    <TextBlock Text="&#xf017;"/>
+                </MenuItem.Icon>
+                <MenuItem Header="_Zdazenia" InputGestureText="alt+z" Command="{Binding ZdarzeniaCommand}">
+                    <MenuItem.Icon>
+                        <TextBlock Text="&#xf042;"/>
+                    </MenuItem.Icon>
+                </MenuItem>
+                <MenuItem Header="_Lokalizacje" InputGestureText="alt+l" Command="{Binding LokalizacjeCommand}">
+                    <MenuItem.Icon>
+                        <TextBlock Text="&#xf041;"/>
+                    </MenuItem.Icon>
+                </MenuItem>
+            </MenuItem>
+            <Separator/>
+            <MenuItem Header="Gra_fiki Pracowników" InputGestureText="alt+f">
+                <MenuItem.Icon>
+                    <TextBlock Text="&#xf196;"/>
+                </MenuItem.Icon>
+                <MenuItem Header="_Pracownicy" InputGestureText="alt+p" Command="{Binding PracownicyCommand}">
+                    <MenuItem.Icon>
+                        <TextBlock Text="&#xf183;"/>
+                    </MenuItem.Icon>
+                </MenuItem>
+                <Separator/>
+                <MenuItem Header="_Grafik Pracy" InputGestureText="alt+g" Command="{Binding GrafikPracyCommand}">
+                    <MenuItem.Icon>
+                        <TextBlock Text="&#xf196;"/>
+                    </MenuItem.Icon>
+                </MenuItem>
+                <MenuItem Header="_Urlopy" InputGestureText="alt+u" Command="{Binding UrlopyCommand}">
+                    <MenuItem.Icon>
+                        <TextBlock Text="&#xf073;"/>
+                    </MenuItem.Icon>
+                </MenuItem>
+                <MenuItem Header="_Delegacje" InputGestureText="alt+d" Command="{Binding DelegacjeCommand}">
+                    <MenuItem.Icon>
+                        <TextBlock Text="&#xf1b9;"/>
+                    </MenuItem.Icon>
+                </MenuItem>
+            </MenuItem>
+            <MenuItem Header="_Inne" InputGestureText="alt+i">
+                <MenuItem.Icon>
+                    <TextBlock Text="&#xf141;"/>
+                </MenuItem.Icon>
+                <MenuItem Header="_Twoj kod QR" InputGestureText="alt+t" Command="{Binding TwojKodCommand}">
+                    <MenuItem.Icon>
+                        <TextBlock Text="&#xf029;"/>
+                    </MenuItem.Icon>
+                </MenuItem>
+                <MenuItem Header="_Opcje" InputGestureText="alt+o" Command="{Binding OpcjeCommand}">
+                    <MenuItem.Icon>
+                        <TextBlock Text="&#xf085;"/>
+                    </MenuItem.Icon>
+                </MenuItem>
+                <Separator/>
+                <MenuItem Header="O _aplikacji" InputGestureText="alt+a" Command="{Binding OAplikacjiCommand}">
+                    <MenuItem.Icon>
+                        <TextBlock Text="&#xf129;"/>
+                    </MenuItem.Icon>
+                </MenuItem>
+            </MenuItem>
+            <MenuItem Header="_Wyloguj" InputGestureText="alt+w">
+                <MenuItem.Icon>
+                    <TextBlock Text="&#xf08b;"/>
+                </MenuItem.Icon>
+            </MenuItem>
+        </Menu>
+        <ToolBar Grid.Column="0" Grid.Row="1" Grid.ColumnSpan="2" Margin="2">
+            <ToggleButton Width="32" Height="32" Margin="2" FontFamily="{StaticResource FontAwesome}" FontSize="24" Command="{Binding PrzegladCommand}" Content="&#xf086;"/>
+            <ToggleButton Width="32" Height="32" Margin="2" FontFamily="{StaticResource FontAwesome}" FontSize="24" Command="{Binding PracownicyCommand}" Content="&#xf007;"/>
+            <ToggleButton Width="32" Height="32" Margin="2" FontFamily="{StaticResource FontAwesome}" FontSize="24" Command="{Binding NowaFakturaCommand}" Content="&#xf1c5;"/>
+            <ToggleButton Width="32" Height="32" Margin="2" FontFamily="{StaticResource FontAwesome}" FontSize="24" Command="{Binding ZdarzeniaCommand}" Content="&#xf013;"/>
+            <ToggleButton Width="32" Height="32" Margin="2" FontFamily="{StaticResource FontAwesome}" FontSize="24" Command="{Binding LokalizacjeCommand}" Content="&#xf002;"/>
+            <ToggleButton Width="32" Height="32" Margin="2" FontFamily="{StaticResource FontAwesome}" FontSize="24" Command="{Binding GrafikPracyCommand}" Content="&#xf141;"/>
+        </ToolBar>
+        <Border Grid.Row="2" Grid.Column="0" Style="{StaticResource xxx}">
+            <HeaderedContentControl 
+                Content="{Binding Path=Commands}" 
+                ContentTemplate="{StaticResource CommandsTemplate}"
+                Panel.ZIndex="2"
+                />
+        </Border>
+        <Border Grid.Row="2" Grid.Column="1" Margin="-100,0,0,0" Panel.ZIndex="-3">
+            <HeaderedContentControl 
+                Content="{Binding Path=Workspaces}"
+                ContentTemplate="{StaticResource WorkspacesTemplate}"
+                Style="{StaticResource MainHCCStyle}"
+            />
+        </Border>
+        <StatusBar Grid.Column="0" Grid.Row="3" Grid.ColumnSpan="2">
+            <StatusBarItem>
+                <TextBlock>Łukasz Pluta</TextBlock>
+            </StatusBarItem>
+            <Separator/>
+            <StatusBarItem>
+                <TextBlock>Aplikacja Urlopowa</TextBlock>
+            </StatusBarItem>
+        </StatusBar>
+    </Grid>
+</Window>
