@@ -10,11 +10,11 @@ none
 false
 DEBUG;TRACE
 C:\Users\Luk\source\studia\akornatka-26042020150852-SameOknaGrupaOnline\SameOknaGrupaOnline\MVVMFirmaSameOkna\MVVMFirma\App.xaml
-2123751313
+22690813197
 8-2002774904
 38748961532
 21-1269608121
-Content\Styles\Przyciski.xaml;Content\Styles\Delegacje.xaml;Content\Styles\DodajDelegacje.xaml;Content\Styles\GrafikPracy.xaml;Themes\Generic.xaml;Views\MainWindow.xaml;Views\MainWindowResources.xaml;Views\NowaFakturaView.xaml;Views\GrafikPracyView.xaml;Views\PrzegladView.xaml;Views\StylZakladek.xaml;Views\PracownicyView.xaml;Views\LokalizacjeView.xaml;Views\Zakladki\DodajDelegacjeWindowView.xaml;Views\Zakladki\DelegacjeView.xaml;Views\Zakladki\DodajDelegacjeView.xaml;Views\Zakladki\OAplikacjiView.xaml;Views\Zakladki\OpcjeView.xaml;Views\Zakladki\TwojKodView.xaml;Views\Zakladki\UrlopyView.xaml;Views\ZdarzeniaView.xaml;
+Content\Styles\Przyciski.xaml;Content\Styles\Delegacje.xaml;Content\Styles\DodajDelegacje.xaml;Content\Styles\GrafikPracy.xaml;Content\Styles\Urlopy.xaml;Themes\Generic.xaml;Views\MainWindow.xaml;Content\Styles\MainWindowResources.xaml;Views\NowaFakturaView.xaml;Views\GrafikPracyView.xaml;Views\PrzegladView.xaml;Content\Styles\StylZakladek.xaml;Views\PracownicyView.xaml;Views\LokalizacjeView.xaml;Views\Zakladki\DodajDelegacjeWindowView.xaml;Views\Zakladki\DelegacjeView.xaml;Views\Zakladki\DodajDelegacjeView.xaml;Views\Zakladki\OAplikacjiView.xaml;Views\Zakladki\OpcjeView.xaml;Views\Zakladki\TwojKodView.xaml;Views\Zakladki\UrlopyView.xaml;Views\ZdarzeniaView.xaml;
 
 True
 

@@ -5,8 +5,307 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:UrlopyApiXaml.Views.Zakladki"
              mc:Ignorable="d" 
-             d:DesignHeight="450" d:DesignWidth="800">
-    <Grid>
-        <Label Content="Opcje"/>
-    </Grid>
+             d:DesignHeight="450" d:DesignWidth="800" MinWidth="200">
+<UserControl.Resources>
+        <ResourceDictionary Source="/Content/Styles/DodajDelegacje.xaml"  />
+    </UserControl.Resources>
+
+    <ScrollViewer HorizontalScrollBarVisibility="Disabled" >
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="40"/> <!--Zdjecia-->
+                <RowDefinition Height="40"/> <!--dodaj button-->
+                <RowDefinition Height="10"/> <!--przerwa-->
+                <RowDefinition Height="40"/> <!--podstawowe informacje-->
+                <RowDefinition Height="10"/> <!--przerwa-->
+                <RowDefinition Height="100"/> <!--4 x input-->
+                <RowDefinition Height="10"/> <!--przerwa-->
+                <RowDefinition Height="40"/> <!--czas trwania-->
+                <RowDefinition Height="10"/> <!--przerwa-->
+                <RowDefinition Height="40"/> <!--minimalna ilosc-->
+                <RowDefinition Height="20"/> <!--przerwa-->
+                <RowDefinition Height="40"/> <!--Zaawansowane-->
+                <RowDefinition Height="10"/> <!--przerwa-->
+                <RowDefinition Height="40"/> <!--czas pracy bez rozkladu-->
+                <RowDefinition Height="10"/> <!--przerwa-->
+                <RowDefinition Height="40"/> <!--waluta-->
+                <RowDefinition Height="45"/> <!--label                                16-->
+                <RowDefinition Height="40"/> 
+                <RowDefinition Height="40"/> <!--checkbox Fotorejestracja-->
+                <RowDefinition Height="10"/> <!--19-->
+                <RowDefinition Height="45"/> <!--20-->
+                <RowDefinition Height="20"/> <!--21-->
+                <RowDefinition Height="40"/> <!--22-->
+                <RowDefinition Height="10"/> <!--23-->
+                <RowDefinition Height="40"/> <!--24-->
+                <RowDefinition Height="20"/> <!--25-->
+                <RowDefinition Height="40"/> <!--26-->
+                <RowDefinition Height="40"/> <!--27-->
+                <RowDefinition Height="40"/> <!--28-->
+                <RowDefinition Height="40"/> <!--29-->
+                <RowDefinition Height="45"/> <!--30-->
+                <RowDefinition Height="20"/> <!--31-->
+                <RowDefinition Height="40"/> <!--32-->
+                <RowDefinition Height="10"/> <!--33-->
+                <RowDefinition Height="40"/> <!--34-->
+                <RowDefinition Height="10"/> <!--35-->
+                <RowDefinition Height="40"/> <!--36-->
+                <RowDefinition Height="40"/> <!--37-->
+                <RowDefinition Height="45"/> <!--38-->
+                <RowDefinition Height="10"/> <!--39-->
+                <RowDefinition Height="45"/> <!--40-->
+                <RowDefinition Height="10"/> <!--41-->
+                <RowDefinition Height="40"/> <!--42-->
+                <RowDefinition Height="10"/> <!--43-->
+                <RowDefinition Height="40"/> <!--44-->
+                <RowDefinition Height="10"/> <!--45-->
+                <RowDefinition Height="40"/> <!--46-->
+                <RowDefinition Height="20"/> <!--47-->
+            </Grid.RowDefinitions>
+            <Label Grid.Row="0" Content="Zdjęcia" FontSize="20" FontWeight="Bold"/>
+            <Button Grid.Row="1" Style="{StaticResource orginalnyButton}"  Content="Dodaj" Background="Blue" Width="180" HorizontalAlignment="Left" Margin="20,0,0,0" />
+            <Label Grid.Row="3" Content="Podstawowe informacje" FontSize="20" FontWeight="Bold"/>
+            <Grid Grid.Row="5">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="20"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="10*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="10*"/>
+                </Grid.RowDefinitions>
+
+
+                <Border Grid.Row="0" Grid.Column="0" BorderBrush="LightGray" BorderThickness="1.5" CornerRadius="5" Margin="0,0,10,0">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="140"/>
+                            <ColumnDefinition Width="1"/>
+                            <ColumnDefinition Width="*" MinWidth="400"/>
+                        </Grid.ColumnDefinitions>
+                        <Label Grid.Column="0" Content="Imię " VerticalAlignment="Center" FontWeight="Bold" Margin="10,0,0,0"/>
+                        <Border Grid.Column="1" BorderBrush="LightGray" BorderThickness="0,0,1,0"/>
+                        <TextBox Grid.Column="2" ToolTip="wpisz imię" Background="AliceBlue" BorderThickness="0" Text=" sdfs dfs" FontSize="20" Padding="50,4,0,0"/>
+                    </Grid>
+                </Border>
+
+                <Border Grid.Row="0" Grid.Column="3" BorderBrush="LightGray" BorderThickness="1.5" CornerRadius="5" Margin="0,0,10,0">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="140"/>
+                            <ColumnDefinition Width="1"/>
+                            <ColumnDefinition Width="*" MinWidth="400"/>
+                        </Grid.ColumnDefinitions>
+                        <Label Grid.Column="0" Content="Nazwisko " VerticalAlignment="Center" FontWeight="Bold" Margin="10,0,0,0"/>
+                        <Border Grid.Column="1" BorderBrush="LightGray" BorderThickness="0,0,1,0"/>
+                        <TextBox Grid.Column="2" ToolTip="wpisz nazwisko" Background="AliceBlue" BorderThickness="0" Text="dsf sd fs" FontSize="20" Padding="50,4,0,0"/>
+                    </Grid>
+                </Border>
+
+                <Border Grid.Row="2" Grid.Column="0" BorderBrush="LightGray" BorderThickness="1.5" CornerRadius="5" Margin="0,0,10,0">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="140"/>
+                            <ColumnDefinition Width="1"/>
+                            <ColumnDefinition Width="*" MinWidth="400"/>
+                        </Grid.ColumnDefinitions>
+                        <Label Grid.Column="0" Content="Email " VerticalAlignment="Center" FontWeight="Bold" Margin="10,0,0,0"/>
+                        <Border Grid.Column="1" BorderBrush="LightGray" BorderThickness="0,0,1,0"/>
+                        <TextBox Grid.Column="2" ToolTip="wpisz email" Background="AliceBlue" BorderThickness="0" Text="dfgdf" FontSize="20" Padding="50,4,0,0"/>
+                    </Grid>
+                </Border>
+
+                <Border Grid.Row="2" Grid.Column="3" BorderBrush="LightGray" BorderThickness="1.5" CornerRadius="5" Margin="0,0,10,0">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="140"/>
+                            <ColumnDefinition Width="1"/>
+                            <ColumnDefinition Width="*" MinWidth="400"/>
+                        </Grid.ColumnDefinitions>
+                        <Label Grid.Column="0" Content="Telefon " VerticalAlignment="Center" FontWeight="Bold" Margin="10,0,0,0"/>
+                        <Border Grid.Column="1" BorderBrush="LightGray" BorderThickness="0,0,1,0"/>
+                        <TextBox Grid.Column="2" ToolTip="wpisz telefon" Background="AliceBlue" BorderThickness="0" Text="23423" FontSize="20" Padding="50,4,0,0"/>
+                    </Grid>
+                </Border>
+
+            </Grid>
+
+            <Label Grid.Row="7" Content="Dane adresowe" FontSize="20" FontWeight="Bold"/>
+
+            <Border Grid.Row="9" BorderBrush="LightGray" BorderThickness="1.5" CornerRadius="5" Margin="0,0,10,0">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="100"/>
+                        <ColumnDefinition Width="1"/>
+                        <ColumnDefinition Width="*" MinWidth="340"/>
+                    </Grid.ColumnDefinitions>
+                    <Label Grid.Column="0" Content="Ulica " VerticalAlignment="Center" FontWeight="Bold" Margin="10,0,0,0"/>
+                    <Border Grid.Column="1" BorderBrush="LightGray" BorderThickness="0,0,1,0"/>
+                    <TextBox Grid.Column="2" ToolTip="wpisz ulice" Background="AliceBlue" BorderThickness="0" Text="fdgdfg dg " FontSize="20" Padding="50,4,0,0"/>
+                </Grid>
+            </Border>
+
+            <Grid Grid.Row="11">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="20"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Border Grid.Column="0" BorderBrush="LightGray" BorderThickness="1.5" CornerRadius="5" Margin="0,0,10,0">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="140"/>
+                            <ColumnDefinition Width="1"/>
+                            <ColumnDefinition Width="*" MinWidth="400"/>
+                        </Grid.ColumnDefinitions>
+                        <Label Grid.Column="0" Content="Kod pocztowy " VerticalAlignment="Center" FontWeight="Bold" Margin="10,0,0,0"/>
+                        <Border Grid.Column="1" BorderBrush="LightGray" BorderThickness="0,0,1,0"/>
+                        <TextBox Grid.Column="2" ToolTip="wpisz Kod pocztowy" Background="AliceBlue" BorderThickness="0" Text=" sdfs dfs" FontSize="20" Padding="50,4,0,0"/>
+                    </Grid>
+                </Border>
+
+                <Border Grid.Column="3" BorderBrush="LightGray" BorderThickness="1.5" CornerRadius="5" Margin="0,0,10,0">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="140"/>
+                            <ColumnDefinition Width="1"/>
+                            <ColumnDefinition Width="*" MinWidth="400"/>
+                        </Grid.ColumnDefinitions>
+                        <Label Grid.Column="0" Content="Miasto " VerticalAlignment="Center" FontWeight="Bold" Margin="10,0,0,0"/>
+                        <Border Grid.Column="1" BorderBrush="LightGray" BorderThickness="0,0,1,0"/>
+                        <TextBox Grid.Column="2" ToolTip="wpisz miasto" Background="AliceBlue" BorderThickness="0" Text="dsf sd fs" FontSize="20" Padding="50,4,0,0"/>
+                    </Grid>
+                </Border>
+            </Grid>
+
+            <Label Grid.Row="13" Content="Preferencje" FontSize="20" FontWeight="Bold"/>
+            <Grid Grid.Row="15" >
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="40"/>
+                    <ColumnDefinition Width="Auto"/>
+                </Grid.ColumnDefinitions>
+                <CheckBox Grid.Column="0"  Margin="4" Style="{StaticResource CircleCheckbox }" Height="20" Width="20" IsChecked="True"/>
+                <Label Grid.Column="1" Content="Nie wyświetlaj mnie jako pracownika" FontSize="16" />
+            </Grid>
+            <TextBlock Grid.Row="16" TextWrapping="WrapWithOverflow" Text="Twoje konto nie będzie wyświetlane na żadnych raportach, wydrukacj itp. poza ekranem listy pracowników - tam zawsze widoczni są wszyscy użytkownicy." FontSize="16" />
+
+            <Border Grid.Row="18" BorderBrush="LightGray" BorderThickness="1.5" CornerRadius="5" Margin="0,0,10,0">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="200"/>
+                        <ColumnDefinition Width="1"/>
+                        <ColumnDefinition Width="*" MinWidth="360"/>
+                    </Grid.ColumnDefinitions>
+                    <Label Grid.Column="0" Content="Wyświetlanie pracowników" VerticalAlignment="Center" FontWeight="Bold" Margin="10,0,0,0"/>
+                    <Border Grid.Column="1" BorderBrush="LightGray" BorderThickness="0,0,1,0"/>
+                    <ComboBox Grid.Column="2" BorderThickness="0" Padding="5,10,0,0">
+                        <ComboBoxItem>Imię Nazwisko</ComboBoxItem>
+                        <ComboBoxItem IsSelected="True">Nazwisko Imię</ComboBoxItem>
+                    </ComboBox>
+                </Grid>
+            </Border>
+
+            <TextBlock Grid.Row="20" TextWrapping="WrapWithOverflow" Text="Ustawienie globalne, zmieniając tą pozcyję wszyscy użytkownicy systemu będą mieli wyświetlane listy i raporty wg. Twoich ustawień." FontSize="16" />
+
+            <Label Grid.Row="22" Content="Język aplikacji" FontSize="20" FontWeight="Bold"/>
+
+            <Border Grid.Row="24" BorderBrush="LightGray" BorderThickness="1.5" CornerRadius="5" Margin="0,0,10,0" Width="230" HorizontalAlignment="Left">
+                <ComboBox Grid.Column="2" BorderThickness="0" Padding="5,10,0,0">
+                    <ComboBoxItem>Angielski</ComboBoxItem>
+                    <ComboBoxItem IsSelected="True">Polski</ComboBoxItem>
+                    <ComboBoxItem>Włoski</ComboBoxItem>
+                    <ComboBoxItem>Suachili</ComboBoxItem>
+                </ComboBox>
+            </Border>
+
+            <Label Grid.Row="26" Content="Strefa czasowa" FontSize="20" FontWeight="Bold"/>
+            <Border Grid.Row="27" BorderBrush="LightGray" BorderThickness="1.5" CornerRadius="5" Margin="0,0,10,0">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="200"/>
+                        <ColumnDefinition Width="1"/>
+                        <ColumnDefinition Width="*" MinWidth="360"/>
+                    </Grid.ColumnDefinitions>
+                    <Label Grid.Column="0" Content="Strefa czasowa" VerticalAlignment="Center" FontWeight="Bold" Margin="10,0,0,0"/>
+                    <Border Grid.Column="1" BorderBrush="LightGray" BorderThickness="0,0,1,0"/>
+                    <ComboBox Grid.Column="2" BorderThickness="0" Padding="5,10,0,0">
+                        <ComboBoxItem>Utc +05:00 Kanda</ComboBoxItem>
+                        <ComboBoxItem>Utc +02:00 Wietnam</ComboBoxItem>
+                        <ComboBoxItem>Utc +03:00 Chiny</ComboBoxItem>
+                        <ComboBoxItem>Utc +04:00 Wyspy owcze</ComboBoxItem>
+                        <ComboBoxItem>Utc +06:00 Polska</ComboBoxItem>
+                        <ComboBoxItem>Utc +11:00 USA</ComboBoxItem>
+                        <ComboBoxItem IsSelected="True">Utc +01:00 Africa</ComboBoxItem>
+                    </ComboBox>
+                </Grid>
+            </Border>
+
+            <Grid Grid.Row="29" >
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="40"/>
+                    <ColumnDefinition Width="Auto"/>
+                </Grid.ColumnDefinitions>
+                <CheckBox Grid.Column="0"  Margin="4" Style="{StaticResource CircleCheckbox }" Height="20" Width="20" IsChecked="True"/>
+                <Label Grid.Column="1" Content="Włącz zaawansowaną obsługę stref czasowych" FontSize="16" />
+            </Grid>
+            <TextBlock Grid.Row="30" TextWrapping="WrapWithOverflow" Text="Każdy element systemu będzie można dodatkowo edytować w zależności o dowolnie wybraną strefę czasową. " FontSize="16" />
+
+            <Label Grid.Row="32" Content="Format daty" FontSize="20" FontWeight="Bold"/>
+
+            <Border Grid.Row="34" BorderBrush="LightGray" BorderThickness="1.5" CornerRadius="5" Margin="0,0,10,0" MaxWidth="300" HorizontalAlignment="Left">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="120"/>
+                        <ColumnDefinition Width="1"/>
+                        <ColumnDefinition Width="*" MinWidth="360"/>
+                    </Grid.ColumnDefinitions>
+                    <Label Grid.Column="0" Content="Strefa czasowa" VerticalAlignment="Center" FontWeight="Bold" Margin="10,0,0,0"/>
+                    <Border Grid.Column="1" BorderBrush="LightGray" BorderThickness="0,0,1,0"/>
+                    <ComboBox Grid.Column="2" BorderThickness="0" Padding="5,10,0,0">
+                        <ComboBoxItem>DD.MM.YYYY (27.05.2020)</ComboBoxItem>
+                        <ComboBoxItem IsSelected="True">MM.DD.YYYY (05.27.2020)</ComboBoxItem>
+                    </ComboBox>
+                </Grid>
+            </Border>
+
+            <Border Grid.Row="36" BorderBrush="LightGray" BorderThickness="1.5" CornerRadius="5" Margin="0,0,10,0" MaxWidth="300" HorizontalAlignment="Left">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="120"/>
+                        <ColumnDefinition Width="1"/>
+                        <ColumnDefinition Width="*" MinWidth="360"/>
+                    </Grid.ColumnDefinitions>
+                    <Label Grid.Column="0" Content="Format czasu" VerticalAlignment="Center" FontWeight="Bold" Margin="10,0,0,0"/>
+                    <Border Grid.Column="1" BorderBrush="LightGray" BorderThickness="0,0,1,0"/>
+                    <ComboBox Grid.Column="2" BorderThickness="0" Padding="5,10,0,0">
+                        <ComboBoxItem>24h (21:23)</ComboBoxItem>
+                        <ComboBoxItem IsSelected="True">12h (4:15 PM)</ComboBoxItem>
+                    </ComboBox>
+                </Grid>
+            </Border>
+
+            <Label Grid.Row="38" Content="Zgody marketingowe" FontSize="20" FontWeight="Bold"/>
+
+            <Grid Grid.Row="40" >
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="40"/>
+                    <ColumnDefinition Width="Auto"/>
+                </Grid.ColumnDefinitions>
+                <CheckBox Grid.Column="0"  Margin="4" Style="{StaticResource CircleCheckbox }" Height="20" Width="20" />
+                <TextBlock Grid.Column="1" TextWrapping="WrapWithOverflow" FontSize="16" >Wyrażam zgodę na przetwarzanie moich danych osobowych dla celów marketingowych przez inEwi sp. z o.o., z siedzibą w Bielsku-Białej. Akceptuję 
+                    <Hyperlink NavigateUri="http://www.google.co.in" TextDecorations="">
+                        regulamin newslettera
+                    </Hyperlink>.
+                </TextBlock>
+            </Grid>
+
+
+
+            <Label Grid.Row="42" Content="Zmiana hasła" FontSize="20" FontWeight="Bold"/>
+            <Button Grid.Row="44" Style="{StaticResource orginalnyButton}"  Content="Zmień hasło" Background="Red" Width="180" HorizontalAlignment="Left" Margin="20,0,0,0" />
+            <Button Grid.Row="46" Style="{StaticResource orginalnyButton}"  Content="Zapisz" Background="Green" Width="200" HorizontalAlignment="Left" Margin="20,0,0,0" />
+        </Grid>
+    </ScrollViewer>
 </UserControl>

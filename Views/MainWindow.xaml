@@ -5,7 +5,7 @@
         xmlns:vm="clr-namespace:MVVMFirma.Views"
         >
     <Window.Resources>
-        <ResourceDictionary Source="MainWindowResources.xaml"  />
+        <ResourceDictionary Source="/Content/Styles/MainWindowResources.xaml"  />
     </Window.Resources>
     <Grid>
         <Grid.ColumnDefinitions>
@@ -116,12 +116,12 @@
             />
         </Border>
         <StatusBar Grid.Column="0" Grid.Row="3" Grid.ColumnSpan="2">
-            <StatusBarItem>
-                <TextBlock>Łukasz Pluta</TextBlock>
+            <StatusBarItem Background="{StaticResource gradientBrushSegmentedTabItem}">
+                <TextBlock Foreground="White">Łukasz Pluta</TextBlock>
             </StatusBarItem>
             <Separator/>
-            <StatusBarItem>
-                <TextBlock>Aplikacja Urlopowa</TextBlock>
+            <StatusBarItem Background="{StaticResource gradientBrushSegmentedTabItem}">
+                <TextBlock  Foreground="White">Aplikacja Urlopowa</TextBlock>
             </StatusBarItem>
         </StatusBar>
     </Grid>

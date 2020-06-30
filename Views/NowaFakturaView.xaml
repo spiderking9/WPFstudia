@@ -7,7 +7,7 @@
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
     <UserControl.Resources>
-        <ResourceDictionary Source="StylZakladek.xaml"  />
+        <ResourceDictionary Source="/Content/Styles/StylZakladek.xaml"  />
     </UserControl.Resources>
     <Grid>
         <TabControl>

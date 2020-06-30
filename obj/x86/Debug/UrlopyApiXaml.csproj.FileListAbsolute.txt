@@ -10,9 +10,7 @@ C:\Users\Luk\source\studia\akornatka-26042020150852-SameOknaGrupaOnline\SameOkna
 C:\Users\Luk\source\studia\akornatka-26042020150852-SameOknaGrupaOnline\SameOknaGrupaOnline\MVVMFirmaSameOkna\MVVMFirma\obj\x86\Debug\UrlopyApiXaml_MarkupCompile.cache
 C:\Users\Luk\source\studia\akornatka-26042020150852-SameOknaGrupaOnline\SameOknaGrupaOnline\MVVMFirmaSameOkna\MVVMFirma\obj\x86\Debug\UrlopyApiXaml_MarkupCompile.lref
 C:\Users\Luk\source\studia\akornatka-26042020150852-SameOknaGrupaOnline\SameOknaGrupaOnline\MVVMFirmaSameOkna\MVVMFirma\obj\x86\Debug\Views\MainWindow.baml
-C:\Users\Luk\source\studia\akornatka-26042020150852-SameOknaGrupaOnline\SameOknaGrupaOnline\MVVMFirmaSameOkna\MVVMFirma\obj\x86\Debug\Views\MainWindowResources.baml
 C:\Users\Luk\source\studia\akornatka-26042020150852-SameOknaGrupaOnline\SameOknaGrupaOnline\MVVMFirmaSameOkna\MVVMFirma\obj\x86\Debug\Views\NowaFakturaView.baml
-C:\Users\Luk\source\studia\akornatka-26042020150852-SameOknaGrupaOnline\SameOknaGrupaOnline\MVVMFirmaSameOkna\MVVMFirma\obj\x86\Debug\Views\StylZakladek.baml
 C:\Users\Luk\source\studia\akornatka-26042020150852-SameOknaGrupaOnline\SameOknaGrupaOnline\MVVMFirmaSameOkna\MVVMFirma\obj\x86\Debug\UrlopyApiXaml.g.resources
 C:\Users\Luk\source\studia\akornatka-26042020150852-SameOknaGrupaOnline\SameOknaGrupaOnline\MVVMFirmaSameOkna\MVVMFirma\obj\x86\Debug\UrlopyApiXaml.Properties.Resources.resources
 C:\Users\Luk\source\studia\akornatka-26042020150852-SameOknaGrupaOnline\SameOknaGrupaOnline\MVVMFirmaSameOkna\MVVMFirma\obj\x86\Debug\UrlopyApiXaml.csproj.GenerateResource.cache
@@ -70,3 +68,6 @@ C:\Users\Luk\source\studia\akornatka-26042020150852-SameOknaGrupaOnline\SameOkna
 C:\Users\Luk\source\studia\akornatka-26042020150852-SameOknaGrupaOnline\SameOknaGrupaOnline\MVVMFirmaSameOkna\MVVMFirma\obj\x86\Debug\Themes\Generic.baml
 C:\Users\Luk\source\studia\akornatka-26042020150852-SameOknaGrupaOnline\SameOknaGrupaOnline\MVVMFirmaSameOkna\MVVMFirma\obj\x86\Debug\Views\LokalizacjeView.g.cs
 C:\Users\Luk\source\studia\akornatka-26042020150852-SameOknaGrupaOnline\SameOknaGrupaOnline\MVVMFirmaSameOkna\MVVMFirma\obj\x86\Debug\Views\LokalizacjeView.baml
+C:\Users\Luk\source\studia\akornatka-26042020150852-SameOknaGrupaOnline\SameOknaGrupaOnline\MVVMFirmaSameOkna\MVVMFirma\obj\x86\Debug\Content\Styles\Urlopy.baml
+C:\Users\Luk\source\studia\akornatka-26042020150852-SameOknaGrupaOnline\SameOknaGrupaOnline\MVVMFirmaSameOkna\MVVMFirma\obj\x86\Debug\Content\Styles\MainWindowResources.baml
+C:\Users\Luk\source\studia\akornatka-26042020150852-SameOknaGrupaOnline\SameOknaGrupaOnline\MVVMFirmaSameOkna\MVVMFirma\obj\x86\Debug\Content\Styles\StylZakladek.baml
