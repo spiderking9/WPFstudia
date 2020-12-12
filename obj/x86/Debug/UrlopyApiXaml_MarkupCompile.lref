@@ -2,16 +2,20 @@
 
 FC:\Users\Luk\source\studia\akornatka-26042020150852-SameOknaGrupaOnline\SameOknaGrupaOnline\MVVMFirmaSameOkna\MVVMFirma\Content\Styles\Urlopy.xaml;;
 FC:\Users\Luk\source\studia\akornatka-26042020150852-SameOknaGrupaOnline\SameOknaGrupaOnline\MVVMFirmaSameOkna\MVVMFirma\Themes\Generic.xaml;;
+FC:\Users\Luk\source\studia\akornatka-26042020150852-SameOknaGrupaOnline\SameOknaGrupaOnline\MVVMFirmaSameOkna\MVVMFirma\Views\Dodawanie\DodajFaktureView.xaml;;
+FC:\Users\Luk\source\studia\akornatka-26042020150852-SameOknaGrupaOnline\SameOknaGrupaOnline\MVVMFirmaSameOkna\MVVMFirma\Views\Dodawanie\DodajGrafikPracyView.xaml;;
+FC:\Users\Luk\source\studia\akornatka-26042020150852-SameOknaGrupaOnline\SameOknaGrupaOnline\MVVMFirmaSameOkna\MVVMFirma\Views\Dodawanie\DodajJednostkiMiaryView.xaml;;
+FC:\Users\Luk\source\studia\akornatka-26042020150852-SameOknaGrupaOnline\SameOknaGrupaOnline\MVVMFirmaSameOkna\MVVMFirma\Views\Dodawanie\DodajPracownikaView.xaml;;
+FC:\Users\Luk\source\studia\akornatka-26042020150852-SameOknaGrupaOnline\SameOknaGrupaOnline\MVVMFirmaSameOkna\MVVMFirma\Views\Dodawanie\DodajUrlopyView.xaml;;
+FC:\Users\Luk\source\studia\akornatka-26042020150852-SameOknaGrupaOnline\SameOknaGrupaOnline\MVVMFirmaSameOkna\MVVMFirma\Views\Dodawanie\DodajJezykAplikacjiView.xaml;;
+FC:\Users\Luk\source\studia\akornatka-26042020150852-SameOknaGrupaOnline\SameOknaGrupaOnline\MVVMFirmaSameOkna\MVVMFirma\Views\Dodawanie\DodajZdarzenieView.xaml;;
 FC:\Users\Luk\source\studia\akornatka-26042020150852-SameOknaGrupaOnline\SameOknaGrupaOnline\MVVMFirmaSameOkna\MVVMFirma\Views\MainWindow.xaml;;
 FC:\Users\Luk\source\studia\akornatka-26042020150852-SameOknaGrupaOnline\SameOknaGrupaOnline\MVVMFirmaSameOkna\MVVMFirma\Content\Styles\MainWindowResources.xaml;;
 FC:\Users\Luk\source\studia\akornatka-26042020150852-SameOknaGrupaOnline\SameOknaGrupaOnline\MVVMFirmaSameOkna\MVVMFirma\Views\NowaFakturaView.xaml;;
-FC:\Users\Luk\source\studia\akornatka-26042020150852-SameOknaGrupaOnline\SameOknaGrupaOnline\MVVMFirmaSameOkna\MVVMFirma\Views\GrafikPracyView.xaml;;
 FC:\Users\Luk\source\studia\akornatka-26042020150852-SameOknaGrupaOnline\SameOknaGrupaOnline\MVVMFirmaSameOkna\MVVMFirma\Content\Styles\StylZakladek.xaml;;
 FC:\Users\Luk\source\studia\akornatka-26042020150852-SameOknaGrupaOnline\SameOknaGrupaOnline\MVVMFirmaSameOkna\MVVMFirma\Views\PracownicyView.xaml;;
 FC:\Users\Luk\source\studia\akornatka-26042020150852-SameOknaGrupaOnline\SameOknaGrupaOnline\MVVMFirmaSameOkna\MVVMFirma\Views\LokalizacjeView.xaml;;
-FC:\Users\Luk\source\studia\akornatka-26042020150852-SameOknaGrupaOnline\SameOknaGrupaOnline\MVVMFirmaSameOkna\MVVMFirma\Views\Zakladki\DodajDelegacjeWindowView.xaml;;
 FC:\Users\Luk\source\studia\akornatka-26042020150852-SameOknaGrupaOnline\SameOknaGrupaOnline\MVVMFirmaSameOkna\MVVMFirma\Views\Zakladki\DelegacjeView.xaml;;
-FC:\Users\Luk\source\studia\akornatka-26042020150852-SameOknaGrupaOnline\SameOknaGrupaOnline\MVVMFirmaSameOkna\MVVMFirma\Views\Zakladki\DodajDelegacjeView.xaml;;
 FC:\Users\Luk\source\studia\akornatka-26042020150852-SameOknaGrupaOnline\SameOknaGrupaOnline\MVVMFirmaSameOkna\MVVMFirma\Views\Zakladki\OAplikacjiView.xaml;;
 FC:\Users\Luk\source\studia\akornatka-26042020150852-SameOknaGrupaOnline\SameOknaGrupaOnline\MVVMFirmaSameOkna\MVVMFirma\Views\Zakladki\OpcjeView.xaml;;
 FC:\Users\Luk\source\studia\akornatka-26042020150852-SameOknaGrupaOnline\SameOknaGrupaOnline\MVVMFirmaSameOkna\MVVMFirma\Views\Zakladki\TwojKodView.xaml;;

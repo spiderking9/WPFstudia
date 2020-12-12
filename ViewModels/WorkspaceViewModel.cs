@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using UrlopyApiXaml.Helper;
 using System.Windows.Input;
-using MVVMFirma.ViewModels;
+using UrlopyApiXaml.ViewModels;
 
 namespace UrlopyApiXaml
 {
@@ -36,7 +36,7 @@ namespace UrlopyApiXaml
 
         #region RequestClose [event]
         public event EventHandler RequestClose;
-        private void OnRequestClose()
+        protected void OnRequestClose()
         {
             EventHandler handler = RequestClose;
             if (handler != null)

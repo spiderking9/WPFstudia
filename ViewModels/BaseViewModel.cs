@@ -5,7 +5,7 @@ using System.Windows;
 using System.Windows.Input;
 using UrlopyApiXaml.Helper;
 
-namespace MVVMFirma.ViewModels
+namespace UrlopyApiXaml.ViewModels
 {
     public class BaseViewModel : INotifyPropertyChanged
     {

@@ -11,7 +11,8 @@ using System.Windows.Data;
 using System.Windows.Input;
 using UrlopyApiXaml;
 using UrlopyApiXaml.ViewModels.Zakladki;
-using MVVMFirma.ViewModels;
+using UrlopyApiXaml.ViewModels.Dodawanie;
+using GalaSoft.MvvmLight.Messaging;
 
 namespace UrlopyApiXaml.ViewModels
 {
@@ -100,6 +101,17 @@ namespace UrlopyApiXaml.ViewModels
                 return _UrlopyCommand;
             }
         }
+
+        private BaseCommand _DodajUrlopyCommand;
+        public ICommand DodajUrlopyCommand
+        {
+            get
+            {
+                if (_DodajUrlopyCommand == null)
+                    _DodajUrlopyCommand = new BaseCommand(() => CreateView(new DodajUrlopyViewModel()));
+                return _DodajUrlopyCommand;
+            }
+        }
         private BaseCommand _ZdarzeniaCommand;
         public ICommand ZdarzeniaCommand
         {
@@ -158,16 +170,25 @@ namespace UrlopyApiXaml.ViewModels
         }
         private List<CommandViewModel> CreateCommands()
         {
+            Messenger.Default.Register<string>(this, open);
             return new List<CommandViewModel>
             {
                 //tu
                 new CommandViewModel("Przeglad", PrzegladCommand, "\uf187"),
                 new CommandViewModel("Zdarzenia",ZdarzeniaCommand, "\uf270"),
                 new CommandViewModel("GrafikPracy",GrafikPracyCommand,"\uf2bb"),
+                new CommandViewModel("DodajGrafikPracy",new BaseCommand(() => this.CreateView(new DodajGrafikPracyViewModel())),"\uf2bb"),
                 new CommandViewModel("Pracownicy",PracownicyCommand,"\uf2cd"),
+                new CommandViewModel("DodajPracownika",new BaseCommand(() => this.CreateView(new DodajPracownikaViewModel())),"\uf2cd"),
                 new CommandViewModel("Faktura",NowaFakturaCommand,"\uf1f3"),
+                new CommandViewModel("DodajFakture",new BaseCommand(() => this.CreateView(new DodajFaktureViewModel())),"\uf1f3"),
                 new CommandViewModel("Lokalizacje",LokalizacjeCommand,"\uf030"),
-                new CommandViewModel("Urlopy",UrlopyCommand,"\uf030")
+                new CommandViewModel("Urlopy",UrlopyCommand,"\uf030"),
+                new CommandViewModel("DodajUrlopy",DodajUrlopyCommand,"\uf030"),
+                new CommandViewModel("DodajJezykApp",new BaseCommand(() => this.CreateView(new DodajJezykAplikacjiViewModel())),"\uf2cd"),
+                new CommandViewModel("DodajJednMiary",new BaseCommand(() => this.CreateView(new DodajJednostkiMiaryViewModel())),"\uf2cd"),
+
+
             };
         }
         #endregion
@@ -205,6 +226,16 @@ namespace UrlopyApiXaml.ViewModels
         #endregion // Workspaces
 
         #region Private Helpers
+        private void open(string name) //w argumencie name jest zapisana treść komunikatu odebrana przez Messanger
+        {
+            if (name == "DodajZdarzenie")
+            {
+                CreateView(new DodajZdarzenieViewModel());
+            }
+            if (name == "EdytujPracownika")
+                CreateView(new DodajPracownikaViewModel());
+        }
+
         //
         //zeby sie kod nie powtarzal  Kontrachent, Przeglad, Faktura
         private void CreateView(WorkspaceViewModel workspace)
@@ -212,6 +243,7 @@ namespace UrlopyApiXaml.ViewModels
             this.Workspaces.Add(workspace);
             this.SetActiveWorkspace(workspace);
         }
+        
 
         //zeby sie kod nie powtarzal Show all 
         private void ShowAllObjects<T>() where T : WorkspaceViewModel, new()

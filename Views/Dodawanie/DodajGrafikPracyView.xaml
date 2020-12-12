@@ -1,0 +1,47 @@
+﻿<UserControl x:Class="UrlopyApiXaml.Views.Dodawanie.DodajGrafikPracyView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:UrlopyApiXaml.Views.Dodawanie"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="150"/>
+            <ColumnDefinition Width="200"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="40"/>
+            <RowDefinition Height="40"/>
+            <RowDefinition Height="40"/>
+            <RowDefinition Height="40"/>
+            <RowDefinition Height="50"/>
+        </Grid.RowDefinitions>
+        <Label Grid.Row="0" Grid.Column="0" Content="Pracownik" Margin="0,8,0,8"/>
+        <ComboBox 
+                                Grid.Row="0" 
+                                Grid.Column="1" 
+                                ItemsSource="{Binding  PracownikComboBoxItems}" 
+                                DisplayMemberPath="PRA_Imie"  
+                                SelectedValuePath="PRA_PraID"  
+                                SelectedValue="{Binding Path=GRP_PraID,Mode=TwoWay}"
+                                VerticalAlignment="Center"
+                                />
+        <Label Grid.Row="1" Grid.Column="0" Content="Dzien" Margin="0,8,0,8"/>
+        <DatePicker Grid.Row="1" Grid.Column="1" VerticalAlignment="Center" SelectedDate="{Binding Path=GRP_Dzien, UpdateSourceTrigger=PropertyChanged}"/>
+        <Label Grid.Row="2" Grid.Column="0" Content="Ktora zmiana" Margin="0,8,0,8"/>
+        <ComboBox 
+                                Grid.Row="2" 
+                                Grid.Column="1"  
+                                SelectedValue="{Binding Path=GRP_Zmiana,Mode=TwoWay}"
+                                VerticalAlignment="Center"
+                                SelectedIndex="1"
+                                >
+            <ComboBox.ItemsSource>
+                <Int32Collection>1,2,3</Int32Collection>
+            </ComboBox.ItemsSource>
+        </ComboBox>
+        <Button Grid.Row="4" Margin="20,4,0,0" Grid.ColumnSpan="2" Background="Red" Content="Dodaj Szychte" Foreground="White" Command="{Binding SaveCommand}" FontSize="20"/>
+    </Grid>
+</UserControl>

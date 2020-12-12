@@ -1,0 +1,233 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="UrlopyApiXamlModelStoreContainer" CdmEntityContainer="UrlopyEntities">
+    <EntitySetMapping Name="DEL_Delegacje">
+      <EntityTypeMapping TypeName="UrlopyApiXamlModel.DEL_Delegacje">
+        <MappingFragment StoreEntitySet="DEL_Delegacje">
+          <ScalarProperty Name="DEL_DelID" ColumnName="DEL_DelID" />
+          <ScalarProperty Name="DEL_PraID" ColumnName="DEL_PraID" />
+          <ScalarProperty Name="DEL_Tytul" ColumnName="DEL_Tytul" />
+          <ScalarProperty Name="DEL_JakiTransport" ColumnName="DEL_JakiTransport" />
+          <ScalarProperty Name="DEL_MiejscowoscStartu" ColumnName="DEL_MiejscowoscStartu" />
+          <ScalarProperty Name="DEL_MiejscowoscCelu" ColumnName="DEL_MiejscowoscCelu" />
+          <ScalarProperty Name="DEL_DzienOd" ColumnName="DEL_DzienOd" />
+          <ScalarProperty Name="DEL_DzienDo" ColumnName="DEL_DzienDo" />
+          <ScalarProperty Name="DEL_CzyAktywny" ColumnName="DEL_CzyAktywny" />
+          <ScalarProperty Name="DEL_Komentarz" ColumnName="DEL_Komentarz" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DZI_Dzialy">
+      <EntityTypeMapping TypeName="UrlopyApiXamlModel.DZI_Dzialy">
+        <MappingFragment StoreEntitySet="DZI_Dzialy">
+          <ScalarProperty Name="DZI_DziID" ColumnName="DZI_DziID" />
+          <ScalarProperty Name="DZI_Nazwa" ColumnName="DZI_Nazwa" />
+          <ScalarProperty Name="DZI_CzyAktywny" ColumnName="DZI_CzyAktywny" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="FAK_Faktury">
+      <EntityTypeMapping TypeName="UrlopyApiXamlModel.FAK_Faktury">
+        <MappingFragment StoreEntitySet="FAK_Faktury">
+          <ScalarProperty Name="FAK_FakID" ColumnName="FAK_FakID" />
+          <ScalarProperty Name="FAK_DataWystawienia" ColumnName="FAK_DataWystawienia" />
+          <ScalarProperty Name="FAK_KliID" ColumnName="FAK_KliID" />
+          <ScalarProperty Name="FAK_SppID" ColumnName="FAK_SppID" />
+          <ScalarProperty Name="FAK_CzyAktywny" ColumnName="FAK_CzyAktywny" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="FOT_Fotorejestracja">
+      <EntityTypeMapping TypeName="UrlopyApiXamlModel.FOT_Fotorejestracja">
+        <MappingFragment StoreEntitySet="FOT_Fotorejestracja">
+          <ScalarProperty Name="FOT_FotID" ColumnName="FOT_FotID" />
+          <ScalarProperty Name="FOT_GodzinaWejscia" ColumnName="FOT_GodzinaWejscia" />
+          <ScalarProperty Name="FOT_GodzinaWyjscia" ColumnName="FOT_GodzinaWyjscia" />
+          <ScalarProperty Name="FOT_PraID" ColumnName="FOT_PraID" />
+          <ScalarProperty Name="FOT_DataWejscia" ColumnName="FOT_DataWejscia" />
+          <ScalarProperty Name="FOT_DataWyjscia" ColumnName="FOT_DataWyjscia" />
+          <ScalarProperty Name="FOT_CzyAktywny" ColumnName="FOT_CzyAktywny" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="GRP_GrafikPracy">
+      <EntityTypeMapping TypeName="UrlopyApiXamlModel.GRP_GrafikPracy">
+        <MappingFragment StoreEntitySet="GRP_GrafikPracy">
+          <ScalarProperty Name="GRP_GrpID" ColumnName="GRP_GrpID" />
+          <ScalarProperty Name="GRP_PraID" ColumnName="GRP_PraID" />
+          <ScalarProperty Name="GRP_Dzien" ColumnName="GRP_Dzien" />
+          <ScalarProperty Name="GRP_Zmiana" ColumnName="GRP_Zmiana" />
+          <ScalarProperty Name="GRP_CzyAktywny" ColumnName="GRP_CzyAktywny" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="JAP_JezykAplikacji">
+      <EntityTypeMapping TypeName="UrlopyApiXamlModel.JAP_JezykAplikacji">
+        <MappingFragment StoreEntitySet="JAP_JezykAplikacji">
+          <ScalarProperty Name="JAP_JapID" ColumnName="JAP_JapID" />
+          <ScalarProperty Name="JAP_Nazwa" ColumnName="JAP_Nazwa" />
+          <ScalarProperty Name="JAP_CzyAktywny" ColumnName="JAP_CzyAktywny" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="JEM_JednostkiMiary">
+      <EntityTypeMapping TypeName="UrlopyApiXamlModel.JEM_JednostkiMiary">
+        <MappingFragment StoreEntitySet="JEM_JednostkiMiary">
+          <ScalarProperty Name="JEM_JemID" ColumnName="JEM_JemID" />
+          <ScalarProperty Name="JEM_Nazwa" ColumnName="JEM_Nazwa" />
+          <ScalarProperty Name="JEM_Opis" ColumnName="JEM_Opis" />
+          <ScalarProperty Name="JEM_CzyAktywny" ColumnName="JEM_CzyAktywny" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="KAT_KategorieTowarow">
+      <EntityTypeMapping TypeName="UrlopyApiXamlModel.KAT_KategorieTowarow">
+        <MappingFragment StoreEntitySet="KAT_KategorieTowarow">
+          <ScalarProperty Name="KAT_KatID" ColumnName="KAT_KatID" />
+          <ScalarProperty Name="KAT_Nazwa" ColumnName="KAT_Nazwa" />
+          <ScalarProperty Name="KAT_Opis" ColumnName="KAT_Opis" />
+          <ScalarProperty Name="KAT_CzyAktywny" ColumnName="KAT_CzyAktywny" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="KLI_Klienci">
+      <EntityTypeMapping TypeName="UrlopyApiXamlModel.KLI_Klienci">
+        <MappingFragment StoreEntitySet="KLI_Klienci">
+          <ScalarProperty Name="KLI_KliID" ColumnName="KLI_KliID" />
+          <ScalarProperty Name="KLI_Nazwa" ColumnName="KLI_Nazwa" />
+          <ScalarProperty Name="KLI_Adres" ColumnName="KLI_Adres" />
+          <ScalarProperty Name="KLI_Telefon" ColumnName="KLI_Telefon" />
+          <ScalarProperty Name="KLI_CzyAktywny" ColumnName="KLI_CzyAktywny" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="POF_PozycjeFaktury">
+      <EntityTypeMapping TypeName="UrlopyApiXamlModel.POF_PozycjeFaktury">
+        <MappingFragment StoreEntitySet="POF_PozycjeFaktury">
+          <ScalarProperty Name="POF_PofID" ColumnName="POF_PofID" />
+          <ScalarProperty Name="POF_TowID" ColumnName="POF_TowID" />
+          <ScalarProperty Name="POF_FakID" ColumnName="POF_FakID" />
+          <ScalarProperty Name="POF_JemID" ColumnName="POF_JemID" />
+          <ScalarProperty Name="POF_Nazwa" ColumnName="POF_Nazwa" />
+          <ScalarProperty Name="POF_Ilosc" ColumnName="POF_Ilosc" />
+          <ScalarProperty Name="POF_Cena" ColumnName="POF_Cena" />
+          <ScalarProperty Name="POF_Rabat" ColumnName="POF_Rabat" />
+          <ScalarProperty Name="POF_Marza" ColumnName="POF_Marza" />
+          <ScalarProperty Name="POF_CzyAktywny" ColumnName="POF_CzyAktywny" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PRA_Pracownicy">
+      <EntityTypeMapping TypeName="UrlopyApiXamlModel.PRA_Pracownicy">
+        <MappingFragment StoreEntitySet="PRA_Pracownicy">
+          <ScalarProperty Name="PRA_PraID" ColumnName="PRA_PraID" />
+          <ScalarProperty Name="PRA_Imie" ColumnName="PRA_Imie" />
+          <ScalarProperty Name="PRA_DziID" ColumnName="PRA_DziID" />
+          <ScalarProperty Name="PRA_Nazwisko" ColumnName="PRA_Nazwisko" />
+          <ScalarProperty Name="PRA_ILogin" ColumnName="PRA_ILogin" />
+          <ScalarProperty Name="PRA_Haslo" ColumnName="PRA_Haslo" />
+          <ScalarProperty Name="PRA_UrlZdjecia" ColumnName="PRA_UrlZdjecia" />
+          <ScalarProperty Name="PRA_StcID" ColumnName="PRA_StcID" />
+          <ScalarProperty Name="PRA_Email" ColumnName="PRA_Email" />
+          <ScalarProperty Name="PRA_Telefon" ColumnName="PRA_Telefon" />
+          <ScalarProperty Name="PRA_Ulica" ColumnName="PRA_Ulica" />
+          <ScalarProperty Name="PRA_Miasto" ColumnName="PRA_Miasto" />
+          <ScalarProperty Name="PRA_KodPocztowy" ColumnName="PRA_KodPocztowy" />
+          <ScalarProperty Name="PRA_CzyZatrudniony" ColumnName="PRA_CzyZatrudniony" />
+          <ScalarProperty Name="PRA_JapID" ColumnName="PRA_JapID" />
+          <ScalarProperty Name="PRA_ZgodaMarketingowa" ColumnName="PRA_ZgodaMarketingowa" />
+          <ScalarProperty Name="PRA_Wojewodztwo" ColumnName="PRA_Wojewodztwo" />
+          <ScalarProperty Name="PRA_NrDomu" ColumnName="PRA_NrDomu" />
+          <ScalarProperty Name="PRA_Gmina" ColumnName="PRA_Gmina" />
+          <ScalarProperty Name="PRA_CzyAktywny" ColumnName="PRA_CzyAktywny" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="RUR_RodzajeUrlopow">
+      <EntityTypeMapping TypeName="UrlopyApiXamlModel.RUR_RodzajeUrlopow">
+        <MappingFragment StoreEntitySet="RUR_RodzajeUrlopow">
+          <ScalarProperty Name="RUR_RurID" ColumnName="RUR_RurID" />
+          <ScalarProperty Name="RUR_Nazwa" ColumnName="RUR_Nazwa" />
+          <ScalarProperty Name="RUR_CzyAktywny" ColumnName="RUR_CzyAktywny" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SPP_SposobPlatnosci">
+      <EntityTypeMapping TypeName="UrlopyApiXamlModel.SPP_SposobPlatnosci">
+        <MappingFragment StoreEntitySet="SPP_SposobPlatnosci">
+          <ScalarProperty Name="SPP_SppID" ColumnName="SPP_SppID" />
+          <ScalarProperty Name="SPP_Nazwa" ColumnName="SPP_Nazwa" />
+          <ScalarProperty Name="SPP_CzyAktywny" ColumnName="SPP_CzyAktywny" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="STC_StrefaCzasowa">
+      <EntityTypeMapping TypeName="UrlopyApiXamlModel.STC_StrefaCzasowa">
+        <MappingFragment StoreEntitySet="STC_StrefaCzasowa">
+          <ScalarProperty Name="STC_StcID" ColumnName="STC_StcID" />
+          <ScalarProperty Name="STC_Nazwa" ColumnName="STC_Nazwa" />
+          <ScalarProperty Name="STC_CzyAktywny" ColumnName="STC_CzyAktywny" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="sysdiagrams">
+      <EntityTypeMapping TypeName="UrlopyApiXamlModel.sysdiagrams">
+        <MappingFragment StoreEntitySet="sysdiagrams">
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+          <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+          <ScalarProperty Name="version" ColumnName="version" />
+          <ScalarProperty Name="definition" ColumnName="definition" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TOW_Towary">
+      <EntityTypeMapping TypeName="UrlopyApiXamlModel.TOW_Towary">
+        <MappingFragment StoreEntitySet="TOW_Towary">
+          <ScalarProperty Name="TOW_TowID" ColumnName="TOW_TowID" />
+          <ScalarProperty Name="TOW_Nazwa" ColumnName="TOW_Nazwa" />
+          <ScalarProperty Name="TOW_Kod" ColumnName="TOW_Kod" />
+          <ScalarProperty Name="TOW_Opis" ColumnName="TOW_Opis" />
+          <ScalarProperty Name="TOW_KatID" ColumnName="TOW_KatID" />
+          <ScalarProperty Name="TOW_StanIlosciowy" ColumnName="TOW_StanIlosciowy" />
+          <ScalarProperty Name="TOW_Zdjecie" ColumnName="TOW_Zdjecie" />
+          <ScalarProperty Name="TOW_CzyAktywny" ColumnName="TOW_CzyAktywny" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="URL_Urlopy">
+      <EntityTypeMapping TypeName="UrlopyApiXamlModel.URL_Urlopy">
+        <MappingFragment StoreEntitySet="URL_Urlopy">
+          <ScalarProperty Name="URL_UrlID" ColumnName="URL_UrlID" />
+          <ScalarProperty Name="URL_PraID" ColumnName="URL_PraID" />
+          <ScalarProperty Name="URL_DzienOd" ColumnName="URL_DzienOd" />
+          <ScalarProperty Name="URL_DzienDo" ColumnName="URL_DzienDo" />
+          <ScalarProperty Name="URL_RurID" ColumnName="URL_RurID" />
+          <ScalarProperty Name="URL_CzyAktywny" ColumnName="URL_CzyAktywny" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="WUR_WnioskiUrlopowe">
+      <EntityTypeMapping TypeName="UrlopyApiXamlModel.WUR_WnioskiUrlopowe">
+        <MappingFragment StoreEntitySet="WUR_WnioskiUrlopowe">
+          <ScalarProperty Name="WUR_WurID" ColumnName="WUR_WurID" />
+          <ScalarProperty Name="WUR_DataOd" ColumnName="WUR_DataOd" />
+          <ScalarProperty Name="WUR_DataDo" ColumnName="WUR_DataDo" />
+          <ScalarProperty Name="WUR_RurID" ColumnName="WUR_RurID" />
+          <ScalarProperty Name="WUR_PraID" ColumnName="WUR_PraID" />
+          <ScalarProperty Name="WUR_CzyAktywny" ColumnName="WUR_CzyAktywny" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ZDA_Zdarzenia">
+      <EntityTypeMapping TypeName="UrlopyApiXamlModel.ZDA_Zdarzenia">
+        <MappingFragment StoreEntitySet="ZDA_Zdarzenia">
+          <ScalarProperty Name="ZDA_ZdaID" ColumnName="ZDA_ZdaID" />
+          <ScalarProperty Name="ZDA_Nazwa" ColumnName="ZDA_Nazwa" />
+          <ScalarProperty Name="ZDA_CzyAktywny" ColumnName="ZDA_CzyAktywny" />
+          <ScalarProperty Name="ZDA_PraID" ColumnName="ZDA_PraID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

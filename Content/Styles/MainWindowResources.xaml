@@ -2,11 +2,34 @@
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
                     xmlns:vm="clr-namespace:UrlopyApiXaml.ViewModels"
                     xmlns:vmm="clr-namespace:UrlopyApiXaml.ViewModels.Zakladki"
+                    xmlns:vmd="clr-namespace:UrlopyApiXaml.ViewModels.Dodawanie"
                     xmlns:vw="clr-namespace:UrlopyApiXaml.Views"
                     xmlns:vwm="clr-namespace:UrlopyApiXaml.Views.Zakladki"
+                    xmlns:vwd="clr-namespace:UrlopyApiXaml.Views.Dodawanie"
                     >
     <DataTemplate DataType="{x:Type vm:ZdarzeniaViewModel}">
         <vw:ZdarzeniaView/>
+    </DataTemplate>
+    <DataTemplate DataType="{x:Type vmd:DodajUrlopyViewModel}">
+        <vwd:DodajUrlopyView/>
+    </DataTemplate>
+    <DataTemplate DataType="{x:Type vmd:DodajJednostkiMiaryViewModel}">
+        <vwd:DodajJednostkiMiaryView/>
+    </DataTemplate>
+    <DataTemplate DataType="{x:Type vmd:DodajZdarzenieViewModel}">
+        <vwd:DodajZdarzenieView/>
+    </DataTemplate>
+    <DataTemplate DataType="{x:Type vmd:DodajFaktureViewModel}">
+        <vwd:DodajFaktureView/>
+    </DataTemplate>
+    <DataTemplate DataType="{x:Type vmd:DodajJezykAplikacjiViewModel}">
+        <vwd:DodajJezykAplikacjiView/>
+    </DataTemplate>
+    <DataTemplate DataType="{x:Type vmd:DodajPracownikaViewModel}">
+        <vwd:DodajPracownikaView/>
+    </DataTemplate>
+    <DataTemplate DataType="{x:Type vmd:DodajGrafikPracyViewModel}">
+        <vwd:DodajGrafikPracyView/>
     </DataTemplate>
     <DataTemplate DataType="{x:Type vmm:DelegacjeViewModel}">
         <vwm:DelegacjeView/>

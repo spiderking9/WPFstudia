@@ -23,7 +23,7 @@
                 <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
             <Label Content="Dodaj Delegacje"  Grid.Column="0" FontSize="15" Margin="0,5,0,0"/>
-            <Button Grid.Column="1" Content="+" FontSize="24" Width="40" HorizontalAlignment="Left" Click="Button_Click" Style="{DynamicResource PrzyciskHover}"/>
+            <Button Grid.Column="1" Content="+" FontSize="24" Width="40" HorizontalAlignment="Left" Style="{DynamicResource PrzyciskHover}"/>
         </Grid >
 
         <!--Wiersz 2-->

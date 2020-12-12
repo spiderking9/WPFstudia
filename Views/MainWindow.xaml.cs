@@ -12,7 +12,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using UrlopyApiXaml.Views;
 
-namespace MVVMFirma.Views
+namespace UrlopyApiXaml.Views
 {
     /// <summary>
     /// Interaction logic for MainWindow.xaml

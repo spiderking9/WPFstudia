@@ -4,12 +4,10 @@ using System.Configuration;
 using System.Data;
 using System.Linq;
 using System.Windows;
-using MVVMFirma.Views;
 using UrlopyApiXaml.Views;
-using MVVMFirma.ViewModels;
 using UrlopyApiXaml.ViewModels;
 
-namespace MVVMFirma
+namespace UrlopyApiXaml
 {
     public partial class App : Application
     {

@@ -25,17 +25,5 @@ namespace UrlopyApiXaml.Views.Zakladki
         {
             InitializeComponent();
         }
-
-        private void Button_Click(object sender, RoutedEventArgs e)
-        {
-            DodajDelegacjeWindowView win2 = new DodajDelegacjeWindowView
-            {
-                Title = "Dodaj Delegacje",
-                Content = new DodajDelegacjeView(),
-                Height = 500,
-                Width= 500
-            };
-            win2.ShowDialog();
-        }
     }
 }

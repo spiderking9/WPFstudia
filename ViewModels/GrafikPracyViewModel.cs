@@ -8,108 +8,25 @@ using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Windows.Input;
-using UrlopyApiXaml;
+using UrlopyApiXaml.Models.Entities;
 using UrlopyApiXaml.Models;
-using static UrlopyApiXaml.Models.GrafikPracyModel;
+
 
 namespace UrlopyApiXaml.ViewModels
 {
-    public class GrafikPracyViewModel : WorkspaceViewModel
+    public class GrafikPracyViewModel: WszystkieViewModel<GRP_GrafikPracy>
     {
-        #region Konstruktory
+        #region Konstruktor
         public GrafikPracyViewModel()
         {
-            base.DisplayName = "GrafikPracy";
-            GrafikPracyModel xx = new GrafikPracyModel();
-            Uzytkownik= new BindableCollection<DataLista>(xx.Lista());
-
-            ResultData3 = new TableData(xx.Naglowki(), xx.Wiersze());
-
+            base.DisplayName = "Grafik Pracy";
         }
-
-        private BindableCollection<DataLista> _Uzytkownik;
-        public BindableCollection<DataLista> Uzytkownik { 
-            get 
-            {
-                return _Uzytkownik;
-            } 
-            set
-            {
-                if (_Uzytkownik != value)
-                {
-                    _Uzytkownik = value;
-                    OnPropertyChanged(() => Uzytkownik);
-                }
-            }
-        }
-
-        private TableData _ResultData3;
-        public TableData ResultData3
+        #endregion Konstruktor
+        #region Helpers
+        public override void load()
         {
-            get
-            {
-                return _ResultData3;
-            }
-            set
-            {
-                if (_ResultData3 != value)
-                {
-                    _ResultData3 = value;
-                    OnPropertyChanged(() => ResultData3);
-                }
-            }
+            List = new ObservableCollection<GRP_GrafikPracy>(urlopyApiXaml.GRP_GrafikPracy);
         }
-
-        public ICommand DodajCommand
-        {
-            get {
-                return new BaseCommand(Dodaj);
-            } 
-
-        }
-
-        public void Dodaj()
-        {
-            GrafikPracyModel xx = new GrafikPracyModel();
-            Uzytkownik = new BindableCollection<DataLista>(xx.Lista(LiczOd, LiczDo));
-        }
-
-        #endregion
-        private int _LiczOd;
-        public int LiczOd
-        {
-            get
-            {
-                return _LiczOd;
-            }
-            set
-            {
-                if (_LiczOd != value)
-                {
-                    GrafikPracyModel xx = new GrafikPracyModel();
-                    _LiczOd = value;
-                    Uzytkownik = new BindableCollection<DataLista>(xx.Lista(LiczOd, LiczDo));
-                    OnPropertyChanged(() => LiczOd);
-                }
-            }
-        }
-        private int _LiczDo;
-        public int LiczDo
-        {
-            get
-            {
-                return _LiczDo;
-            }
-            set
-            {
-                if (_LiczDo != value)
-                {
-                    GrafikPracyModel xx2 = new GrafikPracyModel();
-                    _LiczDo = value;
-                    Uzytkownik = new BindableCollection<DataLista>(xx2.Lista(LiczOd, LiczDo));
-                    OnPropertyChanged(() => LiczDo);
-                }
-            }
-        }
+        #endregion Helpers
     }
 }

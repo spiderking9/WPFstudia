@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="415bc3acc63f49a681cbb3310d321973" Name="Diagram1">
+        <EntityTypeShape EntityType="UrlopyApiXamlModel.DEL_Delegacje" Width="1.5" PointX="5.25" PointY="5.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="UrlopyApiXamlModel.DZI_Dzialy" Width="1.5" PointX="0.75" PointY="10.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="UrlopyApiXamlModel.FAK_Faktury" Width="1.5" PointX="11" PointY="1.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="UrlopyApiXamlModel.FOT_Fotorejestracja" Width="1.5" PointX="5.25" PointY="9" IsExpanded="true" />
+        <EntityTypeShape EntityType="UrlopyApiXamlModel.GRP_GrafikPracy" Width="1.5" PointX="5.25" PointY="12.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="UrlopyApiXamlModel.JAP_JezykAplikacji" Width="1.5" PointX="0.75" PointY="7" IsExpanded="true" />
+        <EntityTypeShape EntityType="UrlopyApiXamlModel.JEM_JednostkiMiary" Width="1.5" PointX="11" PointY="5.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="UrlopyApiXamlModel.KAT_KategorieTowarow" Width="1.5" PointX="8.75" PointY="17.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="UrlopyApiXamlModel.KLI_Klienci" Width="1.5" PointX="8.75" PointY="1.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="UrlopyApiXamlModel.POF_PozycjeFaktury" Width="1.5" PointX="13.25" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="UrlopyApiXamlModel.PRA_Pracownicy" Width="1.5" PointX="3" PointY="7.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="UrlopyApiXamlModel.RUR_RodzajeUrlopow" Width="1.5" PointX="6" PointY="2.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="UrlopyApiXamlModel.SPP_SposobPlatnosci" Width="1.5" PointX="8.75" PointY="13.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="UrlopyApiXamlModel.STC_StrefaCzasowa" Width="1.5" PointX="0.75" PointY="13.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="UrlopyApiXamlModel.sysdiagrams" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="UrlopyApiXamlModel.TOW_Towary" Width="1.5" PointX="11" PointY="17.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="UrlopyApiXamlModel.URL_Urlopy" Width="1.5" PointX="8.25" PointY="9.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="UrlopyApiXamlModel.WUR_WnioskiUrlopowe" Width="1.5" PointX="8.25" PointY="5.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="UrlopyApiXamlModel.ZDA_Zdarzenia" Width="1.5" PointX="5.25" PointY="21.75" IsExpanded="true" />
+        <AssociationConnector Association="UrlopyApiXamlModel.FK_Delegacje_Pracownicy" ManuallyRouted="false" />
+        <AssociationConnector Association="UrlopyApiXamlModel.FK_PRA_Pracownicy_DZI_Dzialy" ManuallyRouted="false" />
+        <AssociationConnector Association="UrlopyApiXamlModel.FK_FAK_Faktury_KLI_Klienci" ManuallyRouted="false" />
+        <AssociationConnector Association="UrlopyApiXamlModel.FK_FAK_Faktury_SPP_SposobPlatnosci" ManuallyRouted="false" />
+        <AssociationConnector Association="UrlopyApiXamlModel.FK_POF_PozycjeFaktury_FAK_Faktury" ManuallyRouted="false" />
+        <AssociationConnector Association="UrlopyApiXamlModel.FK_FOT_Fotorejestracja_PRA_Pracownicy" ManuallyRouted="false" />
+        <AssociationConnector Association="UrlopyApiXamlModel.FK_GrafikPracy_Pracownicy" ManuallyRouted="false" />
+        <AssociationConnector Association="UrlopyApiXamlModel.FK_PRA_Pracownicy_JAP_JezykAplikacji" ManuallyRouted="false" />
+        <AssociationConnector Association="UrlopyApiXamlModel.FK_POF_PozycjeFaktury_JEM_JednostkiMiary" ManuallyRouted="false" />
+        <AssociationConnector Association="UrlopyApiXamlModel.FK_Towary_Kategorie" ManuallyRouted="false" />
+        <AssociationConnector Association="UrlopyApiXamlModel.FK_POF_PozycjeFaktury_TOW_Towary" ManuallyRouted="false" />
+        <AssociationConnector Association="UrlopyApiXamlModel.FK_PRA_Pracownicy_STC_StrefaCzasowa" ManuallyRouted="false" />
+        <AssociationConnector Association="UrlopyApiXamlModel.FK_URL_Urlopy_PRA_Pracownicy" ManuallyRouted="false" />
+        <AssociationConnector Association="UrlopyApiXamlModel.FK_WUR_WnioskiUrlopowe_PRA_Pracownicy" ManuallyRouted="false" />
+        <AssociationConnector Association="UrlopyApiXamlModel.FK_ZDA_Zdarzenia_PRA_Pracownicy" ManuallyRouted="false" />
+        <AssociationConnector Association="UrlopyApiXamlModel.FK_URL_Urlopy_RUR_RodzajeUrlopow" ManuallyRouted="false" />
+        <AssociationConnector Association="UrlopyApiXamlModel.FK_WUR_WnioskiUrlopowe_RUR_RodzajeUrlopow" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

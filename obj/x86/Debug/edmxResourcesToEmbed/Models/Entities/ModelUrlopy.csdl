@@ -1,0 +1,539 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="UrlopyApiXamlModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="DEL_Delegacje">
+    <Key>
+      <PropertyRef Name="DEL_DelID" />
+    </Key>
+    <Property Name="DEL_DelID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="DEL_PraID" Type="Int32" Nullable="false" />
+    <Property Name="DEL_Tytul" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="DEL_JakiTransport" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="DEL_MiejscowoscStartu" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="DEL_MiejscowoscCelu" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="DEL_DzienOd" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="DEL_DzienDo" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="DEL_CzyAktywny" Type="Boolean" Nullable="false" />
+    <Property Name="DEL_Komentarz" Type="String" MaxLength="100" FixedLength="true" Unicode="true" />
+    <NavigationProperty Name="PRA_Pracownicy" Relationship="Self.FK_Delegacje_Pracownicy" FromRole="DEL_Delegacje" ToRole="PRA_Pracownicy" />
+  </EntityType>
+  <EntityType Name="DZI_Dzialy">
+    <Key>
+      <PropertyRef Name="DZI_DziID" />
+    </Key>
+    <Property Name="DZI_DziID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="DZI_Nazwa" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="DZI_CzyAktywny" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="PRA_Pracownicy" Relationship="Self.FK_PRA_Pracownicy_DZI_Dzialy" FromRole="DZI_Dzialy" ToRole="PRA_Pracownicy" />
+  </EntityType>
+  <EntityType Name="FAK_Faktury">
+    <Key>
+      <PropertyRef Name="FAK_FakID" />
+    </Key>
+    <Property Name="FAK_FakID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="FAK_DataWystawienia" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="FAK_KliID" Type="Int32" />
+    <Property Name="FAK_SppID" Type="Int32" />
+    <Property Name="FAK_CzyAktywny" Type="Boolean" />
+    <NavigationProperty Name="KLI_Klienci" Relationship="Self.FK_FAK_Faktury_KLI_Klienci" FromRole="FAK_Faktury" ToRole="KLI_Klienci" />
+    <NavigationProperty Name="SPP_SposobPlatnosci" Relationship="Self.FK_FAK_Faktury_SPP_SposobPlatnosci" FromRole="FAK_Faktury" ToRole="SPP_SposobPlatnosci" />
+    <NavigationProperty Name="POF_PozycjeFaktury" Relationship="Self.FK_POF_PozycjeFaktury_FAK_Faktury" FromRole="FAK_Faktury" ToRole="POF_PozycjeFaktury" />
+  </EntityType>
+  <EntityType Name="FOT_Fotorejestracja">
+    <Key>
+      <PropertyRef Name="FOT_FotID" />
+    </Key>
+    <Property Name="FOT_FotID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="FOT_GodzinaWejscia" Type="Time" Nullable="false" Precision="7" />
+    <Property Name="FOT_GodzinaWyjscia" Type="Time" Nullable="false" Precision="7" />
+    <Property Name="FOT_PraID" Type="Int32" Nullable="false" />
+    <Property Name="FOT_DataWejscia" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="FOT_DataWyjscia" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="FOT_CzyAktywny" Type="Boolean" />
+    <NavigationProperty Name="PRA_Pracownicy" Relationship="Self.FK_FOT_Fotorejestracja_PRA_Pracownicy" FromRole="FOT_Fotorejestracja" ToRole="PRA_Pracownicy" />
+  </EntityType>
+  <EntityType Name="GRP_GrafikPracy">
+    <Key>
+      <PropertyRef Name="GRP_GrpID" />
+    </Key>
+    <Property Name="GRP_GrpID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="GRP_PraID" Type="Int32" Nullable="false" />
+    <Property Name="GRP_Dzien" Type="DateTime" Precision="0" />
+    <Property Name="GRP_Zmiana" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+    <Property Name="GRP_CzyAktywny" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="PRA_Pracownicy" Relationship="Self.FK_GrafikPracy_Pracownicy" FromRole="GRP_GrafikPracy" ToRole="PRA_Pracownicy" />
+  </EntityType>
+  <EntityType Name="JAP_JezykAplikacji">
+    <Key>
+      <PropertyRef Name="JAP_JapID" />
+    </Key>
+    <Property Name="JAP_JapID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="JAP_Nazwa" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
+    <Property Name="JAP_CzyAktywny" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="PRA_Pracownicy" Relationship="Self.FK_PRA_Pracownicy_JAP_JezykAplikacji" FromRole="JAP_JezykAplikacji" ToRole="PRA_Pracownicy" />
+  </EntityType>
+  <EntityType Name="JEM_JednostkiMiary">
+    <Key>
+      <PropertyRef Name="JEM_JemID" />
+    </Key>
+    <Property Name="JEM_JemID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="JEM_Nazwa" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="JEM_Opis" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="JEM_CzyAktywny" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="POF_PozycjeFaktury" Relationship="Self.FK_POF_PozycjeFaktury_JEM_JednostkiMiary" FromRole="JEM_JednostkiMiary" ToRole="POF_PozycjeFaktury" />
+  </EntityType>
+  <EntityType Name="KAT_KategorieTowarow">
+    <Key>
+      <PropertyRef Name="KAT_KatID" />
+    </Key>
+    <Property Name="KAT_KatID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="KAT_Nazwa" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="KAT_Opis" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="KAT_CzyAktywny" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="TOW_Towary" Relationship="Self.FK_Towary_Kategorie" FromRole="KAT_KategorieTowarow" ToRole="TOW_Towary" />
+  </EntityType>
+  <EntityType Name="KLI_Klienci">
+    <Key>
+      <PropertyRef Name="KLI_KliID" />
+    </Key>
+    <Property Name="KLI_KliID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="KLI_Nazwa" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="KLI_Adres" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="KLI_Telefon" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="KLI_CzyAktywny" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="FAK_Faktury" Relationship="Self.FK_FAK_Faktury_KLI_Klienci" FromRole="KLI_Klienci" ToRole="FAK_Faktury" />
+  </EntityType>
+  <EntityType Name="POF_PozycjeFaktury">
+    <Key>
+      <PropertyRef Name="POF_PofID" />
+    </Key>
+    <Property Name="POF_PofID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="POF_TowID" Type="Int32" Nullable="false" />
+    <Property Name="POF_FakID" Type="Int32" Nullable="false" />
+    <Property Name="POF_JemID" Type="Int32" Nullable="false" />
+    <Property Name="POF_Nazwa" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="POF_Ilosc" Type="Int32" Nullable="false" />
+    <Property Name="POF_Cena" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
+    <Property Name="POF_Rabat" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
+    <Property Name="POF_Marza" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
+    <Property Name="POF_CzyAktywny" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="FAK_Faktury" Relationship="Self.FK_POF_PozycjeFaktury_FAK_Faktury" FromRole="POF_PozycjeFaktury" ToRole="FAK_Faktury" />
+    <NavigationProperty Name="JEM_JednostkiMiary" Relationship="Self.FK_POF_PozycjeFaktury_JEM_JednostkiMiary" FromRole="POF_PozycjeFaktury" ToRole="JEM_JednostkiMiary" />
+    <NavigationProperty Name="TOW_Towary" Relationship="Self.FK_POF_PozycjeFaktury_TOW_Towary" FromRole="POF_PozycjeFaktury" ToRole="TOW_Towary" />
+  </EntityType>
+  <EntityType Name="PRA_Pracownicy">
+    <Key>
+      <PropertyRef Name="PRA_PraID" />
+    </Key>
+    <Property Name="PRA_PraID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="PRA_Imie" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="PRA_DziID" Type="Int32" />
+    <Property Name="PRA_Nazwisko" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="PRA_ILogin" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="PRA_Haslo" Type="Binary" MaxLength="50" FixedLength="true" />
+    <Property Name="PRA_UrlZdjecia" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="PRA_StcID" Type="Int32" />
+    <Property Name="PRA_Email" Type="String" MaxLength="127" FixedLength="false" Unicode="true" />
+    <Property Name="PRA_Telefon" Type="String" MaxLength="40" FixedLength="false" Unicode="true" />
+    <Property Name="PRA_Ulica" Type="String" MaxLength="127" FixedLength="false" Unicode="true" />
+    <Property Name="PRA_Miasto" Type="String" MaxLength="127" FixedLength="false" Unicode="true" />
+    <Property Name="PRA_KodPocztowy" Type="String" MaxLength="127" FixedLength="false" Unicode="true" />
+    <Property Name="PRA_CzyZatrudniony" Type="Boolean" />
+    <Property Name="PRA_JapID" Type="Int32" />
+    <Property Name="PRA_ZgodaMarketingowa" Type="Boolean" />
+    <Property Name="PRA_Wojewodztwo" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+    <Property Name="PRA_NrDomu" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+    <Property Name="PRA_Gmina" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+    <Property Name="PRA_CzyAktywny" Type="Boolean" />
+    <NavigationProperty Name="DEL_Delegacje" Relationship="Self.FK_Delegacje_Pracownicy" FromRole="PRA_Pracownicy" ToRole="DEL_Delegacje" />
+    <NavigationProperty Name="DZI_Dzialy" Relationship="Self.FK_PRA_Pracownicy_DZI_Dzialy" FromRole="PRA_Pracownicy" ToRole="DZI_Dzialy" />
+    <NavigationProperty Name="FOT_Fotorejestracja" Relationship="Self.FK_FOT_Fotorejestracja_PRA_Pracownicy" FromRole="PRA_Pracownicy" ToRole="FOT_Fotorejestracja" />
+    <NavigationProperty Name="GRP_GrafikPracy" Relationship="Self.FK_GrafikPracy_Pracownicy" FromRole="PRA_Pracownicy" ToRole="GRP_GrafikPracy" />
+    <NavigationProperty Name="JAP_JezykAplikacji" Relationship="Self.FK_PRA_Pracownicy_JAP_JezykAplikacji" FromRole="PRA_Pracownicy" ToRole="JAP_JezykAplikacji" />
+    <NavigationProperty Name="STC_StrefaCzasowa" Relationship="Self.FK_PRA_Pracownicy_STC_StrefaCzasowa" FromRole="PRA_Pracownicy" ToRole="STC_StrefaCzasowa" />
+    <NavigationProperty Name="URL_Urlopy" Relationship="Self.FK_URL_Urlopy_PRA_Pracownicy" FromRole="PRA_Pracownicy" ToRole="URL_Urlopy" />
+    <NavigationProperty Name="WUR_WnioskiUrlopowe" Relationship="Self.FK_WUR_WnioskiUrlopowe_PRA_Pracownicy" FromRole="PRA_Pracownicy" ToRole="WUR_WnioskiUrlopowe" />
+    <NavigationProperty Name="ZDA_Zdarzenia" Relationship="Self.FK_ZDA_Zdarzenia_PRA_Pracownicy" FromRole="PRA_Pracownicy" ToRole="ZDA_Zdarzenia" />
+  </EntityType>
+  <EntityType Name="RUR_RodzajeUrlopow">
+    <Key>
+      <PropertyRef Name="RUR_RurID" />
+    </Key>
+    <Property Name="RUR_RurID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="RUR_Nazwa" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
+    <Property Name="RUR_CzyAktywny" Type="Boolean" />
+    <NavigationProperty Name="URL_Urlopy" Relationship="Self.FK_URL_Urlopy_RUR_RodzajeUrlopow" FromRole="RUR_RodzajeUrlopow" ToRole="URL_Urlopy" />
+    <NavigationProperty Name="WUR_WnioskiUrlopowe" Relationship="Self.FK_WUR_WnioskiUrlopowe_RUR_RodzajeUrlopow" FromRole="RUR_RodzajeUrlopow" ToRole="WUR_WnioskiUrlopowe" />
+  </EntityType>
+  <EntityType Name="SPP_SposobPlatnosci">
+    <Key>
+      <PropertyRef Name="SPP_SppID" />
+    </Key>
+    <Property Name="SPP_SppID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="SPP_Nazwa" Type="String" MaxLength="20" FixedLength="true" Unicode="true" Nullable="false" />
+    <Property Name="SPP_CzyAktywny" Type="Boolean" />
+    <NavigationProperty Name="FAK_Faktury" Relationship="Self.FK_FAK_Faktury_SPP_SposobPlatnosci" FromRole="SPP_SposobPlatnosci" ToRole="FAK_Faktury" />
+  </EntityType>
+  <EntityType Name="STC_StrefaCzasowa">
+    <Key>
+      <PropertyRef Name="STC_StcID" />
+    </Key>
+    <Property Name="STC_StcID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="STC_Nazwa" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
+    <Property Name="STC_CzyAktywny" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="PRA_Pracownicy" Relationship="Self.FK_PRA_Pracownicy_STC_StrefaCzasowa" FromRole="STC_StrefaCzasowa" ToRole="PRA_Pracownicy" />
+  </EntityType>
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="principal_id" Type="Int32" Nullable="false" />
+    <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="version" Type="Int32" />
+    <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+  </EntityType>
+  <EntityType Name="TOW_Towary">
+    <Key>
+      <PropertyRef Name="TOW_TowID" />
+    </Key>
+    <Property Name="TOW_TowID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="TOW_Nazwa" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="TOW_Kod" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="TOW_Opis" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="TOW_KatID" Type="Int32" Nullable="false" />
+    <Property Name="TOW_StanIlosciowy" Type="Int32" Nullable="false" />
+    <Property Name="TOW_Zdjecie" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="TOW_CzyAktywny" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="KAT_KategorieTowarow" Relationship="Self.FK_Towary_Kategorie" FromRole="TOW_Towary" ToRole="KAT_KategorieTowarow" />
+    <NavigationProperty Name="POF_PozycjeFaktury" Relationship="Self.FK_POF_PozycjeFaktury_TOW_Towary" FromRole="TOW_Towary" ToRole="POF_PozycjeFaktury" />
+  </EntityType>
+  <EntityType Name="URL_Urlopy">
+    <Key>
+      <PropertyRef Name="URL_UrlID" />
+    </Key>
+    <Property Name="URL_UrlID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="URL_PraID" Type="Int32" />
+    <Property Name="URL_DzienOd" Type="DateTime" Precision="0" />
+    <Property Name="URL_DzienDo" Type="DateTime" Precision="0" />
+    <Property Name="URL_RurID" Type="Int32" />
+    <Property Name="URL_CzyAktywny" Type="Boolean" />
+    <NavigationProperty Name="PRA_Pracownicy" Relationship="Self.FK_URL_Urlopy_PRA_Pracownicy" FromRole="URL_Urlopy" ToRole="PRA_Pracownicy" />
+    <NavigationProperty Name="RUR_RodzajeUrlopow" Relationship="Self.FK_URL_Urlopy_RUR_RodzajeUrlopow" FromRole="URL_Urlopy" ToRole="RUR_RodzajeUrlopow" />
+  </EntityType>
+  <EntityType Name="WUR_WnioskiUrlopowe">
+    <Key>
+      <PropertyRef Name="WUR_WurID" />
+    </Key>
+    <Property Name="WUR_WurID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="WUR_DataOd" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="WUR_DataDo" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="WUR_RurID" Type="Int32" Nullable="false" />
+    <Property Name="WUR_PraID" Type="Int32" Nullable="false" />
+    <Property Name="WUR_CzyAktywny" Type="Boolean" />
+    <NavigationProperty Name="PRA_Pracownicy" Relationship="Self.FK_WUR_WnioskiUrlopowe_PRA_Pracownicy" FromRole="WUR_WnioskiUrlopowe" ToRole="PRA_Pracownicy" />
+    <NavigationProperty Name="RUR_RodzajeUrlopow" Relationship="Self.FK_WUR_WnioskiUrlopowe_RUR_RodzajeUrlopow" FromRole="WUR_WnioskiUrlopowe" ToRole="RUR_RodzajeUrlopow" />
+  </EntityType>
+  <EntityType Name="ZDA_Zdarzenia">
+    <Key>
+      <PropertyRef Name="ZDA_ZdaID" />
+    </Key>
+    <Property Name="ZDA_ZdaID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ZDA_Nazwa" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="ZDA_CzyAktywny" Type="Boolean" />
+    <Property Name="ZDA_PraID" Type="Int32" />
+    <NavigationProperty Name="PRA_Pracownicy" Relationship="Self.FK_ZDA_Zdarzenia_PRA_Pracownicy" FromRole="ZDA_Zdarzenia" ToRole="PRA_Pracownicy" />
+  </EntityType>
+  <Association Name="FK_Delegacje_Pracownicy">
+    <End Role="PRA_Pracownicy" Type="Self.PRA_Pracownicy" Multiplicity="1" />
+    <End Role="DEL_Delegacje" Type="Self.DEL_Delegacje" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PRA_Pracownicy">
+        <PropertyRef Name="PRA_PraID" />
+      </Principal>
+      <Dependent Role="DEL_Delegacje">
+        <PropertyRef Name="DEL_PraID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PRA_Pracownicy_DZI_Dzialy">
+    <End Role="DZI_Dzialy" Type="Self.DZI_Dzialy" Multiplicity="0..1" />
+    <End Role="PRA_Pracownicy" Type="Self.PRA_Pracownicy" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="DZI_Dzialy">
+        <PropertyRef Name="DZI_DziID" />
+      </Principal>
+      <Dependent Role="PRA_Pracownicy">
+        <PropertyRef Name="PRA_DziID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_FAK_Faktury_KLI_Klienci">
+    <End Role="KLI_Klienci" Type="Self.KLI_Klienci" Multiplicity="0..1" />
+    <End Role="FAK_Faktury" Type="Self.FAK_Faktury" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="KLI_Klienci">
+        <PropertyRef Name="KLI_KliID" />
+      </Principal>
+      <Dependent Role="FAK_Faktury">
+        <PropertyRef Name="FAK_KliID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_FAK_Faktury_SPP_SposobPlatnosci">
+    <End Role="SPP_SposobPlatnosci" Type="Self.SPP_SposobPlatnosci" Multiplicity="0..1" />
+    <End Role="FAK_Faktury" Type="Self.FAK_Faktury" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SPP_SposobPlatnosci">
+        <PropertyRef Name="SPP_SppID" />
+      </Principal>
+      <Dependent Role="FAK_Faktury">
+        <PropertyRef Name="FAK_SppID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_POF_PozycjeFaktury_FAK_Faktury">
+    <End Role="FAK_Faktury" Type="Self.FAK_Faktury" Multiplicity="1" />
+    <End Role="POF_PozycjeFaktury" Type="Self.POF_PozycjeFaktury" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="FAK_Faktury">
+        <PropertyRef Name="FAK_FakID" />
+      </Principal>
+      <Dependent Role="POF_PozycjeFaktury">
+        <PropertyRef Name="POF_FakID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_FOT_Fotorejestracja_PRA_Pracownicy">
+    <End Role="PRA_Pracownicy" Type="Self.PRA_Pracownicy" Multiplicity="1" />
+    <End Role="FOT_Fotorejestracja" Type="Self.FOT_Fotorejestracja" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PRA_Pracownicy">
+        <PropertyRef Name="PRA_PraID" />
+      </Principal>
+      <Dependent Role="FOT_Fotorejestracja">
+        <PropertyRef Name="FOT_PraID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_GrafikPracy_Pracownicy">
+    <End Role="PRA_Pracownicy" Type="Self.PRA_Pracownicy" Multiplicity="1" />
+    <End Role="GRP_GrafikPracy" Type="Self.GRP_GrafikPracy" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PRA_Pracownicy">
+        <PropertyRef Name="PRA_PraID" />
+      </Principal>
+      <Dependent Role="GRP_GrafikPracy">
+        <PropertyRef Name="GRP_PraID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PRA_Pracownicy_JAP_JezykAplikacji">
+    <End Role="JAP_JezykAplikacji" Type="Self.JAP_JezykAplikacji" Multiplicity="0..1" />
+    <End Role="PRA_Pracownicy" Type="Self.PRA_Pracownicy" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="JAP_JezykAplikacji">
+        <PropertyRef Name="JAP_JapID" />
+      </Principal>
+      <Dependent Role="PRA_Pracownicy">
+        <PropertyRef Name="PRA_JapID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_POF_PozycjeFaktury_JEM_JednostkiMiary">
+    <End Role="JEM_JednostkiMiary" Type="Self.JEM_JednostkiMiary" Multiplicity="1" />
+    <End Role="POF_PozycjeFaktury" Type="Self.POF_PozycjeFaktury" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="JEM_JednostkiMiary">
+        <PropertyRef Name="JEM_JemID" />
+      </Principal>
+      <Dependent Role="POF_PozycjeFaktury">
+        <PropertyRef Name="POF_JemID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Towary_Kategorie">
+    <End Role="KAT_KategorieTowarow" Type="Self.KAT_KategorieTowarow" Multiplicity="1" />
+    <End Role="TOW_Towary" Type="Self.TOW_Towary" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="KAT_KategorieTowarow">
+        <PropertyRef Name="KAT_KatID" />
+      </Principal>
+      <Dependent Role="TOW_Towary">
+        <PropertyRef Name="TOW_KatID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_POF_PozycjeFaktury_TOW_Towary">
+    <End Role="TOW_Towary" Type="Self.TOW_Towary" Multiplicity="1" />
+    <End Role="POF_PozycjeFaktury" Type="Self.POF_PozycjeFaktury" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TOW_Towary">
+        <PropertyRef Name="TOW_TowID" />
+      </Principal>
+      <Dependent Role="POF_PozycjeFaktury">
+        <PropertyRef Name="POF_TowID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PRA_Pracownicy_STC_StrefaCzasowa">
+    <End Role="STC_StrefaCzasowa" Type="Self.STC_StrefaCzasowa" Multiplicity="0..1" />
+    <End Role="PRA_Pracownicy" Type="Self.PRA_Pracownicy" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="STC_StrefaCzasowa">
+        <PropertyRef Name="STC_StcID" />
+      </Principal>
+      <Dependent Role="PRA_Pracownicy">
+        <PropertyRef Name="PRA_StcID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_URL_Urlopy_PRA_Pracownicy">
+    <End Role="PRA_Pracownicy" Type="Self.PRA_Pracownicy" Multiplicity="0..1" />
+    <End Role="URL_Urlopy" Type="Self.URL_Urlopy" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PRA_Pracownicy">
+        <PropertyRef Name="PRA_PraID" />
+      </Principal>
+      <Dependent Role="URL_Urlopy">
+        <PropertyRef Name="URL_PraID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_WUR_WnioskiUrlopowe_PRA_Pracownicy">
+    <End Role="PRA_Pracownicy" Type="Self.PRA_Pracownicy" Multiplicity="1" />
+    <End Role="WUR_WnioskiUrlopowe" Type="Self.WUR_WnioskiUrlopowe" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PRA_Pracownicy">
+        <PropertyRef Name="PRA_PraID" />
+      </Principal>
+      <Dependent Role="WUR_WnioskiUrlopowe">
+        <PropertyRef Name="WUR_PraID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ZDA_Zdarzenia_PRA_Pracownicy">
+    <End Role="PRA_Pracownicy" Type="Self.PRA_Pracownicy" Multiplicity="0..1" />
+    <End Role="ZDA_Zdarzenia" Type="Self.ZDA_Zdarzenia" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PRA_Pracownicy">
+        <PropertyRef Name="PRA_PraID" />
+      </Principal>
+      <Dependent Role="ZDA_Zdarzenia">
+        <PropertyRef Name="ZDA_PraID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_URL_Urlopy_RUR_RodzajeUrlopow">
+    <End Role="RUR_RodzajeUrlopow" Type="Self.RUR_RodzajeUrlopow" Multiplicity="0..1" />
+    <End Role="URL_Urlopy" Type="Self.URL_Urlopy" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="RUR_RodzajeUrlopow">
+        <PropertyRef Name="RUR_RurID" />
+      </Principal>
+      <Dependent Role="URL_Urlopy">
+        <PropertyRef Name="URL_RurID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_WUR_WnioskiUrlopowe_RUR_RodzajeUrlopow">
+    <End Role="RUR_RodzajeUrlopow" Type="Self.RUR_RodzajeUrlopow" Multiplicity="1" />
+    <End Role="WUR_WnioskiUrlopowe" Type="Self.WUR_WnioskiUrlopowe" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="RUR_RodzajeUrlopow">
+        <PropertyRef Name="RUR_RurID" />
+      </Principal>
+      <Dependent Role="WUR_WnioskiUrlopowe">
+        <PropertyRef Name="WUR_RurID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="UrlopyEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="DEL_Delegacje" EntityType="Self.DEL_Delegacje" />
+    <EntitySet Name="DZI_Dzialy" EntityType="Self.DZI_Dzialy" />
+    <EntitySet Name="FAK_Faktury" EntityType="Self.FAK_Faktury" />
+    <EntitySet Name="FOT_Fotorejestracja" EntityType="Self.FOT_Fotorejestracja" />
+    <EntitySet Name="GRP_GrafikPracy" EntityType="Self.GRP_GrafikPracy" />
+    <EntitySet Name="JAP_JezykAplikacji" EntityType="Self.JAP_JezykAplikacji" />
+    <EntitySet Name="JEM_JednostkiMiary" EntityType="Self.JEM_JednostkiMiary" />
+    <EntitySet Name="KAT_KategorieTowarow" EntityType="Self.KAT_KategorieTowarow" />
+    <EntitySet Name="KLI_Klienci" EntityType="Self.KLI_Klienci" />
+    <EntitySet Name="POF_PozycjeFaktury" EntityType="Self.POF_PozycjeFaktury" />
+    <EntitySet Name="PRA_Pracownicy" EntityType="Self.PRA_Pracownicy" />
+    <EntitySet Name="RUR_RodzajeUrlopow" EntityType="Self.RUR_RodzajeUrlopow" />
+    <EntitySet Name="SPP_SposobPlatnosci" EntityType="Self.SPP_SposobPlatnosci" />
+    <EntitySet Name="STC_StrefaCzasowa" EntityType="Self.STC_StrefaCzasowa" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" />
+    <EntitySet Name="TOW_Towary" EntityType="Self.TOW_Towary" />
+    <EntitySet Name="URL_Urlopy" EntityType="Self.URL_Urlopy" />
+    <EntitySet Name="WUR_WnioskiUrlopowe" EntityType="Self.WUR_WnioskiUrlopowe" />
+    <EntitySet Name="ZDA_Zdarzenia" EntityType="Self.ZDA_Zdarzenia" />
+    <AssociationSet Name="FK_Delegacje_Pracownicy" Association="Self.FK_Delegacje_Pracownicy">
+      <End Role="PRA_Pracownicy" EntitySet="PRA_Pracownicy" />
+      <End Role="DEL_Delegacje" EntitySet="DEL_Delegacje" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PRA_Pracownicy_DZI_Dzialy" Association="Self.FK_PRA_Pracownicy_DZI_Dzialy">
+      <End Role="DZI_Dzialy" EntitySet="DZI_Dzialy" />
+      <End Role="PRA_Pracownicy" EntitySet="PRA_Pracownicy" />
+    </AssociationSet>
+    <AssociationSet Name="FK_FAK_Faktury_KLI_Klienci" Association="Self.FK_FAK_Faktury_KLI_Klienci">
+      <End Role="KLI_Klienci" EntitySet="KLI_Klienci" />
+      <End Role="FAK_Faktury" EntitySet="FAK_Faktury" />
+    </AssociationSet>
+    <AssociationSet Name="FK_FAK_Faktury_SPP_SposobPlatnosci" Association="Self.FK_FAK_Faktury_SPP_SposobPlatnosci">
+      <End Role="SPP_SposobPlatnosci" EntitySet="SPP_SposobPlatnosci" />
+      <End Role="FAK_Faktury" EntitySet="FAK_Faktury" />
+    </AssociationSet>
+    <AssociationSet Name="FK_POF_PozycjeFaktury_FAK_Faktury" Association="Self.FK_POF_PozycjeFaktury_FAK_Faktury">
+      <End Role="FAK_Faktury" EntitySet="FAK_Faktury" />
+      <End Role="POF_PozycjeFaktury" EntitySet="POF_PozycjeFaktury" />
+    </AssociationSet>
+    <AssociationSet Name="FK_FOT_Fotorejestracja_PRA_Pracownicy" Association="Self.FK_FOT_Fotorejestracja_PRA_Pracownicy">
+      <End Role="PRA_Pracownicy" EntitySet="PRA_Pracownicy" />
+      <End Role="FOT_Fotorejestracja" EntitySet="FOT_Fotorejestracja" />
+    </AssociationSet>
+    <AssociationSet Name="FK_GrafikPracy_Pracownicy" Association="Self.FK_GrafikPracy_Pracownicy">
+      <End Role="PRA_Pracownicy" EntitySet="PRA_Pracownicy" />
+      <End Role="GRP_GrafikPracy" EntitySet="GRP_GrafikPracy" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PRA_Pracownicy_JAP_JezykAplikacji" Association="Self.FK_PRA_Pracownicy_JAP_JezykAplikacji">
+      <End Role="JAP_JezykAplikacji" EntitySet="JAP_JezykAplikacji" />
+      <End Role="PRA_Pracownicy" EntitySet="PRA_Pracownicy" />
+    </AssociationSet>
+    <AssociationSet Name="FK_POF_PozycjeFaktury_JEM_JednostkiMiary" Association="Self.FK_POF_PozycjeFaktury_JEM_JednostkiMiary">
+      <End Role="JEM_JednostkiMiary" EntitySet="JEM_JednostkiMiary" />
+      <End Role="POF_PozycjeFaktury" EntitySet="POF_PozycjeFaktury" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Towary_Kategorie" Association="Self.FK_Towary_Kategorie">
+      <End Role="KAT_KategorieTowarow" EntitySet="KAT_KategorieTowarow" />
+      <End Role="TOW_Towary" EntitySet="TOW_Towary" />
+    </AssociationSet>
+    <AssociationSet Name="FK_POF_PozycjeFaktury_TOW_Towary" Association="Self.FK_POF_PozycjeFaktury_TOW_Towary">
+      <End Role="TOW_Towary" EntitySet="TOW_Towary" />
+      <End Role="POF_PozycjeFaktury" EntitySet="POF_PozycjeFaktury" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PRA_Pracownicy_STC_StrefaCzasowa" Association="Self.FK_PRA_Pracownicy_STC_StrefaCzasowa">
+      <End Role="STC_StrefaCzasowa" EntitySet="STC_StrefaCzasowa" />
+      <End Role="PRA_Pracownicy" EntitySet="PRA_Pracownicy" />
+    </AssociationSet>
+    <AssociationSet Name="FK_URL_Urlopy_PRA_Pracownicy" Association="Self.FK_URL_Urlopy_PRA_Pracownicy">
+      <End Role="PRA_Pracownicy" EntitySet="PRA_Pracownicy" />
+      <End Role="URL_Urlopy" EntitySet="URL_Urlopy" />
+    </AssociationSet>
+    <AssociationSet Name="FK_WUR_WnioskiUrlopowe_PRA_Pracownicy" Association="Self.FK_WUR_WnioskiUrlopowe_PRA_Pracownicy">
+      <End Role="PRA_Pracownicy" EntitySet="PRA_Pracownicy" />
+      <End Role="WUR_WnioskiUrlopowe" EntitySet="WUR_WnioskiUrlopowe" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ZDA_Zdarzenia_PRA_Pracownicy" Association="Self.FK_ZDA_Zdarzenia_PRA_Pracownicy">
+      <End Role="PRA_Pracownicy" EntitySet="PRA_Pracownicy" />
+      <End Role="ZDA_Zdarzenia" EntitySet="ZDA_Zdarzenia" />
+    </AssociationSet>
+    <AssociationSet Name="FK_URL_Urlopy_RUR_RodzajeUrlopow" Association="Self.FK_URL_Urlopy_RUR_RodzajeUrlopow">
+      <End Role="RUR_RodzajeUrlopow" EntitySet="RUR_RodzajeUrlopow" />
+      <End Role="URL_Urlopy" EntitySet="URL_Urlopy" />
+    </AssociationSet>
+    <AssociationSet Name="FK_WUR_WnioskiUrlopowe_RUR_RodzajeUrlopow" Association="Self.FK_WUR_WnioskiUrlopowe_RUR_RodzajeUrlopow">
+      <End Role="RUR_RodzajeUrlopow" EntitySet="RUR_RodzajeUrlopow" />
+      <End Role="WUR_WnioskiUrlopowe" EntitySet="WUR_WnioskiUrlopowe" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

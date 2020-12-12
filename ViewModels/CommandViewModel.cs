@@ -1,11 +1,11 @@
-﻿using MVVMFirma.ViewModels;
+﻿using UrlopyApiXaml.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Windows.Input;
 
-namespace MVVMFirma.ViewModels
+namespace UrlopyApiXaml.ViewModels
 {
     //to
     public class CommandViewModel : BaseViewModel

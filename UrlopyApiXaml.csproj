@@ -59,12 +59,33 @@
     <Reference Include="Caliburn.Micro, Version=3.2.0.0, Culture=neutral, PublicKeyToken=8e5891231f2ed21f, processorArchitecture=MSIL">
       <HintPath>..\packages\Caliburn.Micro.Core.3.2.0\lib\net40\Caliburn.Micro.dll</HintPath>
     </Reference>
+    <Reference Include="CommonServiceLocator, Version=2.0.2.0, Culture=neutral, PublicKeyToken=489b6accfaf20ef0, processorArchitecture=MSIL">
+      <HintPath>..\packages\CommonServiceLocator.2.0.2\lib\net40\CommonServiceLocator.dll</HintPath>
+    </Reference>
     <Reference Include="DocumentFormat.OpenXml, Version=2.10.1.0, Culture=neutral, PublicKeyToken=8fb06cb64d019a17, processorArchitecture=MSIL">
       <HintPath>..\packages\DocumentFormat.OpenXml.2.10.1\lib\net40\DocumentFormat.OpenXml.dll</HintPath>
     </Reference>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net40\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net40\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="GalaSoft.MvvmLight, Version=5.4.1.0, Culture=neutral, PublicKeyToken=0e453835af4ee6ce, processorArchitecture=MSIL">
+      <HintPath>..\packages\MvvmLightLibs.5.4.1.1\lib\net40\GalaSoft.MvvmLight.dll</HintPath>
+    </Reference>
+    <Reference Include="GalaSoft.MvvmLight.Extras, Version=5.4.1.0, Culture=neutral, PublicKeyToken=f46ff315b1088208, processorArchitecture=MSIL">
+      <HintPath>..\packages\MvvmLightLibs.5.4.1.1\lib\net40\GalaSoft.MvvmLight.Extras.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Windows.Interactivity, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\MvvmLightLibs.5.4.1.1\lib\net40\System.Windows.Interactivity.dll</HintPath>
+    </Reference>
     <Reference Include="System.Xml" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Core" />
@@ -105,23 +126,128 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Helper\BaseCommand.cs" />
-    <Compile Include="Models\DataGridHelper.cs" />
-    <Compile Include="Models\GrafikPracyModel.cs" />
+    <Compile Include="Models\EntitiesForView\DzialLiczbaPracownikow.cs" />
+    <Compile Include="Models\EntitiesForView\PracownicyView.cs" />
+    <Compile Include="Models\EntitiesForView\ZdarzeniaView.cs" />
+    <Compile Include="Models\Entities\DEL_Delegacje.cs">
+      <DependentUpon>ModelUrlopy.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Entities\DZI_Dzialy.cs">
+      <DependentUpon>ModelUrlopy.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Entities\FAK_Faktury.cs">
+      <DependentUpon>ModelUrlopy.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Entities\FOT_Fotorejestracja.cs">
+      <DependentUpon>ModelUrlopy.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Entities\GRP_GrafikPracy.cs">
+      <DependentUpon>ModelUrlopy.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Entities\JAP_JezykAplikacji.cs">
+      <DependentUpon>ModelUrlopy.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Entities\JEM_JednostkiMiary.cs">
+      <DependentUpon>ModelUrlopy.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Entities\KAT_KategorieTowarow.cs">
+      <DependentUpon>ModelUrlopy.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Entities\KLI_Klienci.cs">
+      <DependentUpon>ModelUrlopy.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Entities\ModelUrlopy.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ModelUrlopy.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Entities\ModelUrlopy.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ModelUrlopy.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Entities\ModelUrlopy.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ModelUrlopy.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Entities\POF_PozycjeFaktury.cs">
+      <DependentUpon>ModelUrlopy.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Entities\PRA_Pracownicy.cs">
+      <DependentUpon>ModelUrlopy.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Entities\RUR_RodzajeUrlopow.cs">
+      <DependentUpon>ModelUrlopy.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Entities\SPP_SposobPlatnosci.cs">
+      <DependentUpon>ModelUrlopy.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Entities\STC_StrefaCzasowa.cs">
+      <DependentUpon>ModelUrlopy.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Entities\sysdiagrams.cs">
+      <DependentUpon>ModelUrlopy.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Entities\TOW_Towary.cs">
+      <DependentUpon>ModelUrlopy.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Entities\URL_Urlopy.cs">
+      <DependentUpon>ModelUrlopy.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Entities\WUR_WnioskiUrlopowe.cs">
+      <DependentUpon>ModelUrlopy.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Entities\ZDA_Zdarzenia.cs">
+      <DependentUpon>ModelUrlopy.tt</DependentUpon>
+    </Compile>
     <Compile Include="ViewModels\BaseViewModel.cs" />
     <Compile Include="ViewModels\CommandViewModel.cs" />
+    <Compile Include="ViewModels\Dodawanie\DodajFaktureViewModel.cs" />
+    <Compile Include="ViewModels\Dodawanie\DodajGrafikPracyViewModel.cs" />
+    <Compile Include="ViewModels\Dodawanie\DodajJednostkiMiaryViewModel.cs" />
+    <Compile Include="ViewModels\Dodawanie\DodajPracownikaViewModel.cs" />
+    <Compile Include="ViewModels\Dodawanie\DodajUrlopyViewModel.cs" />
+    <Compile Include="ViewModels\Dodawanie\DodajJezykAplikacjiViewModel.cs" />
+    <Compile Include="ViewModels\Dodawanie\DodajZdarzenieViewModel.cs" />
     <Compile Include="ViewModels\MainWindowViewModel.cs" />
     <Compile Include="ViewModels\NowaFakturaViewModel.cs" />
+    <Compile Include="ViewModels\NowyViewModel.cs" />
     <Compile Include="ViewModels\PracownicyViewModel.cs" />
     <Compile Include="ViewModels\PrzegladViewModel.cs" />
     <Compile Include="ViewModels\WorkspaceViewModel.cs" />
     <Compile Include="ViewModels\GrafikPracyViewModel.cs" />
     <Compile Include="ViewModels\LokalizacjeViewModel.cs" />
+    <Compile Include="ViewModels\WszystkieViewModel.cs" />
     <Compile Include="ViewModels\Zakladki\DelegacjeViewModel.cs" />
     <Compile Include="ViewModels\Zakladki\OAplikacjiViewModel.cs" />
     <Compile Include="ViewModels\Zakladki\OpcjeViewModel.cs" />
     <Compile Include="ViewModels\Zakladki\TwojKodViewModel.cs" />
     <Compile Include="ViewModels\Zakladki\UrlopyViewModel.cs" />
     <Compile Include="ViewModels\ZdarzeniaViewModel.cs" />
+    <Compile Include="ViewModel\MainViewModel.cs" />
+    <Compile Include="ViewModel\ViewModelLocator.cs" />
+    <Compile Include="Views\Dodawanie\DodajFaktureView.xaml.cs">
+      <DependentUpon>DodajFaktureView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Dodawanie\DodajGrafikPracyView.xaml.cs">
+      <DependentUpon>DodajGrafikPracyView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Dodawanie\DodajJednostkiMiaryView.xaml.cs">
+      <DependentUpon>DodajJednostkiMiaryView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Dodawanie\DodajPracownikaView.xaml.cs">
+      <DependentUpon>DodajPracownikaView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Dodawanie\DodajUrlopyView.xaml.cs">
+      <DependentUpon>DodajUrlopyView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Dodawanie\DodajJezykAplikacjiView.xaml.cs">
+      <DependentUpon>DodajJezykAplikacjiView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Dodawanie\DodajZdarzenieView.xaml.cs">
+      <DependentUpon>DodajZdarzenieView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\Filtrowanie1ViewBase.cs" />
     <Compile Include="Views\MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
@@ -141,14 +267,8 @@
     <Compile Include="Views\LokalizacjeView.xaml.cs">
       <DependentUpon>LokalizacjeView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\Zakladki\DodajDelegacjeWindowView.xaml.cs">
-      <DependentUpon>DodajDelegacjeWindowView.xaml</DependentUpon>
-    </Compile>
     <Compile Include="Views\Zakladki\DelegacjeView.xaml.cs">
       <DependentUpon>DelegacjeView.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Views\Zakladki\DodajDelegacjeView.xaml.cs">
-      <DependentUpon>DodajDelegacjeView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\Zakladki\OAplikacjiView.xaml.cs">
       <DependentUpon>OAplikacjiView.xaml</DependentUpon>
@@ -180,6 +300,16 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <Content Include="Models\Entities\ModelUrlopy.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>ModelUrlopy.edmx</DependentUpon>
+      <LastGenOutput>ModelUrlopy.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Models\Entities\ModelUrlopy.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>ModelUrlopy.edmx</DependentUpon>
+      <LastGenOutput>ModelUrlopy.cs</LastGenOutput>
+    </Content>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -195,6 +325,14 @@
     <Content Include="Fonts\fontawesome-webfont.eot" />
     <Content Include="Fonts\fontawesome-webfont.woff" />
     <Content Include="Fonts\fontawesome-webfont.woff2" />
+    <None Include="App.Config" />
+    <EntityDeploy Include="Models\Entities\ModelUrlopy.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>ModelUrlopy.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="Models\Entities\ModelUrlopy.edmx.diagram">
+      <DependentUpon>ModelUrlopy.edmx</DependentUpon>
+    </None>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -226,6 +364,34 @@
     <Page Include="Themes\Generic.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Dodawanie\DodajFaktureView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Dodawanie\DodajGrafikPracyView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Dodawanie\DodajJednostkiMiaryView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Dodawanie\DodajPracownikaView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Dodawanie\DodajUrlopyView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Dodawanie\DodajJezykAplikacjiView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Dodawanie\DodajZdarzenieView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\MainWindow.xaml">
       <SubType>Designer</SubType>
@@ -259,15 +425,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Views\Zakladki\DodajDelegacjeWindowView.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
     <Page Include="Views\Zakladki\DelegacjeView.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Views\Zakladki\DodajDelegacjeView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -292,7 +450,9 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
   <ItemGroup>
     <Content Include="Content\font-awesome.css" />
     <Content Include="Content\font-awesome.min.css" />
@@ -305,6 +465,7 @@
       <Install>false</Install>
     </BootstrapperPackage>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

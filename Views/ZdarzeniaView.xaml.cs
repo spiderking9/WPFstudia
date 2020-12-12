@@ -11,14 +11,16 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-using UrlopyApiXaml.Views;
+using UrlopyApiXaml.ViewModels;
+using UrlopyApiXaml.ViewModels.Zakladki;
+using UrlopyApiXaml.Views.Zakladki;
 
 namespace UrlopyApiXaml.Views
 {
     /// <summary>
-    /// Interaction logic for WszystkieTowaryView.xaml
+    /// Interaction logic for ZdarzenieView.xaml
     /// </summary>
-    public partial class ZdarzeniaView : Filtrowanie1ViewBase
+    public partial class ZdarzeniaView : UserControl
     {
         public ZdarzeniaView()
         {
