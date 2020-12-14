@@ -3,10 +3,21 @@
                     xmlns:vm="clr-namespace:UrlopyApiXaml.ViewModels"
                     xmlns:vmm="clr-namespace:UrlopyApiXaml.ViewModels.Zakladki"
                     xmlns:vmd="clr-namespace:UrlopyApiXaml.ViewModels.Dodawanie"
+                    xmlns:vmw="clr-namespace:UrlopyApiXaml.ViewModels.WybieraniePozycji"
                     xmlns:vw="clr-namespace:UrlopyApiXaml.Views"
                     xmlns:vwm="clr-namespace:UrlopyApiXaml.Views.Zakladki"
                     xmlns:vwd="clr-namespace:UrlopyApiXaml.Views.Dodawanie"
+                    xmlns:vww="clr-namespace:UrlopyApiXaml.Views.WybieraniePozycji"
                     >
+    <DataTemplate DataType="{x:Type vmw:FakturyViewModel}">
+        <vww:FakturyView/>
+    </DataTemplate>
+    <DataTemplate DataType="{x:Type vmw:TowaryViewModel}">
+        <vww:TowaryView/>
+    </DataTemplate>
+    <DataTemplate DataType="{x:Type vmw:JednostkiMiaryViewModel}">
+        <vww:JednostkiMiaryView/>
+    </DataTemplate>
     <DataTemplate DataType="{x:Type vm:ZdarzeniaViewModel}">
         <vw:ZdarzeniaView/>
     </DataTemplate>
@@ -15,6 +26,18 @@
     </DataTemplate>
     <DataTemplate DataType="{x:Type vmd:DodajJednostkiMiaryViewModel}">
         <vwd:DodajJednostkiMiaryView/>
+    </DataTemplate>
+    <DataTemplate DataType="{x:Type vmd:DodajKategorieTowarowViewModel}">
+        <vwd:DodajKategorieTowarowView/>
+    </DataTemplate>
+    <DataTemplate DataType="{x:Type vmd:DodajRodzajUrlopuViewModel}">
+        <vwd:DodajRodzajUrlopuView/>
+    </DataTemplate>
+    <DataTemplate DataType="{x:Type vmd:DodajKlientaViewModel}">
+        <vwd:DodajKlientaView/>
+    </DataTemplate>
+    <DataTemplate DataType="{x:Type vmd:DodajPozycjeFakturViewModel}">
+        <vwd:DodajPozycjeFakturView/>
     </DataTemplate>
     <DataTemplate DataType="{x:Type vmd:DodajZdarzenieViewModel}">
         <vwd:DodajZdarzenieView/>
@@ -30,6 +53,15 @@
     </DataTemplate>
     <DataTemplate DataType="{x:Type vmd:DodajGrafikPracyViewModel}">
         <vwd:DodajGrafikPracyView/>
+    </DataTemplate>
+    <DataTemplate DataType="{x:Type vmd:DodajTowarViewModel}">
+        <vwd:DodajTowarView/>
+    </DataTemplate>
+    <DataTemplate DataType="{x:Type vmd:DodajWniosekUrlopowyViewModel}">
+        <vwd:DodajWniosekUrlopowyView/>
+    </DataTemplate>
+    <DataTemplate DataType="{x:Type vmd:DodajSposobPlatnosciViewModel}">
+        <vwd:DodajSposobPlatnosciView/>
     </DataTemplate>
     <DataTemplate DataType="{x:Type vmm:DelegacjeViewModel}">
         <vwm:DelegacjeView/>

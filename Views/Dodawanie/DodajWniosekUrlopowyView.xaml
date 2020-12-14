@@ -1,0 +1,51 @@
+﻿<UserControl x:Class="UrlopyApiXaml.Views.Dodawanie.DodajWniosekUrlopowyView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:UrlopyApiXaml.Views.Dodawanie"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="150"/>
+            <ColumnDefinition Width="200"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="40"/>
+            <RowDefinition Height="40"/>
+            <RowDefinition Height="40"/>
+            <RowDefinition Height="40"/>
+            <RowDefinition Height="40"/>
+            <RowDefinition Height="50"/>
+        </Grid.RowDefinitions>
+
+        <Label Grid.Row="0" Grid.Column="0" Content="Urlop od" Margin="0,8,0,8"/>
+        <DatePicker Grid.Row="0" Grid.Column="1" VerticalAlignment="Center" SelectedDate="{Binding Path=WUR_DataOd, UpdateSourceTrigger=PropertyChanged}"/>
+        <Label Grid.Row="1" Grid.Column="0" Content="Urlop do" Margin="0,8,0,8"/>
+        <DatePicker Grid.Row="1" Grid.Column="1" VerticalAlignment="Center" SelectedDate="{Binding Path=WUR_DataDo, UpdateSourceTrigger=PropertyChanged}"/>
+        <Label Grid.Row="2" Grid.Column="0" Content="Rodzaj urlopu" Margin="0,8,0,8"/>
+        <ComboBox 
+                                Grid.Row="2" 
+                                Grid.Column="1" 
+                                ItemsSource="{Binding  RodzajUrlopuComboBoxItems}" 
+                                DisplayMemberPath="RUR_Nazwa"  
+                                SelectedValuePath="RUR_RurID"  
+                                SelectedValue="{Binding Path=WUR_RurID,Mode=TwoWay}"
+                                VerticalAlignment="Center"
+                                />
+        <Label Grid.Row="3" Grid.Column="0" Content="Pracownik" Margin="0,8,0,8"/>
+        <ComboBox 
+                                Grid.Row="3" 
+                                Grid.Column="1" 
+                                ItemsSource="{Binding  PracownikComboBoxItems}" 
+                                DisplayMemberPath="PRA_Imie"  
+                                SelectedValuePath="PRA_PraID"  
+                                SelectedValue="{Binding Path=WUR_PraID,Mode=TwoWay}"
+                                VerticalAlignment="Center"
+                                />
+
+        <Button Grid.Row="5" Margin="20,4,0,0" Grid.ColumnSpan="2" Background="Red" Content="Dodaj Wniosek Urlopowy" Foreground="White" Command="{Binding SaveCommand}" FontSize="20"/>
+    </Grid>
+</UserControl>
+

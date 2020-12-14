@@ -5,9 +5,17 @@ FC:\Users\Luk\source\studia\akornatka-26042020150852-SameOknaGrupaOnline\SameOkn
 FC:\Users\Luk\source\studia\akornatka-26042020150852-SameOknaGrupaOnline\SameOknaGrupaOnline\MVVMFirmaSameOkna\MVVMFirma\Views\Dodawanie\DodajFaktureView.xaml;;
 FC:\Users\Luk\source\studia\akornatka-26042020150852-SameOknaGrupaOnline\SameOknaGrupaOnline\MVVMFirmaSameOkna\MVVMFirma\Views\Dodawanie\DodajGrafikPracyView.xaml;;
 FC:\Users\Luk\source\studia\akornatka-26042020150852-SameOknaGrupaOnline\SameOknaGrupaOnline\MVVMFirmaSameOkna\MVVMFirma\Views\Dodawanie\DodajJednostkiMiaryView.xaml;;
+FC:\Users\Luk\source\studia\akornatka-26042020150852-SameOknaGrupaOnline\SameOknaGrupaOnline\MVVMFirmaSameOkna\MVVMFirma\Views\Dodawanie\DodajKategorieTowarowView.xaml;;
+FC:\Users\Luk\source\studia\akornatka-26042020150852-SameOknaGrupaOnline\SameOknaGrupaOnline\MVVMFirmaSameOkna\MVVMFirma\Views\Dodawanie\DodajKlientaView.xaml;;
+FC:\Users\Luk\source\studia\akornatka-26042020150852-SameOknaGrupaOnline\SameOknaGrupaOnline\MVVMFirmaSameOkna\MVVMFirma\Views\Dodawanie\DodajPozycjeFakturView.xaml;;
 FC:\Users\Luk\source\studia\akornatka-26042020150852-SameOknaGrupaOnline\SameOknaGrupaOnline\MVVMFirmaSameOkna\MVVMFirma\Views\Dodawanie\DodajPracownikaView.xaml;;
+FC:\Users\Luk\source\studia\akornatka-26042020150852-SameOknaGrupaOnline\SameOknaGrupaOnline\MVVMFirmaSameOkna\MVVMFirma\Views\Dodawanie\DodajRodzajUrlopuView.xaml;;
+FC:\Users\Luk\source\studia\akornatka-26042020150852-SameOknaGrupaOnline\SameOknaGrupaOnline\MVVMFirmaSameOkna\MVVMFirma\Views\Dodawanie\DodajSposobPlatnosciView.xaml;;
+FC:\Users\Luk\source\studia\akornatka-26042020150852-SameOknaGrupaOnline\SameOknaGrupaOnline\MVVMFirmaSameOkna\MVVMFirma\Views\Dodawanie\DodajStrefeCzasowaView.xaml;;
+FC:\Users\Luk\source\studia\akornatka-26042020150852-SameOknaGrupaOnline\SameOknaGrupaOnline\MVVMFirmaSameOkna\MVVMFirma\Views\Dodawanie\DodajTowarView.xaml;;
 FC:\Users\Luk\source\studia\akornatka-26042020150852-SameOknaGrupaOnline\SameOknaGrupaOnline\MVVMFirmaSameOkna\MVVMFirma\Views\Dodawanie\DodajUrlopyView.xaml;;
 FC:\Users\Luk\source\studia\akornatka-26042020150852-SameOknaGrupaOnline\SameOknaGrupaOnline\MVVMFirmaSameOkna\MVVMFirma\Views\Dodawanie\DodajJezykAplikacjiView.xaml;;
+FC:\Users\Luk\source\studia\akornatka-26042020150852-SameOknaGrupaOnline\SameOknaGrupaOnline\MVVMFirmaSameOkna\MVVMFirma\Views\Dodawanie\DodajWniosekUrlopowyView.xaml;;
 FC:\Users\Luk\source\studia\akornatka-26042020150852-SameOknaGrupaOnline\SameOknaGrupaOnline\MVVMFirmaSameOkna\MVVMFirma\Views\Dodawanie\DodajZdarzenieView.xaml;;
 FC:\Users\Luk\source\studia\akornatka-26042020150852-SameOknaGrupaOnline\SameOknaGrupaOnline\MVVMFirmaSameOkna\MVVMFirma\Views\MainWindow.xaml;;
 FC:\Users\Luk\source\studia\akornatka-26042020150852-SameOknaGrupaOnline\SameOknaGrupaOnline\MVVMFirmaSameOkna\MVVMFirma\Content\Styles\MainWindowResources.xaml;;
@@ -15,6 +23,9 @@ FC:\Users\Luk\source\studia\akornatka-26042020150852-SameOknaGrupaOnline\SameOkn
 FC:\Users\Luk\source\studia\akornatka-26042020150852-SameOknaGrupaOnline\SameOknaGrupaOnline\MVVMFirmaSameOkna\MVVMFirma\Content\Styles\StylZakladek.xaml;;
 FC:\Users\Luk\source\studia\akornatka-26042020150852-SameOknaGrupaOnline\SameOknaGrupaOnline\MVVMFirmaSameOkna\MVVMFirma\Views\PracownicyView.xaml;;
 FC:\Users\Luk\source\studia\akornatka-26042020150852-SameOknaGrupaOnline\SameOknaGrupaOnline\MVVMFirmaSameOkna\MVVMFirma\Views\LokalizacjeView.xaml;;
+FC:\Users\Luk\source\studia\akornatka-26042020150852-SameOknaGrupaOnline\SameOknaGrupaOnline\MVVMFirmaSameOkna\MVVMFirma\Views\WybieraniePozycji\FakturyView.xaml;;
+FC:\Users\Luk\source\studia\akornatka-26042020150852-SameOknaGrupaOnline\SameOknaGrupaOnline\MVVMFirmaSameOkna\MVVMFirma\Views\WybieraniePozycji\JednostkiMiaryView.xaml;;
+FC:\Users\Luk\source\studia\akornatka-26042020150852-SameOknaGrupaOnline\SameOknaGrupaOnline\MVVMFirmaSameOkna\MVVMFirma\Views\WybieraniePozycji\TowaryView.xaml;;
 FC:\Users\Luk\source\studia\akornatka-26042020150852-SameOknaGrupaOnline\SameOknaGrupaOnline\MVVMFirmaSameOkna\MVVMFirma\Views\Zakladki\DelegacjeView.xaml;;
 FC:\Users\Luk\source\studia\akornatka-26042020150852-SameOknaGrupaOnline\SameOknaGrupaOnline\MVVMFirmaSameOkna\MVVMFirma\Views\Zakladki\OAplikacjiView.xaml;;
 FC:\Users\Luk\source\studia\akornatka-26042020150852-SameOknaGrupaOnline\SameOknaGrupaOnline\MVVMFirmaSameOkna\MVVMFirma\Views\Zakladki\OpcjeView.xaml;;

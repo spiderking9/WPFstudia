@@ -11,6 +11,7 @@ using System.Windows.Data;
 using System.Windows.Input;
 using UrlopyApiXaml;
 using UrlopyApiXaml.ViewModels.Zakladki;
+using UrlopyApiXaml.ViewModels.WybieraniePozycji;
 using UrlopyApiXaml.ViewModels.Dodawanie;
 using GalaSoft.MvvmLight.Messaging;
 
@@ -187,7 +188,13 @@ namespace UrlopyApiXaml.ViewModels
                 new CommandViewModel("DodajUrlopy",DodajUrlopyCommand,"\uf030"),
                 new CommandViewModel("DodajJezykApp",new BaseCommand(() => this.CreateView(new DodajJezykAplikacjiViewModel())),"\uf2cd"),
                 new CommandViewModel("DodajJednMiary",new BaseCommand(() => this.CreateView(new DodajJednostkiMiaryViewModel())),"\uf2cd"),
-
+                new CommandViewModel("DodajKatTowar",new BaseCommand(() => this.CreateView(new DodajKategorieTowarowViewModel())),"\uf1f3"),
+                new CommandViewModel("DodajKlienta",new BaseCommand(() => this.CreateView(new DodajKlientaViewModel())),"\uf1f3"),
+                new CommandViewModel("DodajPozycjeFaktury",new BaseCommand(() => this.CreateView(new DodajPozycjeFakturViewModel())),"\uf2cd"),
+                new CommandViewModel("DodajRodzajUrlopu",new BaseCommand(() => this.CreateView(new DodajRodzajUrlopuViewModel())),"\uf2cd"),
+                new CommandViewModel("DodajSposobPlatnosci",new BaseCommand(() => this.CreateView(new DodajSposobPlatnosciViewModel())),"\uf2cd"),
+                new CommandViewModel("DodajTowar",new BaseCommand(() => this.CreateView(new DodajTowarViewModel())),"\uf2cd"),
+                new CommandViewModel("DodajWniosekUrlop",new BaseCommand(() => this.CreateView(new DodajWniosekUrlopowyViewModel())),"\uf2cd")
 
             };
         }
@@ -229,11 +236,15 @@ namespace UrlopyApiXaml.ViewModels
         private void open(string name) //w argumencie name jest zapisana treść komunikatu odebrana przez Messanger
         {
             if (name == "DodajZdarzenie")
-            {
                 CreateView(new DodajZdarzenieViewModel());
-            }
             if (name == "EdytujPracownika")
                 CreateView(new DodajPracownikaViewModel());
+            if (name == "ShowTowarPF")
+                ShowAllObjects<TowaryViewModel>();
+            if (name == "ShowFakturyPF")
+                ShowAllObjects<FakturyViewModel>();
+            if (name == "ShowJednostkaMiaryPF")
+                ShowAllObjects<JednostkiMiaryViewModel>();
         }
 
         //
