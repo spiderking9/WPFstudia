@@ -20,7 +20,7 @@ namespace UrlopyApiXaml.Views
     /// <summary>
     /// Interaction logic for ZdarzenieView.xaml
     /// </summary>
-    public partial class ZdarzeniaView : UserControl
+    public partial class ZdarzeniaView : DodajUsunEdytujOdswiezViewBase
     {
         public ZdarzeniaView()
         {

@@ -12,6 +12,7 @@ namespace UrlopyApiXaml.ViewModels.Dodawanie
         public DodajUrlopyViewModel() : base()
         {
             item = new URL_Urlopy();
+            item.URL_CzyAktywny = true;
             base.DisplayName = "Dodaj Urlopy";
             URL_DzienDo = DateTime.Now;
             URL_DzienOd = DateTime.Now;

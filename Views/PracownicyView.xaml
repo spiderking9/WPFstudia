@@ -16,6 +16,7 @@
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="3*"/>
             <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="52"/>
         </Grid.ColumnDefinitions>
         <ItemsControl ItemsSource="{Binding ListDzialow}" Grid.Column="1">
             <ItemsControl.Template>

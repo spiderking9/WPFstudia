@@ -14,24 +14,31 @@ namespace UrlopyApiXaml.ViewModels
 {
     public class ZdarzeniaViewModel : WszystkieViewModel<ZdarzeniaView>
     {
-        private BaseCommand _DodajZdarzenie;
+
+        private ZdarzeniaView _WybraneZdarzenie;
+
+        public ZdarzeniaView WybraneZdarzenie
+        {
+            get
+            {
+                return _WybraneZdarzenie;
+            }
+            set
+            {
+                if (_WybraneZdarzenie != value)
+                {
+                    _WybraneZdarzenie = value;
+                }
+            }
+        }
         #region Constructor
         public ZdarzeniaViewModel() : base()
         {
             base.DisplayName = "Zdarzenia";
         }
         #endregion Constructor
-        public ICommand DodajZdarzenie
-        {
-            get
-            {
-                if (_DodajZdarzenie == null)
-                {
-                    _DodajZdarzenie = new BaseCommand(() => Messenger.Default.Send("DodajZdarzenie"));
-                }
-                return _DodajZdarzenie;
-            }
-        }
+
+
         #region Helpers
         // metoda load pobierze z bazy wszystkie towary i przypisze je do listy
         public override void load()
@@ -41,13 +48,30 @@ namespace UrlopyApiXaml.ViewModels
             List = new ObservableCollection<ZdarzeniaView>
             (
                 from zdarz in urlopyApiXaml.ZDA_Zdarzenia
+                where zdarz.ZDA_CzyAktywny==true
                 select new ZdarzeniaView
                 {
-                    ZDA_ZdaID = "Lp."+zdarz.ZDA_ZdaID,
+                    ZDA_ZdaID = zdarz.ZDA_ZdaID,
                     ImieNazwisko = zdarz.PRA_Pracownicy.PRA_Imie + " " + zdarz.PRA_Pracownicy.PRA_Nazwisko,
                     ZDA_Nazwa = zdarz.ZDA_Nazwa
                 }
             );
+        }
+        public override void edit()
+        {
+            if(WybraneZdarzenie!=null)
+            Messenger.Default.Send(urlopyApiXaml.ZDA_Zdarzenia.FirstOrDefault(m => m.ZDA_ZdaID == WybraneZdarzenie.ZDA_ZdaID));
+        }
+        public override void del()
+        {
+            ZDA_Zdarzenia www = urlopyApiXaml.ZDA_Zdarzenia.FirstOrDefault(m => m.ZDA_ZdaID == WybraneZdarzenie.ZDA_ZdaID);
+            www.ZDA_CzyAktywny=false;
+            urlopyApiXaml.SaveChanges();
+            load();
+        }
+        public override void add()
+        {
+            Messenger.Default.Send("DodajZdarzenie");
         }
         #endregion Helpers
 

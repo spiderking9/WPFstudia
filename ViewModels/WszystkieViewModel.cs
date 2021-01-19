@@ -18,6 +18,9 @@ namespace UrlopyApiXaml.ViewModels
         private BaseCommand _LoadCommand;
         //w tej kolekcji beda przechowywane wszystkie towary z bazy danych
         private ObservableCollection<T> _List;
+        private BaseCommand _DodajCommand;
+        private BaseCommand _DelCommand;
+        private BaseCommand _EditCommand;
         #endregion Fields
         #region Properties
         //ta komenda wywoluje komende Load
@@ -30,6 +33,40 @@ namespace UrlopyApiXaml.ViewModels
                     _LoadCommand = new BaseCommand(() => load());
                 }
                 return _LoadCommand;
+            }
+        }
+
+        public ICommand DelCommand
+        {
+            get
+            {
+                if (_DelCommand == null)
+                {
+                    _DelCommand = new BaseCommand(() => del());
+                }
+                return _DelCommand;
+            }
+        }
+        public ICommand EditCommand
+        {
+            get
+            {
+                if (_EditCommand == null)
+                {
+                    _EditCommand = new BaseCommand(() => edit());
+                }
+                return _EditCommand;
+            }
+        }
+        public ICommand DodajCommand
+        {
+            get
+            {
+                if (_DodajCommand == null)
+                {
+                    _DodajCommand = new BaseCommand(() => add());
+                }
+                return _DodajCommand;
             }
         }
         public ObservableCollection<T> List
@@ -55,6 +92,9 @@ namespace UrlopyApiXaml.ViewModels
         #region Helpers
         // metoda load pobierze z bazy wszystkie towary i przypisze je do listy
         public abstract void load();
+        public virtual void add() { }
+        public virtual void del() { }
+        public virtual void edit() { }
         #endregion Helpers
 
     }

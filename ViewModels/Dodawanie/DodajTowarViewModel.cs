@@ -12,6 +12,7 @@ namespace UrlopyApiXaml.ViewModels.Dodawanie
         public DodajTowarViewModel() : base()
         {
             item = new TOW_Towary();
+            item.TOW_CzyAktywny = true;
             base.DisplayName = "Dodaj Towar";
 
         }

@@ -36,11 +36,13 @@ C:\Users\Luk\source\studia\akornatka-26042020150852-SameOknaGrupaOnline\SameOkna
 C:\Users\Luk\source\studia\akornatka-26042020150852-SameOknaGrupaOnline\SameOknaGrupaOnline\MVVMFirmaSameOkna\MVVMFirma\bin\Debug\ru\Xceed.Wpf.AvalonDock.resources.dll
 C:\Users\Luk\source\studia\akornatka-26042020150852-SameOknaGrupaOnline\SameOknaGrupaOnline\MVVMFirmaSameOkna\MVVMFirma\bin\Debug\sv\Xceed.Wpf.AvalonDock.resources.dll
 C:\Users\Luk\source\studia\akornatka-26042020150852-SameOknaGrupaOnline\SameOknaGrupaOnline\MVVMFirmaSameOkna\MVVMFirma\bin\Debug\zh-Hans\Xceed.Wpf.AvalonDock.resources.dll
+C:\Users\Luk\source\studia\akornatka-26042020150852-SameOknaGrupaOnline\SameOknaGrupaOnline\MVVMFirmaSameOkna\MVVMFirma\obj\x86\Debug\UrlopyApiXaml.csprojAssemblyReference.cache
 C:\Users\Luk\source\studia\akornatka-26042020150852-SameOknaGrupaOnline\SameOknaGrupaOnline\MVVMFirmaSameOkna\MVVMFirma\obj\x86\Debug\Content\Styles\Przyciski.baml
 C:\Users\Luk\source\studia\akornatka-26042020150852-SameOknaGrupaOnline\SameOknaGrupaOnline\MVVMFirmaSameOkna\MVVMFirma\obj\x86\Debug\Content\Styles\Delegacje.baml
 C:\Users\Luk\source\studia\akornatka-26042020150852-SameOknaGrupaOnline\SameOknaGrupaOnline\MVVMFirmaSameOkna\MVVMFirma\obj\x86\Debug\Content\Styles\DodajDelegacje.baml
 C:\Users\Luk\source\studia\akornatka-26042020150852-SameOknaGrupaOnline\SameOknaGrupaOnline\MVVMFirmaSameOkna\MVVMFirma\obj\x86\Debug\Content\Styles\GrafikPracy.baml
-C:\Users\Luk\source\studia\akornatka-26042020150852-SameOknaGrupaOnline\SameOknaGrupaOnline\MVVMFirmaSameOkna\MVVMFirma\obj\x86\Debug\Views\GrafikPracyView.baml
+C:\Users\Luk\source\studia\akornatka-26042020150852-SameOknaGrupaOnline\SameOknaGrupaOnline\MVVMFirmaSameOkna\MVVMFirma\obj\x86\Debug\Content\Styles\Urlopy.baml
+C:\Users\Luk\source\studia\akornatka-26042020150852-SameOknaGrupaOnline\SameOknaGrupaOnline\MVVMFirmaSameOkna\MVVMFirma\obj\x86\Debug\Views\Listy\GrafikPracyView.baml
 C:\Users\Luk\source\studia\akornatka-26042020150852-SameOknaGrupaOnline\SameOknaGrupaOnline\MVVMFirmaSameOkna\MVVMFirma\obj\x86\Debug\Views\PrzegladView.baml
 C:\Users\Luk\source\studia\akornatka-26042020150852-SameOknaGrupaOnline\SameOknaGrupaOnline\MVVMFirmaSameOkna\MVVMFirma\obj\x86\Debug\Views\Dodawanie\DodajFaktureView.g.cs
 C:\Users\Luk\source\studia\akornatka-26042020150852-SameOknaGrupaOnline\SameOknaGrupaOnline\MVVMFirmaSameOkna\MVVMFirma\obj\x86\Debug\Views\Dodawanie\DodajGrafikPracyView.g.cs
@@ -57,9 +59,10 @@ C:\Users\Luk\source\studia\akornatka-26042020150852-SameOknaGrupaOnline\SameOkna
 C:\Users\Luk\source\studia\akornatka-26042020150852-SameOknaGrupaOnline\SameOknaGrupaOnline\MVVMFirmaSameOkna\MVVMFirma\obj\x86\Debug\Views\Dodawanie\DodajJezykAplikacjiView.g.cs
 C:\Users\Luk\source\studia\akornatka-26042020150852-SameOknaGrupaOnline\SameOknaGrupaOnline\MVVMFirmaSameOkna\MVVMFirma\obj\x86\Debug\Views\Dodawanie\DodajWniosekUrlopowyView.g.cs
 C:\Users\Luk\source\studia\akornatka-26042020150852-SameOknaGrupaOnline\SameOknaGrupaOnline\MVVMFirmaSameOkna\MVVMFirma\obj\x86\Debug\Views\Dodawanie\DodajZdarzenieView.g.cs
+C:\Users\Luk\source\studia\akornatka-26042020150852-SameOknaGrupaOnline\SameOknaGrupaOnline\MVVMFirmaSameOkna\MVVMFirma\obj\x86\Debug\Views\Listy\ListaWnioskowUrlopowychView.g.cs
 C:\Users\Luk\source\studia\akornatka-26042020150852-SameOknaGrupaOnline\SameOknaGrupaOnline\MVVMFirmaSameOkna\MVVMFirma\obj\x86\Debug\Views\MainWindow.g.cs
 C:\Users\Luk\source\studia\akornatka-26042020150852-SameOknaGrupaOnline\SameOknaGrupaOnline\MVVMFirmaSameOkna\MVVMFirma\obj\x86\Debug\Views\NowaFakturaView.g.cs
-C:\Users\Luk\source\studia\akornatka-26042020150852-SameOknaGrupaOnline\SameOknaGrupaOnline\MVVMFirmaSameOkna\MVVMFirma\obj\x86\Debug\Views\GrafikPracyView.g.cs
+C:\Users\Luk\source\studia\akornatka-26042020150852-SameOknaGrupaOnline\SameOknaGrupaOnline\MVVMFirmaSameOkna\MVVMFirma\obj\x86\Debug\Views\Listy\GrafikPracyView.g.cs
 C:\Users\Luk\source\studia\akornatka-26042020150852-SameOknaGrupaOnline\SameOknaGrupaOnline\MVVMFirmaSameOkna\MVVMFirma\obj\x86\Debug\Views\PrzegladView.g.cs
 C:\Users\Luk\source\studia\akornatka-26042020150852-SameOknaGrupaOnline\SameOknaGrupaOnline\MVVMFirmaSameOkna\MVVMFirma\obj\x86\Debug\Views\PracownicyView.g.cs
 C:\Users\Luk\source\studia\akornatka-26042020150852-SameOknaGrupaOnline\SameOknaGrupaOnline\MVVMFirmaSameOkna\MVVMFirma\obj\x86\Debug\Views\LokalizacjeView.g.cs
@@ -77,7 +80,7 @@ C:\Users\Luk\source\studia\akornatka-26042020150852-SameOknaGrupaOnline\SameOkna
 C:\Users\Luk\source\studia\akornatka-26042020150852-SameOknaGrupaOnline\SameOknaGrupaOnline\MVVMFirmaSameOkna\MVVMFirma\obj\x86\Debug\GeneratedInternalTypeHelper.g.cs
 C:\Users\Luk\source\studia\akornatka-26042020150852-SameOknaGrupaOnline\SameOknaGrupaOnline\MVVMFirmaSameOkna\MVVMFirma\obj\x86\Debug\UrlopyApiXaml_MarkupCompile.cache
 C:\Users\Luk\source\studia\akornatka-26042020150852-SameOknaGrupaOnline\SameOknaGrupaOnline\MVVMFirmaSameOkna\MVVMFirma\obj\x86\Debug\UrlopyApiXaml_MarkupCompile.lref
-C:\Users\Luk\source\studia\akornatka-26042020150852-SameOknaGrupaOnline\SameOknaGrupaOnline\MVVMFirmaSameOkna\MVVMFirma\obj\x86\Debug\Content\Styles\Urlopy.baml
+C:\Users\Luk\source\studia\akornatka-26042020150852-SameOknaGrupaOnline\SameOknaGrupaOnline\MVVMFirmaSameOkna\MVVMFirma\obj\x86\Debug\Content\Styles\DataGridStyle.baml
 C:\Users\Luk\source\studia\akornatka-26042020150852-SameOknaGrupaOnline\SameOknaGrupaOnline\MVVMFirmaSameOkna\MVVMFirma\obj\x86\Debug\Themes\Generic.baml
 C:\Users\Luk\source\studia\akornatka-26042020150852-SameOknaGrupaOnline\SameOknaGrupaOnline\MVVMFirmaSameOkna\MVVMFirma\obj\x86\Debug\Views\Dodawanie\DodajFaktureView.baml
 C:\Users\Luk\source\studia\akornatka-26042020150852-SameOknaGrupaOnline\SameOknaGrupaOnline\MVVMFirmaSameOkna\MVVMFirma\obj\x86\Debug\Views\Dodawanie\DodajGrafikPracyView.baml
@@ -94,6 +97,7 @@ C:\Users\Luk\source\studia\akornatka-26042020150852-SameOknaGrupaOnline\SameOkna
 C:\Users\Luk\source\studia\akornatka-26042020150852-SameOknaGrupaOnline\SameOknaGrupaOnline\MVVMFirmaSameOkna\MVVMFirma\obj\x86\Debug\Views\Dodawanie\DodajJezykAplikacjiView.baml
 C:\Users\Luk\source\studia\akornatka-26042020150852-SameOknaGrupaOnline\SameOknaGrupaOnline\MVVMFirmaSameOkna\MVVMFirma\obj\x86\Debug\Views\Dodawanie\DodajWniosekUrlopowyView.baml
 C:\Users\Luk\source\studia\akornatka-26042020150852-SameOknaGrupaOnline\SameOknaGrupaOnline\MVVMFirmaSameOkna\MVVMFirma\obj\x86\Debug\Views\Dodawanie\DodajZdarzenieView.baml
+C:\Users\Luk\source\studia\akornatka-26042020150852-SameOknaGrupaOnline\SameOknaGrupaOnline\MVVMFirmaSameOkna\MVVMFirma\obj\x86\Debug\Views\Listy\ListaWnioskowUrlopowychView.baml
 C:\Users\Luk\source\studia\akornatka-26042020150852-SameOknaGrupaOnline\SameOknaGrupaOnline\MVVMFirmaSameOkna\MVVMFirma\obj\x86\Debug\Views\MainWindow.baml
 C:\Users\Luk\source\studia\akornatka-26042020150852-SameOknaGrupaOnline\SameOknaGrupaOnline\MVVMFirmaSameOkna\MVVMFirma\obj\x86\Debug\Content\Styles\MainWindowResources.baml
 C:\Users\Luk\source\studia\akornatka-26042020150852-SameOknaGrupaOnline\SameOknaGrupaOnline\MVVMFirmaSameOkna\MVVMFirma\obj\x86\Debug\Views\NowaFakturaView.baml

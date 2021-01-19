@@ -12,6 +12,7 @@ namespace UrlopyApiXaml.ViewModels.Dodawanie
         public DodajRodzajUrlopuViewModel() : base()
         {
             item = new RUR_RodzajeUrlopow();
+            item.RUR_CzyAktywny = true;
             base.DisplayName = "Dodaj RodzajUrlopu";
         }
         #endregion Constructor

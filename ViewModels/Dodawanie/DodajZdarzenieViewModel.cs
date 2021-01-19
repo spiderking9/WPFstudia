@@ -9,9 +9,17 @@ namespace UrlopyApiXaml.ViewModels.Dodawanie
     public class DodajZdarzenieViewModel : NowyViewModel<ZDA_Zdarzenia>
     {
         #region Constructor
-        public DodajZdarzenieViewModel() : base()
+        public DodajZdarzenieViewModel(ZDA_Zdarzenia itemEdytowany) : base()
         {
-            item = new ZDA_Zdarzenia();
+            if (itemEdytowany == null)
+            {
+                item = new ZDA_Zdarzenia();
+                item.ZDA_CzyAktywny = true;
+            }
+            else
+            {
+                item = itemEdytowany;
+            }
             base.DisplayName = "Dodaj Zdarzenie";
         }
         #endregion Constructor
@@ -70,7 +78,16 @@ namespace UrlopyApiXaml.ViewModels.Dodawanie
         #region Helpers
         public override void Save()
         {
-            urlopyApiXaml.ZDA_Zdarzenia.Add(item);
+            if (item.ZDA_ZdaID == null)
+            {
+                urlopyApiXaml.ZDA_Zdarzenia.Add(item);
+            }
+            else
+            {
+                var zdarzenie = urlopyApiXaml.ZDA_Zdarzenia.FirstOrDefault(x => x.ZDA_ZdaID == item.ZDA_ZdaID);
+                zdarzenie.ZDA_Nazwa = ZDA_Nazwa;
+                zdarzenie.ZDA_PraID = ZDA_PraID;
+            }
             urlopyApiXaml.SaveChanges();
         }
 

@@ -92,7 +92,7 @@
             <Label Grid.Row="18" Grid.Column="0" Content="Gmina" Margin="0,8,0,8"/>
             <TextBox Grid.Row="18" Grid.Column="1" Margin="0,8,0,8" Width="150" HorizontalAlignment="Left" Text="{Binding PRA_Gmina,UpdateSourceTrigger=PropertyChanged}"/>
 
-            <Button Grid.Row="19" Margin="20,4,0,0" Grid.ColumnSpan="2" Background="Red" Content="Dodaj Pracownika" Foreground="White" Command="{Binding SaveCommand}" FontSize="20"/>
+            <Button Grid.Row="19" Margin="20,4,0,0" Grid.ColumnSpan="2" Content="Dodaj Pracownika" Foreground="White" Command="{Binding SaveCommand}" FontSize="20"/>
         </Grid>
     </Grid>
 </UserControl>

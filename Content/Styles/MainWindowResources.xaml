@@ -4,11 +4,16 @@
                     xmlns:vmm="clr-namespace:UrlopyApiXaml.ViewModels.Zakladki"
                     xmlns:vmd="clr-namespace:UrlopyApiXaml.ViewModels.Dodawanie"
                     xmlns:vmw="clr-namespace:UrlopyApiXaml.ViewModels.WybieraniePozycji"
+                    xmlns:vml="clr-namespace:UrlopyApiXaml.ViewModels.Listy"
                     xmlns:vw="clr-namespace:UrlopyApiXaml.Views"
                     xmlns:vwm="clr-namespace:UrlopyApiXaml.Views.Zakladki"
                     xmlns:vwd="clr-namespace:UrlopyApiXaml.Views.Dodawanie"
                     xmlns:vww="clr-namespace:UrlopyApiXaml.Views.WybieraniePozycji"
+                    xmlns:vwl="clr-namespace:UrlopyApiXaml.Views.Listy"
                     >
+    <DataTemplate DataType="{x:Type vml:ListaWnioskowUrlopowychViewModel}">
+        <vwl:ListaWnioskowUrlopowychView/>
+    </DataTemplate>
     <DataTemplate DataType="{x:Type vmw:FakturyViewModel}">
         <vww:FakturyView/>
     </DataTemplate>
@@ -81,8 +86,8 @@
     <DataTemplate DataType="{x:Type vm:PrzegladViewModel}">
         <vw:PrzegladView/>
     </DataTemplate>
-    <DataTemplate DataType="{x:Type vm:GrafikPracyViewModel}">
-        <vw:GrafikPracyView/>
+    <DataTemplate DataType="{x:Type vml:GrafikPracyViewModel}">
+        <vwl:GrafikPracyView/>
     </DataTemplate>
     <DataTemplate DataType="{x:Type vm:PracownicyViewModel}">
         <vw:PracownicyView/>
@@ -100,7 +105,25 @@
     <Style TargetType="{x:Type MenuItem}" >
         <Setter Property="Height" Value="34" />
     </Style>
-    
+
+    <Style x:Key="{x:Type DataGrid}"
+TargetType="{x:Type DataGrid}">
+        <Setter Property="AlternatingRowBackground"
+Value="White" />
+        <Setter Property="AlternationCount"
+Value="2" />
+        <Setter Property="Background"
+Value="White" />
+        <Setter Property="BorderThickness"
+Value="0" />
+        <Setter Property="Foreground"
+Value="Black" />
+        <Setter Property="HeadersVisibility"
+Value="Column" />
+        <Setter Property="RowBackground"
+Value="#BDBDBD" />
+    </Style>
+
     <Style x:Key="MenuPanel" TargetType="Menu">
         <Style.Resources>
             <Style TargetType="{x:Type TextBlock}" >
@@ -174,6 +197,38 @@
         </Style.Triggers>
     </Style>
 
+    <Style TargetType="{x:Type Border}" x:Key="xxx2">
+        <Setter Property="Background" Value="{DynamicResource ResourceKey=gradientBrushSegmentedTabItem}" />
+        <Setter Property="BorderBrush" Value="LightGray" />
+        <Setter Property="BorderThickness" Value="3" />
+        <Setter Property="Margin" Value="-120,0,-190,0" />
+        <Setter Property="CornerRadius" Value="5" />
+        <Setter Property="SnapsToDevicePixels" Value="True" />
+        <Style.Triggers>
+            <Trigger Property="IsMouseOver" Value="True">
+                <Trigger.EnterActions>
+                    <BeginStoryboard>
+                        <Storyboard>
+                            <ThicknessAnimationUsingKeyFrames Storyboard.TargetProperty="Margin" BeginTime="00:00:00">
+                                <SplineThicknessKeyFrame KeyTime="00:00:00.3" Value="-180,0,1,0" />
+                            </ThicknessAnimationUsingKeyFrames>
+                        </Storyboard>
+                    </BeginStoryboard>
+                </Trigger.EnterActions>
+                <Trigger.ExitActions>
+                    <BeginStoryboard>
+                        <Storyboard>
+                            <ThicknessAnimationUsingKeyFrames Storyboard.TargetProperty="Margin" BeginTime="00:00:00">
+
+                                <SplineThicknessKeyFrame KeyTime="00:00:00.3" Value="-120,0,-190,0" />
+                            </ThicknessAnimationUsingKeyFrames>
+                        </Storyboard>
+                    </BeginStoryboard>
+                </Trigger.ExitActions>
+            </Trigger>
+        </Style.Triggers>
+    </Style>
+
     <!--
   This template explains how to render the list of commands on the left
   side in the main window (the 'Control Panel' area).
@@ -198,6 +253,25 @@
         </ItemsControl>
     </DataTemplate>
 
+    <DataTemplate x:Key="CommandsTemplate2">
+        <ItemsControl IsTabStop="False" ItemsSource="{Binding}" Margin="5,2">
+            <ItemsControl.ItemTemplate>
+                <DataTemplate>
+                    <Grid Margin="4,4" >
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto" />
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="Auto" />
+                        </Grid.ColumnDefinitions>
+                        <Button Command="{Binding Path=Command}" Style="{DynamicResource leweMenuButton}" Grid.Column="2">
+                            <TextBlock Text="{Binding Path=DisplayName}" />
+                        </Button>
+                        <TextBlock Margin="0,4,0,0" Text="{Binding Path=DisplayIcon}" FontFamily="{StaticResource ResourceKey=FontAwesome}" FontSize="28" Grid.Column="0" />
+                    </Grid>
+                </DataTemplate>
+            </ItemsControl.ItemTemplate>
+        </ItemsControl>
+    </DataTemplate>
     <!-- 
   This template explains how to render 
   a tab item with a close button.
@@ -332,7 +406,7 @@
                         <Trigger Property="IsSelected" Value="True">
                             <Setter TargetName="rightBorder"
                                 Property="Background"
-                                Value="red" />
+                                Value="{DynamicResource gradientBrushIsActive}" />
                             <Setter TargetName="leftBorder"
                                 Property="BorderThickness"
                                 Value="0" />
@@ -340,7 +414,7 @@
                         <Trigger Property="IsMouseOver" Value="True">
                             <Setter TargetName="rightBorder"
                                 Property="Opacity"
-                                Value="0.7" />
+                                Value="0.4" />
                         </Trigger>
                     </ControlTemplate.Triggers>
                 </ControlTemplate>
@@ -354,32 +428,56 @@
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="Button">
-                    <Grid>
-                        <Border BorderThickness="2" 
-                                    CornerRadius="4"
-                                    Padding="3"
-                                    x:Name="ButtonConectorTriger"
-                                    Background="{DynamicResource gradientBrushSegmentedTabItem}"
-                                >
-                            <Border.BorderBrush>
-                                <SolidColorBrush x:Name="ButtonBorderBrush" Color="White"/>
-                            </Border.BorderBrush>
-                            <ContentPresenter VerticalAlignment="Center"
-                                      Margin="4,2" />
+
+                    <Border x:Name="rightBorder"
+                        BorderThickness="0,0,1,0"
+                        BorderBrush="#032A6B"
+                        Background="{DynamicResource gradientBrushSegmentedTabItem}">
+                        <Border x:Name="leftBorder"
+                            BorderThickness="1,0,0,0"
+                            BorderBrush="#2172B1">
+                            <ContentPresenter x:Name="ContentSite"
+                                           
+                                            
+                                            HorizontalAlignment="Stretch"
+                                            Margin="20,4,20,5"
+                                            RecognizesAccessKey="True"
+                                            VerticalAlignment="Center"
+                                            TextBlock.FontSize="14"
+                                            TextBlock.Foreground="#FFFFFF">
+                                <ContentPresenter.Effect>
+                                    <DropShadowEffect BlurRadius="0.0"
+                                                    Color="#032A6B"
+                                                    Direction="90"
+                                                    Opacity="1"
+                                                    ShadowDepth="0" />
+                                </ContentPresenter.Effect>
+                            </ContentPresenter>
                         </Border>
-                    </Grid>
+                    </Border>
+
                     <ControlTemplate.Triggers>
-                        <Trigger Property="IsMouseOver" Value="True">
-                            <Setter TargetName="ButtonConectorTriger" Property="Opacity" Value="0.3" />
-                        </Trigger>
                         <Trigger Property="IsPressed" Value="True">
-                            <Setter TargetName="ButtonConectorTriger" Property="Background" Value="Red" />
-                            <Setter TargetName="ButtonConectorTriger" Property="Opacity" Value="1" />
+                            <Setter TargetName="leftBorder"
+                                Property="Opacity"
+                                Value="0.3" />
+                        </Trigger>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter TargetName="rightBorder"
+                                Property="Opacity"
+                                Value="0.5" />
                         </Trigger>
                     </ControlTemplate.Triggers>
                 </ControlTemplate>
             </Setter.Value>
         </Setter>
+    </Style>
+
+    <Style TargetType="Button">
+        <Setter Property="Background" Value="{DynamicResource gradientBrushSegmentedTabItem}"/>
+        <Setter Property="BorderThickness" Value="1,1,1,1"/>
+        <Setter Property="BorderBrush" Value="White"/>
+
     </Style>
 
 
@@ -393,6 +491,12 @@
         <GradientStop Color="#015CA3" Offset="0.49" />
         <GradientStop Color="#024795" Offset="0.50" />
         <GradientStop Color="#2C5198" Offset="1" />
+    </LinearGradientBrush>
+    <LinearGradientBrush x:Key="gradientBrushIsActive" StartPoint="0.5,0" EndPoint="0.5,1">
+        <GradientStop Color="#4C8BC0" Offset="0" />
+        <GradientStop Color="#CECECE" Offset="0.49" />
+        <GradientStop Color="#024795" Offset="0.50" />
+        <GradientStop Color="#4C8BC0" Offset="1" />
     </LinearGradientBrush>
     <LinearGradientBrush x:Key="gradientBrushSegmentedActiveTabItem" StartPoint="0.5,0" EndPoint="0.5,1">
         <GradientStop Color="#000098" Offset="0" />

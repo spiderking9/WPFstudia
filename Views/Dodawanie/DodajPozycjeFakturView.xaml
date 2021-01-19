@@ -10,6 +10,7 @@
         <Grid>
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="150"/>
+                <ColumnDefinition Width="10"/>
                 <ColumnDefinition Width="150"/>
                 <ColumnDefinition Width="100"/>
             </Grid.ColumnDefinitions>
@@ -27,23 +28,23 @@
                 <RowDefinition Height="50"/>
             </Grid.RowDefinitions>
             <Button Grid.Row="1" Grid.Column="0" Content="Towar" Command="{Binding  ShowTowar}"/>
-            <TextBox Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="2" Margin="0,8,0,8" Width="200" IsEnabled="False" Background="LightGray" HorizontalAlignment="Left" Text="{Binding TowarNazwa,UpdateSourceTrigger=PropertyChanged}"/>
+            <TextBox Grid.Row="1" Grid.Column="2" Grid.ColumnSpan="2" Margin="0,8,0,8" Width="200" IsEnabled="False" Background="LightGray" HorizontalAlignment="Left" Text="{Binding TowarNazwa,UpdateSourceTrigger=PropertyChanged}"/>
             <Button Grid.Row="2" Grid.Column="0" Content="Faktura" Command="{Binding  ShowFaktura}"/>
-            <TextBox Grid.Row="2" Grid.Column="1" Grid.ColumnSpan="2" Margin="0,8,0,8" Width="300" IsEnabled="False" Background="LightGray" HorizontalAlignment="Left" Text="{Binding FakturaNazwa,UpdateSourceTrigger=PropertyChanged}"/>
+            <TextBox Grid.Row="2" Grid.Column="2" Grid.ColumnSpan="2" Margin="0,8,0,8" Width="300" IsEnabled="False" Background="LightGray" HorizontalAlignment="Left" Text="{Binding FakturaNazwa,UpdateSourceTrigger=PropertyChanged}"/>
             <Button Grid.Row="3" Grid.Column="0" Content="Jednostka Miary" Command="{Binding  ShowJednostkaMiary}"/>
-            <TextBox Grid.Row="3" Grid.Column="1" Grid.ColumnSpan="2" Margin="0,8,0,8" Width="200" IsEnabled="False" Background="LightGray" HorizontalAlignment="Left" Text="{Binding JednostkaMiaryNazwa,UpdateSourceTrigger=PropertyChanged}"/>
+            <TextBox Grid.Row="3" Grid.Column="2" Grid.ColumnSpan="2" Margin="0,8,0,8" Width="200" IsEnabled="False" Background="LightGray" HorizontalAlignment="Left" Text="{Binding JednostkaMiaryNazwa,UpdateSourceTrigger=PropertyChanged}"/>
             <Label Grid.Row="4" Grid.Column="0" Content="Nazwa" Margin="0,8,0,8"/>
-            <TextBox Grid.Row="4" Grid.Column="1" Margin="0,8,0,8" Width="150" HorizontalAlignment="Left" Text="{Binding POF_Nazwa,UpdateSourceTrigger=PropertyChanged}"/>
+            <TextBox Grid.Row="4" Grid.Column="2" Margin="0,8,0,8" Width="150" HorizontalAlignment="Left" Text="{Binding POF_Nazwa,UpdateSourceTrigger=PropertyChanged}"/>
             <Label Grid.Row="5" Grid.Column="0" Content="Ilość" Margin="0,8,0,8"/>
-            <TextBox Grid.Row="5" Grid.Column="1" Margin="0,8,0,8" Width="150" HorizontalAlignment="Left" Text="{Binding POF_Ilosc,UpdateSourceTrigger=PropertyChanged}"/>
+            <TextBox Grid.Row="5" Grid.Column="2" Margin="0,8,0,8" Width="150" HorizontalAlignment="Left" Text="{Binding POF_Ilosc,UpdateSourceTrigger=PropertyChanged}"/>
             <Label Grid.Row="6" Grid.Column="0" Content="Cena" Margin="0,8,0,8"/>
-            <TextBox Grid.Row="6" Grid.Column="1" Margin="0,8,0,8" Width="150" HorizontalAlignment="Left" Text="{Binding POF_Cena,UpdateSourceTrigger=PropertyChanged}"/>
+            <TextBox Grid.Row="6" Grid.Column="2" Margin="0,8,0,8" Width="150" HorizontalAlignment="Left" Text="{Binding POF_Cena,UpdateSourceTrigger=PropertyChanged}"/>
             <Label Grid.Row="7" Grid.Column="0" Content="Rabat" Margin="0,8,0,8"/>
-            <TextBox Grid.Row="7" Grid.Column="1" Margin="0,8,0,8" Width="150" HorizontalAlignment="Left" Text="{Binding POF_Rabat,UpdateSourceTrigger=PropertyChanged}"/>
+            <TextBox Grid.Row="7" Grid.Column="2" Margin="0,8,0,8" Width="150" HorizontalAlignment="Left" Text="{Binding POF_Rabat,UpdateSourceTrigger=PropertyChanged}"/>
             <Label Grid.Row="8" Grid.Column="0" Content="Marza" Margin="0,8,0,8"/>
-            <TextBox Grid.Row="8" Grid.Column="1" Margin="0,8,0,8" Width="150" HorizontalAlignment="Left" Text="{Binding POF_Marza,UpdateSourceTrigger=PropertyChanged}"/>
+            <TextBox Grid.Row="8" Grid.Column="2" Margin="0,8,0,8" Width="150" HorizontalAlignment="Left" Text="{Binding POF_Marza,UpdateSourceTrigger=PropertyChanged}"/>
             
-            <Button Grid.Row="10" Margin="20,4,0,0" Grid.ColumnSpan="2" Background="Red" Content="Dodaj Pozycje Faktury" Foreground="White" Command="{Binding SaveCommand}" FontSize="20"/>
+            <Button Grid.Row="10" Margin="20,4,0,0" Grid.ColumnSpan="3" Content="Dodaj Pozycje Faktury" Foreground="White" Command="{Binding SaveCommand}" FontSize="20"/>
         </Grid>
     </Grid>
 </UserControl>

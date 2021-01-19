@@ -12,6 +12,7 @@ namespace UrlopyApiXaml.ViewModels.Dodawanie
         public DodajKategorieTowarowViewModel() : base()
         {
             item = new KAT_KategorieTowarow();
+            item.KAT_CzyAktywny = true;
             base.DisplayName = "Dodaj KategorieTowarow";
         }
         #endregion Constructor

@@ -12,7 +12,7 @@ using UrlopyApiXaml.Models.Entities;
 using UrlopyApiXaml.Models;
 
 
-namespace UrlopyApiXaml.ViewModels
+namespace UrlopyApiXaml.ViewModels.Listy
 {
     public class GrafikPracyViewModel: WszystkieViewModel<GRP_GrafikPracy>
     {

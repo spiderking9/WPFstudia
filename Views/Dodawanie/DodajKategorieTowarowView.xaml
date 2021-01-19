@@ -23,6 +23,6 @@
         <TextBox Grid.Row="1" Grid.Column="1" Margin="0,8,0,8" Width="169" HorizontalAlignment="Left" Text="{Binding KAT_Opis,UpdateSourceTrigger=PropertyChanged}" 
                  VerticalContentAlignment="Top" HorizontalContentAlignment="Left" TextWrapping="Wrap"/>
 
-        <Button Grid.Row="4" Margin="20,4,0,0" Grid.ColumnSpan="2" Background="Red" Content="Dodaj Kategorie Towarow" Foreground="White" Command="{Binding SaveCommand}" FontSize="20"/>
+        <Button Grid.Row="4" Margin="20,4,0,0" Grid.ColumnSpan="2" Content="Dodaj Kategorie Towarow" Foreground="White" Command="{Binding SaveCommand}" FontSize="20"/>
     </Grid>
 </UserControl>

@@ -7,7 +7,7 @@ namespace UrlopyApiXaml.Models.EntitiesForView
 {
     public class ZdarzeniaView
     {
-        public string ZDA_ZdaID { get; set; }
+        public int ZDA_ZdaID { get; set; }
         public string ImieNazwisko { get; set; }
         public string ZDA_Nazwa { get; set; }
 

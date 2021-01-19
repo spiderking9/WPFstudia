@@ -12,6 +12,7 @@ namespace UrlopyApiXaml.ViewModels.Dodawanie
         public DodajJezykAplikacjiViewModel() : base()
         {
             item = new JAP_JezykAplikacji();
+            item.JAP_CzyAktywny = true;
             base.DisplayName = "Dodaj JezykAplikacji";
         }
         #endregion Constructor

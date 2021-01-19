@@ -4,7 +4,7 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              mc:Ignorable="d" 
-             d:DesignHeight="300" d:DesignWidth="300">
+             d:DesignHeight="900" d:DesignWidth="900">
 
     <UserControl.Resources>
         <ResourceDictionary Source="/Content/Styles/Przyciski.xaml"  />
@@ -31,7 +31,7 @@
             <RowDefinition Height="150"/>               <!--szesc okienek z statystykami-->
         </Grid.RowDefinitions>
         <Label Grid.Row="0" Content="Rejestr Czasu Pracy" FontSize="20" />
-        <Button Grid.Row="1" Content="Wirtualne RCP (Dodaj sttatus)" Width="300" HorizontalAlignment="Left" />
+        <Button Grid.Row="1" Content="Wirtualne RCP (Dodaj sttatus)" Width="300" HorizontalAlignment="Left"/>
         <Label Grid.Row="3" Content="Zarządzanie urlopami" FontSize="20" />
         <Label Grid.Row="4" Content="Wykorzystane Uw 0d" FontSize="14" Padding="2"/>
         <Grid Grid.Row="6">
@@ -42,76 +42,79 @@
                 <ColumnDefinition Width="10"/>
                 <ColumnDefinition Width="*" MaxWidth="300"/>
             </Grid.ColumnDefinitions>
-            <Button Grid.Column="0" Content="Złóż nowy wniosek"/>
-            <Button Grid.Column="2" Content="Lista twoich wniosków"/>
-            <Button Grid.Column="4" Content="Lista podań"/>
+                <Button Grid.Column="0" Content="Złóż nowy wniosek"  Command="{Binding DodajNowyWniosekUrlopowy}"/>
+                <Button Grid.Column="2" Content="Lista twoich wniosków" Command="{Binding PokazListeWnioskowUrlopowych}"/>
+                <ComboBox 
+                        Grid.Column="4"
+                    HorizontalContentAlignment="Center"
+                    VerticalContentAlignment="Center"
+                        ItemsSource="{Binding  PracownicyComboBoxItems}" 
+                        DisplayMemberPath="PRA_Nazwisko"  
+                        SelectedValuePath="PRA_PraID"  
+                        SelectedValue="{Binding Path=PraID,Mode=TwoWay}"
+                        />
         </Grid>
         <Label Grid.Row="8" Content="Twój grafik pracy" FontSize="20"/>
         <Grid Grid.Row="9">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*" MaxWidth="20"/>
-                <ColumnDefinition Width="*" MaxWidth="120"/>
+                <ColumnDefinition Width="*" MaxWidth="220"/>
                 <ColumnDefinition Width="*" MaxWidth="20"/>
             </Grid.ColumnDefinitions>
-            <Button Grid.Column="0" Content="&#60;" />
-            <Button Grid.Column="1" Content="16.06 - 28.06.2020"/>
-            <Button Grid.Column="2" Content=">"/>
+                <Button Grid.Column="0" Content="&#60;"  Command="{Binding PrzesunWLewo}"/>
+                <Button Grid.Column="1" Content="{Binding DataString,UpdateSourceTrigger=PropertyChanged}"/>
+                <Button Grid.Column="2" Content=">" Command="{Binding PrzesunWPrawo}"/>
         </Grid>
         <Grid Grid.Row="11">
-                <Grid.Resources>
-                    <Style TargetType="Label">
-                        <Setter Property="Background" Value="White"/>
-                    </Style>
-                </Grid.Resources>
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Style="{StaticResource ColumnDefinitionStandardowy}"/>
-                <ColumnDefinition Style="{StaticResource ColumnDefinitionStandardowy}"/>
-                <ColumnDefinition Style="{StaticResource ColumnDefinitionStandardowy}"/>
-                <ColumnDefinition Style="{StaticResource ColumnDefinitionStandardowy}"/>
-                <ColumnDefinition Style="{StaticResource ColumnDefinitionStandardowy}"/>
-                <ColumnDefinition Style="{StaticResource ColumnDefinitionStandardowy}"/>
-                <ColumnDefinition Style="{StaticResource ColumnDefinitionStandardowy}"/>
-                <ColumnDefinition Style="{StaticResource ColumnDefinitionStandardowy}"/>
-                <ColumnDefinition Style="{StaticResource ColumnDefinitionStandardowy}"/>
-                <ColumnDefinition Style="{StaticResource ColumnDefinitionStandardowy}"/>
-                <ColumnDefinition Style="{StaticResource ColumnDefinitionStandardowy}"/>
-                <ColumnDefinition Style="{StaticResource ColumnDefinitionStandardowy}"/>
-                <ColumnDefinition Style="{StaticResource ColumnDefinitionStandardowy}"/>
-                <ColumnDefinition Style="{StaticResource ColumnDefinitionStandardowy}"/>
-            </Grid.ColumnDefinitions>
-            <Grid.RowDefinitions>
-                <RowDefinition Height="40"/>
-                <RowDefinition Height="60"/>
-            </Grid.RowDefinitions>
-            <Label Grid.Row="0" Grid.Column="0" Content="15.06 Pn" BorderBrush="LightGray" BorderThickness="1" Margin="0,0,0.5,0.5" Padding="15,10,0,0"/>
-            <Label Grid.Row="1" Grid.Column="0" BorderBrush="LightGray" BorderThickness="1" Margin="0,0.5,0.5,0" />
-            <Label Grid.Row="0" Grid.Column="1" Content="16.06 Pn" Style="{StaticResource LabelInTableTop}" />
-            <Label Grid.Row="1" Grid.Column="1" Style="{StaticResource LabelInTableBotom}"/>
-            <Label Grid.Row="0" Grid.Column="2" Content="17.06 Wt" Style="{StaticResource LabelInTableTop}" />
-            <Label Grid.Row="1" Grid.Column="2" Style="{StaticResource LabelInTableBotom}"/>
-            <Label Grid.Row="0" Grid.Column="3" Content="18.06 Sr" Style="{StaticResource LabelInTableTop}" />
-            <Label Grid.Row="1" Grid.Column="3" Style="{StaticResource LabelInTableBotom}"/>
-            <Label Grid.Row="0" Grid.Column="4" Content="19.06 Cz" Style="{StaticResource LabelInTableTop}" />
-            <Label Grid.Row="1" Grid.Column="4" Style="{StaticResource LabelInTableBotom}"/>
-            <Label Grid.Row="0" Grid.Column="5" Content="20.06 Pt" Style="{StaticResource LabelInTableTop}" />
-            <Label Grid.Row="1" Grid.Column="5" Style="{StaticResource LabelInTableBotom}"/>
-            <Label Grid.Row="0" Grid.Column="6" Content="21.06 So" Style="{StaticResource LabelInTableTop}" />
-            <Label Grid.Row="1" Grid.Column="6" Style="{StaticResource LabelInTableBotom}"/>
-            <Label Grid.Row="0" Grid.Column="7" Content="22.06 Ni" Style="{StaticResource LabelInTableTop}" />
-            <Label Grid.Row="1" Grid.Column="7" Style="{StaticResource LabelInTableBotom}"/>
-            <Label Grid.Row="0" Grid.Column="8" Content="23.06 Pn" Style="{StaticResource LabelInTableTop}" />
-            <Label Grid.Row="1" Grid.Column="8" Style="{StaticResource LabelInTableBotom}"/>
-            <Label Grid.Row="0" Grid.Column="9" Content="24.06 Wt" Style="{StaticResource LabelInTableTop}" />
-            <Label Grid.Row="1" Grid.Column="9" Style="{StaticResource LabelInTableBotom}"/>
-            <Label Grid.Row="0" Grid.Column="10" Content="25.06 Sr" Style="{StaticResource LabelInTableTop}" />
-            <Label Grid.Row="1" Grid.Column="10" Style="{StaticResource LabelInTableBotom}"/>
-            <Label Grid.Row="0" Grid.Column="11" Content="26.06 Cz" Style="{StaticResource LabelInTableTop}" />
-            <Label Grid.Row="1" Grid.Column="11" Style="{StaticResource LabelInTableBotom}"/>
-            <Label Grid.Row="0" Grid.Column="12" Content="27.06 Pt" Style="{StaticResource LabelInTableTop}" />
-            <Label Grid.Row="1" Grid.Column="12" Style="{StaticResource LabelInTableBotom}"/>
-            <Label Grid.Row="0" Grid.Column="13" Content="28.06 So" Style="{StaticResource LabelInTableTop}" />
-            <Label Grid.Row="1" Grid.Column="13" Style="{StaticResource LabelInTableBotom}"/>
-        </Grid>
+
+
+                <ItemsControl ItemsSource="{Binding List}">
+                    <ItemsControl.ItemsPanel>
+                        <ItemsPanelTemplate>
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Style="{StaticResource ColumnDefinitionStandardowy}"/>
+                                    <ColumnDefinition Style="{StaticResource ColumnDefinitionStandardowy}"/>
+                                    <ColumnDefinition Style="{StaticResource ColumnDefinitionStandardowy}"/>
+                                    <ColumnDefinition Style="{StaticResource ColumnDefinitionStandardowy}"/>
+                                    <ColumnDefinition Style="{StaticResource ColumnDefinitionStandardowy}"/>
+                                    <ColumnDefinition Style="{StaticResource ColumnDefinitionStandardowy}"/>
+                                    <ColumnDefinition Style="{StaticResource ColumnDefinitionStandardowy}"/>
+                                    <ColumnDefinition Style="{StaticResource ColumnDefinitionStandardowy}"/>
+                                    <ColumnDefinition Style="{StaticResource ColumnDefinitionStandardowy}"/>
+                                    <ColumnDefinition Style="{StaticResource ColumnDefinitionStandardowy}"/>
+                                    <ColumnDefinition Style="{StaticResource ColumnDefinitionStandardowy}"/>
+                                    <ColumnDefinition Style="{StaticResource ColumnDefinitionStandardowy}"/>
+                                    <ColumnDefinition Style="{StaticResource ColumnDefinitionStandardowy}"/>
+                                    <ColumnDefinition Style="{StaticResource ColumnDefinitionStandardowy}"/>
+                                    <ColumnDefinition Style="{StaticResource ColumnDefinitionStandardowy}"/>
+                                </Grid.ColumnDefinitions>
+
+                            </Grid>
+                        </ItemsPanelTemplate>
+                    </ItemsControl.ItemsPanel>
+                    <ItemsControl.ItemTemplate>
+                        <DataTemplate >
+                            <DockPanel>
+                                <Grid>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="40"/>
+                                        <RowDefinition Height="60"/>
+                                    </Grid.RowDefinitions>
+                                    <Label Grid.Row="0" Content="{Binding data,UpdateSourceTrigger=PropertyChanged}" Style="{StaticResource LabelInTableTop}" />
+                                    <Label Grid.Row="1" Content="{Binding rodzajZmiany,UpdateSourceTrigger=PropertyChanged}" Style="{StaticResource LabelInTableBotom}" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
+
+                                </Grid>
+                            </DockPanel>
+                        </DataTemplate>
+                    </ItemsControl.ItemTemplate>
+                    <ItemsControl.ItemContainerStyle>
+                        <Style>
+                            <Setter Property="Grid.Column" Value="{Binding id}" />
+                        </Style>
+                    </ItemsControl.ItemContainerStyle>
+                </ItemsControl>
+            </Grid>
         <Label Grid.Row="13" Content="Twoje statystyki" FontSize="20"/>
         <Grid Grid.Row="14">
             <Grid.ColumnDefinitions>

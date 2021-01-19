@@ -42,6 +42,6 @@
                 <Int32Collection>1,2,3</Int32Collection>
             </ComboBox.ItemsSource>
         </ComboBox>
-        <Button Grid.Row="4" Margin="20,4,0,0" Grid.ColumnSpan="2" Background="Red" Content="Dodaj Szychte" Foreground="White" Command="{Binding SaveCommand}" FontSize="20"/>
+        <Button Grid.Row="4" Margin="20,4,0,0" Grid.ColumnSpan="2" Content="Dodaj Szychte" Foreground="White" Command="{Binding SaveCommand}" FontSize="20"/>
     </Grid>
 </UserControl>

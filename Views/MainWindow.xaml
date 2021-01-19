@@ -108,6 +108,13 @@
                 Panel.ZIndex="2"
                 />
         </Border>
+        <Border Grid.Row="2" Grid.Column="3" HorizontalAlignment="Right" Style="{StaticResource xxx2}" Width="240">
+            <HeaderedContentControl 
+                Content="{Binding Path=Commands2}" 
+                ContentTemplate="{StaticResource CommandsTemplate2}"
+                Panel.ZIndex="2"
+                />
+        </Border>
         <Border Grid.Row="2" Grid.Column="1" Margin="-100,0,0,0" Panel.ZIndex="-3">
             <HeaderedContentControl 
                 Content="{Binding Path=Workspaces}"

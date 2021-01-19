@@ -45,6 +45,7 @@
         <Style.Triggers>
             <Trigger Property="Button.IsMouseOver" Value="true">
                 <Setter Property="Cursor" Value="Pen"/>
+                <Setter Property="Background" Value="Black"/>
                 <Setter Property="Effect">
                     <Setter.Value>
                         <DropShadowEffect ShadowDepth="3" BlurRadius="15" Direction="-90"/>

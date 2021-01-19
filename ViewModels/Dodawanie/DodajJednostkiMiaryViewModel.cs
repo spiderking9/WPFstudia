@@ -12,6 +12,7 @@ namespace UrlopyApiXaml.ViewModels.Dodawanie
         public DodajJednostkiMiaryViewModel() : base()
         {
             item = new JEM_JednostkiMiary();
+            item.JEM_CzyAktywny = true;
             base.DisplayName = "Dodaj JednostkiMiary";
         }
         #endregion Constructor

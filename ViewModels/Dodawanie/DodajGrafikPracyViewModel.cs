@@ -12,6 +12,7 @@ namespace UrlopyApiXaml.ViewModels.Dodawanie
         public DodajGrafikPracyViewModel() : base()
         {
             item = new GRP_GrafikPracy();
+            item.GRP_CzyAktywny = true;
             base.DisplayName = "Dodaj GrafikPracy";
             GRP_Dzien = DateTime.Now;
             GRP_PraID = urlopyApiXaml.PRA_Pracownicy.FirstOrDefault().PRA_PraID;

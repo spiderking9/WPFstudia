@@ -1,5 +1,4 @@
-﻿using UrlopyApiXaml.ViewModels;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -12,16 +11,15 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-using UrlopyApiXaml.Models;
 
-namespace UrlopyApiXaml.Views
+namespace UrlopyApiXaml.Views.Listy
 {
     /// <summary>
-    /// Logika interakcji dla klasy GrafikPracyView.xaml
+    /// Interaction logic for ListaWnioskowUrlopowychView.xaml
     /// </summary>
-    public partial class GrafikPracyView : UserControl
+    public partial class ListaWnioskowUrlopowychView : UserControl
     {
-        public GrafikPracyView()
+        public ListaWnioskowUrlopowychView()
         {
             InitializeComponent();
         }

@@ -15,9 +15,8 @@ namespace UrlopyApiXaml.ViewModels.Dodawanie
         #region Constructor
         public DodajPozycjeFakturViewModel() : base()
         {
-
-            //Messenger.Default.Register<int>(this, getPracownikId);
             item = new POF_PozycjeFaktury();
+            item.POF_CzyAktywny = true;
             base.DisplayName = "Dodaj PozycjeFaktury";
             Messenger.Default.Register<TowarView>(this, getWybranyTowar);
             Messenger.Default.Register<FakturyView>(this, getWybranaFaktura);
@@ -252,7 +251,7 @@ namespace UrlopyApiXaml.ViewModels.Dodawanie
         private void getWybranaFaktura(FakturyView fakt)
         {
             POF_FakID = fakt.FAK_FakID;
-            FakturaNazwa = "Faktura o nr: "+ fakt.FAK_FakID+ " dla klienta o nazwie: "+ fakt.NazwaKlienta;
+            FakturaNazwa = "nr: "+ fakt.FAK_FakID+ " klient: "+ fakt.NazwaKlienta;
         }
         private void getWybranaJednostkaMiary(JEM_JednostkiMiary jedn)
         {

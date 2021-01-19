@@ -43,7 +43,7 @@
         <Label Grid.Row="5" Grid.Column="0" Content="Zdjecie" Margin="0,8,0,8" VerticalContentAlignment="Center" HorizontalContentAlignment="Left"/>
         <TextBox Grid.Row="5" Grid.Column="1" Margin="0,8,0,8" Width="169" HorizontalAlignment="Left" Text="{Binding TOW_Zdjecie,UpdateSourceTrigger=PropertyChanged}" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"/>
         
-        <Button Grid.Row="7" Margin="20,4,0,0" Grid.ColumnSpan="2" Background="Red" Content="Dodaj Towar" Foreground="White" Command="{Binding SaveCommand}" FontSize="20"/>
+        <Button Grid.Row="7" Margin="20,4,0,0" Grid.ColumnSpan="2" Content="Dodaj Towar" Foreground="White" Command="{Binding SaveCommand}" FontSize="20"/>
     </Grid>
 </UserControl>
 

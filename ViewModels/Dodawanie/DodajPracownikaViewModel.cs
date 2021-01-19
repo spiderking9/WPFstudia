@@ -15,6 +15,7 @@ namespace UrlopyApiXaml.ViewModels.Dodawanie
 
             Messenger.Default.Register<int>(this, getPracownikId);
             item = new PRA_Pracownicy();
+            item.PRA_CzyAktywny = true;
             base.DisplayName = "Dodaj Pracownika";
             //Messenger.Default.Register<PRA_Pracownicy>(this, getWybranyKontrahent);
         }

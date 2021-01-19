@@ -45,7 +45,7 @@
                                 VerticalAlignment="Center"
                                 />
 
-        <Button Grid.Row="5" Margin="20,4,0,0" Grid.ColumnSpan="2" Background="Red" Content="Dodaj Wniosek Urlopowy" Foreground="White" Command="{Binding SaveCommand}" FontSize="20"/>
+        <Button Grid.Row="5" Margin="20,4,0,0" Grid.ColumnSpan="2" Content="Dodaj Wniosek Urlopowy" Foreground="White" Command="{Binding SaveCommand}" FontSize="20"/>
     </Grid>
 </UserControl>
 

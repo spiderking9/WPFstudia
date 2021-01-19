@@ -12,6 +12,7 @@ namespace UrlopyApiXaml.ViewModels.Dodawanie
         public DodajWniosekUrlopowyViewModel() : base()
         {
             item = new WUR_WnioskiUrlopowe();
+            item.WUR_CzyAktywny = true;
             base.DisplayName = "Dodaj Wniosek Urlopowy";
             WUR_DataOd = DateTime.Now;
             WUR_DataDo = DateTime.Now;

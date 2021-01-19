@@ -12,6 +12,7 @@ namespace UrlopyApiXaml.ViewModels.Dodawanie
         public DodajStrefeCzasowaViewModel() : base()
         {
             item = new STC_StrefaCzasowa();
+            item.STC_CzyAktywny = true;
             base.DisplayName = "Dodaj Strefe Czasowa";
         }
         #endregion Constructor

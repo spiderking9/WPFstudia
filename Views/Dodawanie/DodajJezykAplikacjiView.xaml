@@ -18,6 +18,6 @@
         </Grid.RowDefinitions>
         <Label Grid.Row="0" Grid.Column="0" Content="Jezyk" Margin="0,8,0,8" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"/>
         <TextBox Grid.Row="0" Grid.Column="1" Margin="0,8,0,8" Width="169" HorizontalAlignment="Left" Text="{Binding JAP_Nazwa,UpdateSourceTrigger=PropertyChanged}" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"/>
-        <Button Grid.Row="2" Margin="20,4,0,0" Grid.ColumnSpan="2" Background="Red" Content="Dodaj Jezyk Aplikacji" Foreground="White" Command="{Binding SaveCommand}" FontSize="20"/>
+        <Button Grid.Row="2" Margin="20,4,0,0" Grid.ColumnSpan="2" Content="Dodaj Jezyk Aplikacji" Foreground="White" Command="{Binding SaveCommand}" FontSize="20"/>
     </Grid>
 </UserControl>

@@ -12,6 +12,7 @@ namespace UrlopyApiXaml.ViewModels.Dodawanie
         public DodajSposobPlatnosciViewModel() : base()
         {
             item = new SPP_SposobPlatnosci();
+            item.SPP_CzyAktywny = true;
             base.DisplayName = "Dodaj Sposobu Platnosci";
         }
         #endregion Constructor

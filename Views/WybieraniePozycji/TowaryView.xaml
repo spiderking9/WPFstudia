@@ -7,7 +7,7 @@
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
     <UserControl.Resources>
-        <!--<ResourceDictionary Source="/Content/Styles/GrafikPracy.xaml"  />-->
+        <ResourceDictionary Source="/Content/Styles/DataGridStyle.xaml"  />
     </UserControl.Resources>
 
     <Grid>

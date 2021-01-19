@@ -12,6 +12,7 @@ namespace UrlopyApiXaml.ViewModels.Dodawanie
         public DodajKlientaViewModel() : base()
         {
             item = new KLI_Klienci();
+            item.KLI_CzyAktywny = true;
             base.DisplayName = "Dodaj Klienta";
         }
         #endregion Constructor

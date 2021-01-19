@@ -12,6 +12,7 @@ namespace UrlopyApiXaml.ViewModels.Dodawanie
         public DodajFaktureViewModel() : base()
         {
             item = new FAK_Faktury();
+            item.FAK_CzyAktywny = true;
             base.DisplayName = "Dodaj Fakture";
             FAK_DataWystawienia = DateTime.Now;
         }

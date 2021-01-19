@@ -126,8 +126,11 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Helper\BaseCommand.cs" />
+    <Compile Include="Models\BusinessLogic\DatebaseClass.cs" />
+    <Compile Include="Models\BusinessLogic\UrlopAlboZmianaPracy.cs" />
     <Compile Include="Models\EntitiesForView\DzialLiczbaPracownikow.cs" />
     <Compile Include="Models\EntitiesForView\FakturyView.cs" />
+    <Compile Include="Models\EntitiesForView\ListaWnioskowUrlopowychView.cs" />
     <Compile Include="Models\EntitiesForView\PracownicyView.cs" />
     <Compile Include="Models\EntitiesForView\TowarView.cs" />
     <Compile Include="Models\EntitiesForView\ZdarzeniaView.cs" />
@@ -220,13 +223,14 @@
     <Compile Include="ViewModels\Dodawanie\DodajJezykAplikacjiViewModel.cs" />
     <Compile Include="ViewModels\Dodawanie\DodajWniosekUrlopowyViewModel.cs" />
     <Compile Include="ViewModels\Dodawanie\DodajZdarzenieViewModel.cs" />
+    <Compile Include="ViewModels\Listy\ListaWnioskowUrlopowychViewModel.cs" />
     <Compile Include="ViewModels\MainWindowViewModel.cs" />
     <Compile Include="ViewModels\NowaFakturaViewModel.cs" />
     <Compile Include="ViewModels\NowyViewModel.cs" />
     <Compile Include="ViewModels\PracownicyViewModel.cs" />
     <Compile Include="ViewModels\PrzegladViewModel.cs" />
     <Compile Include="ViewModels\WorkspaceViewModel.cs" />
-    <Compile Include="ViewModels\GrafikPracyViewModel.cs" />
+    <Compile Include="ViewModels\Listy\GrafikPracyViewModel.cs" />
     <Compile Include="ViewModels\LokalizacjeViewModel.cs" />
     <Compile Include="ViewModels\WszystkieViewModel.cs" />
     <Compile Include="ViewModels\WybieraniePozycji\FakturyViewModel.cs" />
@@ -240,6 +244,7 @@
     <Compile Include="ViewModels\ZdarzeniaViewModel.cs" />
     <Compile Include="ViewModel\MainViewModel.cs" />
     <Compile Include="ViewModel\ViewModelLocator.cs" />
+    <Compile Include="Views\DodajUsunEdytujOdswiezViewBase.cs" />
     <Compile Include="Views\Dodawanie\DodajFaktureView.xaml.cs">
       <DependentUpon>DodajFaktureView.xaml</DependentUpon>
     </Compile>
@@ -286,13 +291,16 @@
       <DependentUpon>DodajZdarzenieView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\Filtrowanie1ViewBase.cs" />
+    <Compile Include="Views\Listy\ListaWnioskowUrlopowychView.xaml.cs">
+      <DependentUpon>ListaWnioskowUrlopowychView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\NowaFakturaView.xaml.cs">
       <DependentUpon>NowaFakturaView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\GrafikPracyView.xaml.cs">
+    <Compile Include="Views\Listy\GrafikPracyView.xaml.cs">
       <DependentUpon>GrafikPracyView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\PrzegladView.xaml.cs">
@@ -387,6 +395,10 @@
     <AppDesigner Include="Properties\" />
   </ItemGroup>
   <ItemGroup>
+    <Page Include="Content\Styles\DataGridStyle.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Content\Styles\Przyciski.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -471,6 +483,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Views\Listy\ListaWnioskowUrlopowychView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\MainWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -483,7 +499,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Views\GrafikPracyView.xaml">
+    <Page Include="Views\Listy\GrafikPracyView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
