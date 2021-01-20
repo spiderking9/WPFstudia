@@ -78,14 +78,14 @@ namespace UrlopyApiXaml.ViewModels.Dodawanie
         #region Helpers
         public override void Save()
         {
-            if (item.ZDA_ZdaID == null)
+            if (item.ZDA_ZdaID == 0)
             {
                 urlopyApiXaml.ZDA_Zdarzenia.Add(item);
             }
             else
             {
                 var zdarzenie = urlopyApiXaml.ZDA_Zdarzenia.FirstOrDefault(x => x.ZDA_ZdaID == item.ZDA_ZdaID);
-                zdarzenie.ZDA_Nazwa = ZDA_Nazwa;
+                zdarzenie.ZDA_Nazwa = ZDA_Nazwa.Trim();
                 zdarzenie.ZDA_PraID = ZDA_PraID;
             }
             urlopyApiXaml.SaveChanges();

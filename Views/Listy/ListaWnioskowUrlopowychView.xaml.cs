@@ -17,7 +17,7 @@ namespace UrlopyApiXaml.Views.Listy
     /// <summary>
     /// Interaction logic for ListaWnioskowUrlopowychView.xaml
     /// </summary>
-    public partial class ListaWnioskowUrlopowychView : UserControl
+    public partial class ListaWnioskowUrlopowychView : DodajUsunEdytujOdswiezViewBase
     {
         public ListaWnioskowUrlopowychView()
         {

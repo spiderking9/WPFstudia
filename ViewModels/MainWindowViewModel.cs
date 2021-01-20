@@ -41,14 +41,14 @@ namespace UrlopyApiXaml.ViewModels
                 return _PrzegladCommand;
             }
         }
-        private BaseCommand _DelegacjeCommand;
-        public ICommand DelegacjeCommand
+        private BaseCommand _InnaDelegacjeCommand;
+        public ICommand InnaDelegacjeCommand
         {
             get
             {
-                if (_DelegacjeCommand == null)
-                    _DelegacjeCommand = new BaseCommand(() => CreateView(new DelegacjeViewModel()));
-                return _DelegacjeCommand;
+                if (_InnaDelegacjeCommand == null)
+                    _InnaDelegacjeCommand = new BaseCommand(() => CreateView(new InnaDelegacjaViewModel()));
+                return _InnaDelegacjeCommand;
             }
         }
 
@@ -60,6 +60,16 @@ namespace UrlopyApiXaml.ViewModels
                 if (_TwojKodCommand == null)
                     _TwojKodCommand = new BaseCommand(() => CreateView(new TwojKodViewModel()));
                 return _TwojKodCommand;
+            }
+        }
+        private BaseCommand _TowaryCommand;
+        public ICommand TowaryCommand
+        {
+            get
+            {
+                if (_TowaryCommand == null)
+                    _TowaryCommand = new BaseCommand(ShowAllObjects <TowarViewModel>);
+                return _TowaryCommand;
             }
         }
 
@@ -126,6 +136,16 @@ namespace UrlopyApiXaml.ViewModels
                 return _ZdarzeniaCommand;
             }
         }
+        private BaseCommand _KlientCommand;
+        public ICommand KlientCommand
+        {
+            get
+            {
+                if (_KlientCommand == null)
+                    _KlientCommand = new BaseCommand(ShowAllObjects<KlientViewModel>);
+                return _KlientCommand;
+            }
+        }
 
         private BaseCommand _PracownicyCommand;
         public ICommand PracownicyCommand
@@ -138,6 +158,91 @@ namespace UrlopyApiXaml.ViewModels
             }
         }
 
+        private BaseCommand _SposoboPlatnosciCommand;
+        public ICommand SposoboPlatnosciCommand
+        {
+            get
+            {
+                if (_SposoboPlatnosciCommand == null)
+                    _SposoboPlatnosciCommand = new BaseCommand(ShowAllObjects<SposobPlatnosciViewModel>);
+                return _SposoboPlatnosciCommand;
+            }
+        }
+
+        private BaseCommand _RodzajUrlopuCommand;
+        public ICommand RodzajUrlopuCommand
+        {
+            get
+            {
+                if (_RodzajUrlopuCommand == null)
+                    _RodzajUrlopuCommand = new BaseCommand(ShowAllObjects<RodzajUrlopuViewModel>);
+                return _RodzajUrlopuCommand;
+            }
+        }
+
+        private BaseCommand _JednostkaMiaryCommand;
+        public ICommand JednostkaMiaryCommand
+        {
+            get
+            {
+                if (_JednostkaMiaryCommand == null)
+                    _JednostkaMiaryCommand = new BaseCommand(ShowAllObjects<JednostkaMiaryViewModel>);
+                return _JednostkaMiaryCommand;
+            }
+        }
+
+        private BaseCommand _KategorieTowarowCommand;
+        public ICommand KategorieTowarowCommand
+        {
+            get
+            {
+                if (_KategorieTowarowCommand == null)
+                    _KategorieTowarowCommand = new BaseCommand(ShowAllObjects<KategorieTowarowViewModel>);
+                return _KategorieTowarowCommand;
+            }
+        }
+
+        private BaseCommand _JezykAplikacjiCommand;
+        public ICommand JezykAplikacjiCommand
+        {
+            get
+            {
+                if (_JezykAplikacjiCommand == null)
+                    _JezykAplikacjiCommand = new BaseCommand(ShowAllObjects<JezykAplikacjiViewModel>);
+                return _JezykAplikacjiCommand;
+            }
+        }
+        private BaseCommand _DzialCommand;
+        public ICommand DzialCommand
+        {
+            get
+            {
+                if (_DzialCommand == null)
+                    _DzialCommand = new BaseCommand(ShowAllObjects<DzialViewModel>);
+                return _DzialCommand;
+            }
+        }
+        private BaseCommand _StrefaCzasowaCommand;
+        public ICommand StrefaCzasowaCommand
+        {
+            get
+            {
+                if (_StrefaCzasowaCommand == null)
+                    _StrefaCzasowaCommand = new BaseCommand(ShowAllObjects<StrefaCzasowaViewModel>);
+                return _StrefaCzasowaCommand;
+            }
+        }
+        private BaseCommand _FotorejestracjaCommand;
+        public ICommand FotorejestracjaCommand
+        {
+            get
+            {
+                if (_FotorejestracjaCommand == null)
+                    _FotorejestracjaCommand = new BaseCommand(ShowAllObjects<FotorejestracjaViewModel>);
+                return _FotorejestracjaCommand;
+            }
+        }
+
         private BaseCommand _LokalizacjeCommand;
         public ICommand LokalizacjeCommand
         {
@@ -146,6 +251,16 @@ namespace UrlopyApiXaml.ViewModels
                 if (_LokalizacjeCommand == null)
                     _LokalizacjeCommand = new BaseCommand(ShowAllObjects<LokalizacjeViewModel>);
                 return _LokalizacjeCommand;
+            }
+        }
+        private BaseCommand _DelegacjeCommand;
+        public ICommand DelegacjeCommand
+        {
+            get
+            {
+                if (_DelegacjeCommand == null)
+                    _DelegacjeCommand = new BaseCommand(ShowAllObjects<DelegacjeViewModel>);
+                return _DelegacjeCommand;
             }
         }
 
@@ -189,24 +304,38 @@ namespace UrlopyApiXaml.ViewModels
         {
             Messenger.Default.Register<string>(this, open);
             Messenger.Default.Register<ZDA_Zdarzenia>(this, openZdarz);
-           // Messenger.Default.Register<ZDA_Zdarzenia>(this, openZdarz);
-
+            Messenger.Default.Register<GRP_GrafikPracy>(this, openGraf);
+            Messenger.Default.Register<WUR_WnioskiUrlopowe>(this, openWniosekUrlop);
+            Messenger.Default.Register<TOW_Towary>(this, openTowary);
+            Messenger.Default.Register<SPP_SposobPlatnosci>(this, openSpospPlatnosci);
+            Messenger.Default.Register<RUR_RodzajeUrlopow>(this, openRodzajUrlopu);
+            Messenger.Default.Register<JEM_JednostkiMiary>(this, openJednostkMiary);
+            Messenger.Default.Register<JAP_JezykAplikacji>(this, openJezykAplikacji);
+            Messenger.Default.Register<KAT_KategorieTowarow>(this, openKatTowarow);
+            Messenger.Default.Register<KLI_Klienci>(this, openKlient);
+            Messenger.Default.Register<DZI_Dzialy>(this, openDzial);
+            Messenger.Default.Register<STC_StrefaCzasowa>(this, openStrefaCzas);
+            Messenger.Default.Register<DEL_Delegacje>(this, openDelegacje);
+            Messenger.Default.Register<FOT_Fotorejestracja>(this, openFotorejestracje);
 
             return new List<CommandViewModel>
             {
-                new CommandViewModel("DodajGrafikPracy",new BaseCommand(() => this.CreateView(new DodajGrafikPracyViewModel())),"\uf2bb"),
+                new CommandViewModel("DodajGrafikPracy",new BaseCommand(() => this.CreateView(new DodajGrafikPracyViewModel(null))),"\uf2bb"),
                 new CommandViewModel("DodajPracownika",new BaseCommand(() => this.CreateView(new DodajPracownikaViewModel())),"\uf2cd"),
                 new CommandViewModel("DodajFakture",new BaseCommand(() => this.CreateView(new DodajFaktureViewModel())),"\uf1f3"),
                 new CommandViewModel("DodajUrlopy",DodajUrlopyCommand,"\uf030"),
-                new CommandViewModel("DodajJezykApp",new BaseCommand(() => this.CreateView(new DodajJezykAplikacjiViewModel())),"\uf2cd"),
-                new CommandViewModel("DodajJednMiary",new BaseCommand(() => this.CreateView(new DodajJednostkiMiaryViewModel())),"\uf2cd"),
-                new CommandViewModel("DodajKatTowar",new BaseCommand(() => this.CreateView(new DodajKategorieTowarowViewModel())),"\uf1f3"),
-                new CommandViewModel("DodajKlienta",new BaseCommand(() => this.CreateView(new DodajKlientaViewModel())),"\uf1f3"),
+                new CommandViewModel("DodajJezykApp",new BaseCommand(() => this.CreateView(new DodajJezykAplikacjiViewModel(null))),"\uf2cd"),
+                new CommandViewModel("DodajJednMiary",new BaseCommand(() => this.CreateView(new DodajJednostkiMiaryViewModel(null))),"\uf2cd"),
+                new CommandViewModel("DodajKatTowar",new BaseCommand(() => this.CreateView(new DodajKategorieTowarowViewModel(null))),"\uf1f3"),
+                new CommandViewModel("DodajKlienta",new BaseCommand(() => this.CreateView(new DodajKlientaViewModel(null))),"\uf1f3"),
                 new CommandViewModel("DodajPozycjeFaktury",new BaseCommand(() => this.CreateView(new DodajPozycjeFakturViewModel())),"\uf2cd"),
-                new CommandViewModel("DodajRodzajUrlopu",new BaseCommand(() => this.CreateView(new DodajRodzajUrlopuViewModel())),"\uf2cd"),
-                new CommandViewModel("DodajSposobPlatnosci",new BaseCommand(() => this.CreateView(new DodajSposobPlatnosciViewModel())),"\uf2cd"),
-                new CommandViewModel("DodajTowar",new BaseCommand(() => this.CreateView(new DodajTowarViewModel())),"\uf2cd"),
-                new CommandViewModel("DodajWniosekUrlop",new BaseCommand(() => this.CreateView(new DodajWniosekUrlopowyViewModel())),"\uf2cd")
+                new CommandViewModel("DodajRodzajUrlopu",new BaseCommand(() => this.CreateView(new DodajRodzajUrlopuViewModel(null))),"\uf2cd"),
+                new CommandViewModel("DodajSposobPlatnosci",new BaseCommand(() => this.CreateView(new DodajSposobPlatnosciViewModel(null))),"\uf2cd"),
+                new CommandViewModel("DodajTowar",new BaseCommand(() => this.CreateView(new DodajTowarViewModel(null))),"\uf2cd"),
+                new CommandViewModel("DodajWniosekUrlop",new BaseCommand(() => this.CreateView(new DodajWniosekUrlopowyViewModel(null))),"\uf2cd"),
+                new CommandViewModel("DodajDzial",new BaseCommand(() => this.CreateView(new DodajDzialViewModel(null))),"\uf2bb"),
+                new CommandViewModel("DodajStrefeCzas",new BaseCommand(() => this.CreateView(new DodajStrefeCzasowaViewModel(null))),"\uf2cd"),
+                new CommandViewModel("DodajDelegac",new BaseCommand(() => this.CreateView(new DodajDelegacjeViewModel(null))),"\uf030"),
             };
         }
 
@@ -223,6 +352,18 @@ namespace UrlopyApiXaml.ViewModels
                 new CommandViewModel("Faktura",NowaFakturaCommand,"\uf1f3"),
                 new CommandViewModel("Lokalizacje",LokalizacjeCommand,"\uf030"),
                 new CommandViewModel("Urlopy",UrlopyCommand,"\uf030"),
+                new CommandViewModel("Towary", TowaryCommand, "\uf187"),
+                new CommandViewModel("Spos Plat",SposoboPlatnosciCommand,"\uf2cd"),
+                new CommandViewModel("Rodzaj Urlop", RodzajUrlopuCommand, "\uf187"),
+                new CommandViewModel("Jedno Miary",JednostkaMiaryCommand,"\uf1f3"),
+                new CommandViewModel("Jezyk App",JezykAplikacjiCommand,"\uf2bb"),
+                new CommandViewModel("Kat Towar",KategorieTowarowCommand,"\uf2bb"),
+                new CommandViewModel("Klienci",KlientCommand,"\uf1f3"),
+                new CommandViewModel("Dzialy",DzialCommand,"\uf2cd"),
+                new CommandViewModel("Strefy Czas",StrefaCzasowaCommand,"\uf030"),
+                new CommandViewModel("Delegacje",DelegacjeCommand,"\uf2bb"),
+                new CommandViewModel("Fotorejestracje",FotorejestracjaCommand,"\uf1f3"),
+
             };
         }
         #endregion
@@ -263,7 +404,7 @@ namespace UrlopyApiXaml.ViewModels
         private void open(string name) 
         {
             if (name == "DodajNowyWniosekUrlopowy")
-                CreateView(new DodajWniosekUrlopowyViewModel());
+                CreateView(new DodajWniosekUrlopowyViewModel(null));
             if (name == "PokazListeWnioskowUrlopowych")
                 ShowAllObjects<ListaWnioskowUrlopowychViewModel>();
             if (name == "DodajZdarzenie")
@@ -272,17 +413,96 @@ namespace UrlopyApiXaml.ViewModels
                 CreateView(new DodajPracownikaViewModel());
             if (name == "ShowTowarPF")
                 ShowAllObjects<TowaryViewModel>();
+            if (name == "DodajNowyTowar")
+                CreateView(new DodajTowarViewModel(null));
             if (name == "ShowFakturyPF")
                 ShowAllObjects<FakturyViewModel>();
             if (name == "ShowJednostkaMiaryPF")
                 ShowAllObjects<JednostkiMiaryViewModel>();
+            if (name == "DodajGrafikPracy")
+                CreateView(new DodajGrafikPracyViewModel(null));
+            if (name == "DodajSposobPlatnosci")
+                CreateView(new DodajSposobPlatnosciViewModel(null)); 
+            if (name == "DodajRodzajUrlopu")
+                CreateView(new DodajRodzajUrlopuViewModel(null)); 
+            if (name == "DodajJednostkeMiary")
+                CreateView(new DodajJednostkiMiaryViewModel(null)); 
+            if (name == "DodajJezykApp")
+                CreateView(new DodajJezykAplikacjiViewModel(null));
+            if (name == "DodajKatTowarow")
+                CreateView(new DodajKategorieTowarowViewModel(null));
+            if (name == "DodajKlienta")
+                CreateView(new DodajKlientaViewModel(null)); 
+            if (name == "DodajDzial")
+                CreateView(new DodajDzialViewModel(null)); 
+            if (name == "DodajStrefeCzasowa")
+                CreateView(new DodajStrefeCzasowaViewModel(null));
+            if (name == "DodajDelegacje")
+                CreateView(new DodajDelegacjeViewModel(null));
         }
-        private void openZdarz(object objekt)
+        
+        private void openFotorejestracje(FOT_Fotorejestracja objekt)
         {
-                CreateView(new DodajZdarzenieViewModel(objekt as ZDA_Zdarzenia));
+            CreateView(new DodajFotorejestracjeViewModel(objekt));
+        }
+        private void openDzial(DZI_Dzialy objekt)
+        {
+            CreateView(new DodajDzialViewModel(objekt));
+        }
+        private void openDelegacje(DEL_Delegacje objekt)
+        {
+            CreateView(new DodajDelegacjeViewModel(objekt));
+        }
+        private void openStrefaCzas(STC_StrefaCzasowa objekt)
+        {
+            CreateView(new DodajStrefeCzasowaViewModel(objekt));
+        }
+        private void openKlient(KLI_Klienci objekt)
+        {
+            CreateView(new DodajKlientaViewModel(objekt));
+        }
+        private void openKatTowarow(KAT_KategorieTowarow objekt)
+        {
+            CreateView(new DodajKategorieTowarowViewModel(objekt));
+        }
+        private void openZdarz(ZDA_Zdarzenia objekt)
+        {
+            CreateView(new DodajZdarzenieViewModel(objekt));
+        }
+        private void openGraf(GRP_GrafikPracy objekt)
+        {
+            CreateView(new DodajGrafikPracyViewModel(objekt));
         }
 
-            private void CreateView(WorkspaceViewModel workspace)
+        private void openWniosekUrlop(WUR_WnioskiUrlopowe objekt)
+        {
+            CreateView(new DodajWniosekUrlopowyViewModel(objekt));
+        }
+        private void openTowary(TOW_Towary objekt)
+        {
+            CreateView(new DodajTowarViewModel(objekt));
+        }
+        private void openRodzajUrlopu(RUR_RodzajeUrlopow objekt)
+        {
+            CreateView(new DodajRodzajUrlopuViewModel(objekt));
+        }
+        
+
+        private void openSpospPlatnosci(SPP_SposobPlatnosci objekt)
+        {
+            CreateView(new DodajSposobPlatnosciViewModel(objekt));
+        }
+        private void openJednostkMiary(JEM_JednostkiMiary objekt)
+        {
+            CreateView(new DodajJednostkiMiaryViewModel(objekt));
+        }
+        private void openJezykAplikacji(JAP_JezykAplikacji objekt)
+        {
+            CreateView(new DodajJezykAplikacjiViewModel(objekt));
+        }
+
+
+        private void CreateView(WorkspaceViewModel workspace)
         {
             this.Workspaces.Add(workspace);
             this.SetActiveWorkspace(workspace);

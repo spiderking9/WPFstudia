@@ -10,10 +10,11 @@ using System.Windows.Input;
 using UrlopyApiXaml;
 using UrlopyApiXaml.Helper;
 using UrlopyApiXaml.Models.Entities;
+using UrlopyApiXaml.Models.EntitiesForView;
 
 namespace UrlopyApiXaml.ViewModels
 {
-    public class NowaFakturaViewModel : WszystkieViewModel<FAK_Faktury>
+    public class NowaFakturaViewModel : WszystkieViewModel<FakturyView>
     {
         #region Fields
         protected DZI_Dzialy item;
@@ -28,35 +29,8 @@ namespace UrlopyApiXaml.ViewModels
             base.DisplayName = "Faktura";
         }
         #endregion
-        private ObservableCollection<KLI_Klienci> _ListaKlientow;
-        public ObservableCollection<KLI_Klienci> ListaKlientow
-        {
-            get
-            {
-                if (_ListaKlientow == null) load(); //jezeli lista jest pusta to wywolujemy metode load
-                return _ListaKlientow;
-            }
-            set
-            {
-                _ListaKlientow = value; OnPropertyChanged(() => ListaKlientow);
-            }
-        }
 
-        
-
-        private ObservableCollection<JEM_JednostkiMiary> _ListaJednostekMiar;
-        public ObservableCollection<JEM_JednostkiMiary> ListaJednostekMiar
-        {
-            get
-            {
-                if (_ListaJednostekMiar == null) load(); //jezeli lista jest pusta to wywolujemy metode load
-                return _ListaJednostekMiar;
-            }
-            set
-            {
-                _ListaJednostekMiar = value; OnPropertyChanged(() => ListaJednostekMiar);
-            }
-        }
+       
         private ObservableCollection<DZI_Dzialy> _ListaDzialy;
         public ObservableCollection<DZI_Dzialy> ListaDzialy
         {
@@ -71,19 +45,6 @@ namespace UrlopyApiXaml.ViewModels
             }
         }
 
-        private ObservableCollection<KAT_KategorieTowarow> _ListaKategorie;
-        public ObservableCollection<KAT_KategorieTowarow> ListaKategorie
-        {
-            get
-            {
-                if (_ListaKategorie == null) load(); //jezeli lista jest pusta to wywolujemy metode load
-                return _ListaKategorie;
-            }
-            set
-            {
-                _ListaKategorie = value; OnPropertyChanged(() => ListaKategorie);
-            }
-        }
 
         private ObservableCollection<URL_Urlopy> _ListaUrlopy;
         public ObservableCollection<URL_Urlopy> ListaUrlopy
@@ -111,34 +72,27 @@ namespace UrlopyApiXaml.ViewModels
                 _ListaPracownicy = value; OnPropertyChanged(() => ListaPracownicy);
             }
         }
-
-        private ObservableCollection<TOW_Towary> _ListaTowarow;
-        public ObservableCollection<TOW_Towary> ListaTowarow
-        {
-            get
-            {
-                if (_ListaTowarow == null) load(); //jezeli lista jest pusta to wywolujemy metode load
-                return _ListaTowarow;
-            }
-            set
-            {
-                _ListaTowarow = value; OnPropertyChanged(() => ListaTowarow);
-            }
-        }
         #region Helpers
         // metoda load pobierze z bazy wszystkie towary i przypisze je do listy
         public override void load()
         {
             //za pomoca obiektu reprezentujacego cala baze danych o nazwie fakturyentities pobieram
             //wszystkie rekordy z bazy danych i zamieniam je na observableCollection
-            List = new ObservableCollection<FAK_Faktury>(urlopyApiXaml.FAK_Faktury);//
-            ListaKlientow= new ObservableCollection<KLI_Klienci>(urlopyApiXaml.KLI_Klienci);//
-            ListaKategorie = new ObservableCollection<KAT_KategorieTowarow>(urlopyApiXaml.KAT_KategorieTowarow);//
-            ListaJednostekMiar = new ObservableCollection<JEM_JednostkiMiary>(urlopyApiXaml.JEM_JednostkiMiary);//
+            List = new ObservableCollection<FakturyView>
+            (
+                from fakt in urlopyApiXaml.FAK_Faktury
+                where fakt.FAK_CzyAktywny == true
+                select new FakturyView
+                {
+                    FAK_FakID = fakt.FAK_FakID,
+                    NazwaKlienta = fakt.KLI_Klienci.KLI_Nazwa,
+                    SposobPlatnosci = fakt.SPP_SposobPlatnosci.SPP_Nazwa,
+                    FAK_DataWystawienia= fakt.FAK_DataWystawienia
+                }
+            );
             ListaDzialy = new ObservableCollection<DZI_Dzialy>(urlopyApiXaml.DZI_Dzialy);//
             ListaUrlopy = new ObservableCollection<URL_Urlopy>(urlopyApiXaml.URL_Urlopy);
             ListaPracownicy= new ObservableCollection<PRA_Pracownicy>(urlopyApiXaml.PRA_Pracownicy);//
-            ListaTowarow = new ObservableCollection<TOW_Towary>(urlopyApiXaml.TOW_Towary); //
         }
         #endregion Helpers
 

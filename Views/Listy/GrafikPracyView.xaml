@@ -12,7 +12,7 @@
     </UserControl.Resources>
 
     <Grid>
-        <DataGrid Grid.Row="3" ItemsSource="{Binding List}" AutoGenerateColumns="False">
+        <DataGrid Grid.Row="3" ItemsSource="{Binding List}" AutoGenerateColumns="False" SelectedItem="{Binding Path=Wybrane, Mode=TwoWay}">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Lp" Binding="{Binding GRP_GrpID}"/>
                 <DataGridTextColumn Header="Pracownik Id" Binding="{Binding GRP_PraID}"/>

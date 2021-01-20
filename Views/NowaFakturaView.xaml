@@ -153,25 +153,11 @@
                         <DataGrid.Columns>
                             <DataGridTextColumn Header="Lp" Binding="{Binding FAK_FakID}"/>
                             <DataGridTextColumn Header="DataWystawienia" Binding="{Binding FAK_DataWystawienia, StringFormat=d, ConverterCulture=pl-PL}"/>
-                            <DataGridTextColumn Header="IdTowaru" Binding="{Binding FAK_TowID}"/>
-                            <DataGridTextColumn Header="IdKlienta" Binding="{Binding FAK_KliID}"/>
-                            <DataGridTextColumn Header="Ilosc" Binding="{Binding FAK_Ilosc}"/>
-                            <DataGridTextColumn Header="Jm" Binding="{Binding FAK_JemID}"/>
-                            <DataGridTextColumn Header="Cena" Binding="{Binding FAK_Cena}"/>
-                            <DataGridTextColumn Header="Marza" Binding="{Binding FAK_Marza}"/>
+                            <DataGridTextColumn Header="Nazwa Klienta" Binding="{Binding NazwaKlienta}"/>
+                            <DataGridTextColumn Header="Sposob Platnosci" Binding="{Binding SposobPlatnosci}"/>
                         </DataGrid.Columns>
                     </DataGrid>
                 </Grid>
-            </TabItem>
-            <TabItem Header="Klienci">
-                <DataGrid ItemsSource="{Binding ListaKlientow}" AutoGenerateColumns="False">
-                    <DataGrid.Columns>
-                        <DataGridTextColumn Header="Lp" Binding="{Binding KLI_KliID}"/>
-                        <DataGridTextColumn Header="Nazwa" Binding="{Binding KLI_Nazwa}"/>
-                        <DataGridTextColumn Header="Adres" Binding="{Binding KLI_Adres}"/>
-                        <DataGridTextColumn Header="Telefon" Binding="{Binding KLI_Telefon}"/>
-                    </DataGrid.Columns>
-                </DataGrid>
             </TabItem>
             <TabItem Header="Dzialy">
                 <DataGrid ItemsSource="{Binding ListaDzialy}" AutoGenerateColumns="False">
@@ -196,15 +182,6 @@
 
                     <Button Grid.Row="5" Margin="20,4,0,0" Grid.ColumnSpan="2" Background="Red" Content="Dodaj Dzial" Foreground="White" Command="{Binding SaveCommand}" FontSize="20"/>
                 </Grid>
-            </TabItem>
-            <TabItem Header="JednostkiMiary">
-                <DataGrid ItemsSource="{Binding ListaJednostekMiar}" AutoGenerateColumns="False">
-                    <DataGrid.Columns>
-                        <DataGridTextColumn Header="Lp" Binding="{Binding JEM_JemID}"/>
-                        <DataGridTextColumn Header="Nazwa" Binding="{Binding JEM_Nazwa}"/>
-                        <DataGridTextColumn Header="Opis" Binding="{Binding JEM_Opis}"/>
-                    </DataGrid.Columns>
-                </DataGrid>
             </TabItem>
             <TabItem Header="Pracownicy">
                 <DataGrid ItemsSource="{Binding ListaPracownicy}" AutoGenerateColumns="False">
@@ -231,35 +208,13 @@
                     </DataGrid.Columns>
                 </DataGrid>
             </TabItem>
-            <TabItem Header="KategorieTowarów">
-                <DataGrid ItemsSource="{Binding ListaKategorie}" AutoGenerateColumns="False">
-                    <DataGrid.Columns>
-                        <DataGridTextColumn Header="Lp" Binding="{Binding KAT_KatID}"/>
-                        <DataGridTextColumn Header="Nazwa" Binding="{Binding KAT_Nazwa}"/>
-                        <DataGridTextColumn Header="Opis" Binding="{Binding KAT_Opis}"/>
-                    </DataGrid.Columns>
-                </DataGrid>
-            </TabItem>
-            <TabItem Header="Towary">
-                <DataGrid ItemsSource="{Binding ListaTowarow}" AutoGenerateColumns="False">
-                    <DataGrid.Columns>
-                        <DataGridTextColumn Header="Lp" Binding="{Binding TOW_TowID}"/>
-                        <DataGridTextColumn Header="Nazwa" Binding="{Binding TOW_Nazwa}"/>
-                        <DataGridTextColumn Header="Kod" Binding="{Binding TOW_Kod}"/>
-                        <DataGridTextColumn Header="Opis" Binding="{Binding TOW_Opis}"/>
-                        <DataGridTextColumn Header="Kategoria" Binding="{Binding TOW_KatID}"/>
-                        <DataGridTextColumn Header="Stan ilosciowy" Binding="{Binding TOW_StanIlosciowy}"/>
-                        <DataGridTextColumn Header="Zdjecie" Binding="{Binding TOW_Zdjecie}"/>
-                    </DataGrid.Columns>
-                </DataGrid>
-            </TabItem>
             <TabItem Header="Urlopy">
                 <DataGrid ItemsSource="{Binding ListaUrlopy}" AutoGenerateColumns="False">
                     <DataGrid.Columns>
                         <DataGridTextColumn Header="Lp" Binding="{Binding URL_UrlID}"/>
                         <DataGridTextColumn Header="Pracownik ID" Binding="{Binding URL_PraID}"/>
-                        <DataGridTextColumn Header="Od Kiedy" Binding="{Binding URL_DzienOd}"/>
-                        <DataGridTextColumn Header="Do Kiedy" Binding="{Binding URL_DzienDo}"/>
+                        <DataGridTextColumn Header="Od Kiedy" Binding="{Binding URL_DzienOd, StringFormat=d, ConverterCulture=pl-PL}"/>
+                        <DataGridTextColumn Header="Do Kiedy" Binding="{Binding URL_DzienDo, StringFormat=d, ConverterCulture=pl-PL}"/>
                         <DataGridTextColumn Header="Rodzaj Urlopu" Binding="{Binding URL_RurID}"/>
                     </DataGrid.Columns>
                 </DataGrid>

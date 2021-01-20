@@ -60,7 +60,7 @@
                         <TextBlock Text="&#xf073;"/>
                     </MenuItem.Icon>
                 </MenuItem>
-                <MenuItem Header="_Delegacje" InputGestureText="alt+d" Command="{Binding DelegacjeCommand}">
+                <MenuItem Header="_Delegacje" InputGestureText="alt+d" Command="{Binding InnaDelegacjeCommand}">
                     <MenuItem.Icon>
                         <TextBlock Text="&#xf1b9;"/>
                     </MenuItem.Icon>

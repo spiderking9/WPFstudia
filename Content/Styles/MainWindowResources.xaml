@@ -14,6 +14,24 @@
     <DataTemplate DataType="{x:Type vml:ListaWnioskowUrlopowychViewModel}">
         <vwl:ListaWnioskowUrlopowychView/>
     </DataTemplate>
+    <DataTemplate DataType="{x:Type vml:FotorejestracjaViewModel}">
+        <vwl:FotorejestracjaView/>
+    </DataTemplate>
+    <DataTemplate DataType="{x:Type vml:DelegacjeViewModel}">
+        <vwl:DelegacjeView/>
+    </DataTemplate>
+    <DataTemplate DataType="{x:Type vml:KategorieTowarowViewModel}">
+        <vwl:KategorieTowarowView/>
+    </DataTemplate>
+    <DataTemplate DataType="{x:Type vml:KlientViewModel}">
+        <vwl:KlientView/>
+    </DataTemplate>
+    <DataTemplate DataType="{x:Type vml:StrefaCzasowaViewModel}">
+        <vwl:StrefaCzasowaView/>
+    </DataTemplate>
+    <DataTemplate DataType="{x:Type vml:DzialViewModel}">
+        <vwl:DzialView/>
+    </DataTemplate>
     <DataTemplate DataType="{x:Type vmw:FakturyViewModel}">
         <vww:FakturyView/>
     </DataTemplate>
@@ -28,6 +46,18 @@
     </DataTemplate>
     <DataTemplate DataType="{x:Type vmd:DodajUrlopyViewModel}">
         <vwd:DodajUrlopyView/>
+    </DataTemplate>
+    <DataTemplate DataType="{x:Type vmd:DodajFotorejestracjeViewModel}">
+        <vwd:DodajFotorejestracjeView/>
+    </DataTemplate>
+    <DataTemplate DataType="{x:Type vmd:DodajStrefeCzasowaViewModel}">
+        <vwd:DodajStrefeCzasowaView/>
+    </DataTemplate>
+    <DataTemplate DataType="{x:Type vmd:DodajDelegacjeViewModel}">
+        <vwd:DodajDelegacjeView/>
+    </DataTemplate>
+    <DataTemplate DataType="{x:Type vmd:DodajDzialViewModel}">
+        <vwd:DodajDzialView/>
     </DataTemplate>
     <DataTemplate DataType="{x:Type vmd:DodajJednostkiMiaryViewModel}">
         <vwd:DodajJednostkiMiaryView/>
@@ -68,8 +98,8 @@
     <DataTemplate DataType="{x:Type vmd:DodajSposobPlatnosciViewModel}">
         <vwd:DodajSposobPlatnosciView/>
     </DataTemplate>
-    <DataTemplate DataType="{x:Type vmm:DelegacjeViewModel}">
-        <vwm:DelegacjeView/>
+    <DataTemplate DataType="{x:Type vmm:InnaDelegacjaViewModel}">
+        <vwm:InnaDelegacjaView/>
     </DataTemplate>
     <DataTemplate DataType="{x:Type vmm:UrlopyViewModel}">
         <vwm:UrlopyView/>
@@ -88,6 +118,21 @@
     </DataTemplate>
     <DataTemplate DataType="{x:Type vml:GrafikPracyViewModel}">
         <vwl:GrafikPracyView/>
+    </DataTemplate>
+    <DataTemplate DataType="{x:Type vml:RodzajUrlopuViewModel}">
+        <vwl:RodzajUrlopuView/>
+    </DataTemplate>
+    <DataTemplate DataType="{x:Type vml:JezykAplikacjiViewModel}">
+        <vwl:JezykAplikacjiView/>
+    </DataTemplate>
+    <DataTemplate DataType="{x:Type vml:TowarViewModel}">
+        <vwl:TowarView/>
+    </DataTemplate>
+    <DataTemplate DataType="{x:Type vml:SposobPlatnosciViewModel}">
+        <vwl:SposobPlatnosciView/>
+    </DataTemplate>
+    <DataTemplate DataType="{x:Type vml:JednostkaMiaryViewModel}">
+        <vwl:JednostkaMiaryView/>
     </DataTemplate>
     <DataTemplate DataType="{x:Type vm:PracownicyViewModel}">
         <vw:PracownicyView/>

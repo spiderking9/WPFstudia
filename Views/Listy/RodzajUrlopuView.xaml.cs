@@ -11,17 +11,15 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-using UrlopyApiXaml.ViewModels;
-using UrlopyApiXaml.ViewModels.Zakladki;
 
-namespace UrlopyApiXaml.Views.Zakladki
+namespace UrlopyApiXaml.Views.Listy
 {
     /// <summary>
-    /// Logika interakcji dla klasy DelegacjeView.xaml
+    /// Interaction logic for RodzajUrlopuView.xaml
     /// </summary>
-    public partial class DelegacjeView : UserControl
+    public partial class RodzajUrlopuView : DodajUsunEdytujOdswiezViewBase
     {
-        public DelegacjeView()
+        public RodzajUrlopuView()
         {
             InitializeComponent();
         }

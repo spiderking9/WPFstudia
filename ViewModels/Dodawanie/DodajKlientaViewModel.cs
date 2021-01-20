@@ -9,10 +9,18 @@ namespace UrlopyApiXaml.ViewModels.Dodawanie
     public class DodajKlientaViewModel : NowyViewModel<KLI_Klienci>
     {
         #region Constructor
-        public DodajKlientaViewModel() : base()
+        public DodajKlientaViewModel(KLI_Klienci itemEdytowany) : base()
         {
-            item = new KLI_Klienci();
-            item.KLI_CzyAktywny = true;
+            if (itemEdytowany == null)
+            {
+                item = new KLI_Klienci();
+                item.KLI_CzyAktywny = true;
+            }
+            else
+            {
+                item = itemEdytowany;
+            }
+
             base.DisplayName = "Dodaj Klienta";
         }
         #endregion Constructor
@@ -72,7 +80,17 @@ namespace UrlopyApiXaml.ViewModels.Dodawanie
         #region Helpers
         public override void Save()
         {
-            urlopyApiXaml.KLI_Klienci.Add(item);
+            if (item.KLI_KliID == 0)
+            {
+                urlopyApiXaml.KLI_Klienci.Add(item);
+            }
+            else
+            {
+                var zdarzenie = urlopyApiXaml.KLI_Klienci.FirstOrDefault(x => x.KLI_KliID == item.KLI_KliID);
+                zdarzenie.KLI_Nazwa = KLI_Nazwa.Trim();
+                zdarzenie.KLI_Adres = KLI_Adres.Trim();
+                zdarzenie.KLI_Telefon = KLI_Telefon.Trim();
+            }
             urlopyApiXaml.SaveChanges();
         }
 

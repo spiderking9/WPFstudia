@@ -6,7 +6,7 @@
              xmlns:local="clr-namespace:UrlopyApiXaml.Views"
              mc:Ignorable="d" >
 
-        <ListBox Margin="10,10,0,0" ItemsSource="{Binding List}" Background="AliceBlue" BorderThickness="0" SelectedItem="{Binding Path=WybraneZdarzenie, Mode=TwoWay}">
+        <ListBox Margin="10,10,0,0" ItemsSource="{Binding List}" Background="AliceBlue" BorderThickness="0" SelectedItem="{Binding Path=WybraneZdarzenie, Mode=TwoWay}" Width="525" HorizontalAlignment="Left">
             <ListBox.ItemTemplate>
                 <DataTemplate>
                     <Border BorderBrush="LightGray" Width="500" BorderThickness="1.5" CornerRadius="4" Margin="2,2,10,2">

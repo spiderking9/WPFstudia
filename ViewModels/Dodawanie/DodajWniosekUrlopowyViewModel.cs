@@ -9,13 +9,20 @@ namespace UrlopyApiXaml.ViewModels.Dodawanie
     public class DodajWniosekUrlopowyViewModel : NowyViewModel<WUR_WnioskiUrlopowe>
     {
         #region Constructor
-        public DodajWniosekUrlopowyViewModel() : base()
+        public DodajWniosekUrlopowyViewModel(WUR_WnioskiUrlopowe itemEdytowany) : base()
         {
-            item = new WUR_WnioskiUrlopowe();
-            item.WUR_CzyAktywny = true;
             base.DisplayName = "Dodaj Wniosek Urlopowy";
-            WUR_DataOd = DateTime.Now;
-            WUR_DataDo = DateTime.Now;
+            if (itemEdytowany == null)
+            {
+                item = new WUR_WnioskiUrlopowe();
+                item.WUR_CzyAktywny = true;
+                WUR_DataOd = DateTime.Now;
+                WUR_DataDo = DateTime.Now;
+            }
+            else
+            {
+                item = itemEdytowany;
+            }
         }
         #endregion Constructor
 
@@ -116,7 +123,19 @@ namespace UrlopyApiXaml.ViewModels.Dodawanie
         #region Helpers
         public override void Save()
         {
-            urlopyApiXaml.WUR_WnioskiUrlopowe.Add(item);
+
+            if (item.WUR_WurID == 0)
+            {
+                urlopyApiXaml.WUR_WnioskiUrlopowe.Add(item);
+            }
+            else
+            {
+                var zdarzenie = urlopyApiXaml.WUR_WnioskiUrlopowe.FirstOrDefault(x => x.WUR_WurID == item.WUR_WurID);
+                zdarzenie.WUR_DataOd = WUR_DataOd;
+                zdarzenie.WUR_DataDo = WUR_DataDo;
+                zdarzenie.WUR_PraID = WUR_PraID;
+                zdarzenie.WUR_RurID = WUR_RurID;
+            }
             urlopyApiXaml.SaveChanges();
         }
 

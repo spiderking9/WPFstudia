@@ -9,10 +9,18 @@ namespace UrlopyApiXaml.ViewModels.Dodawanie
     public class DodajSposobPlatnosciViewModel : NowyViewModel<SPP_SposobPlatnosci>
     {
         #region Constructor
-        public DodajSposobPlatnosciViewModel() : base()
+        public DodajSposobPlatnosciViewModel(SPP_SposobPlatnosci itemEdytowany) : base()
         {
-            item = new SPP_SposobPlatnosci();
-            item.SPP_CzyAktywny = true;
+            if (itemEdytowany == null)
+            {
+                item = new SPP_SposobPlatnosci();
+                item.SPP_CzyAktywny = true;
+            }
+            else
+            {
+                item = itemEdytowany;
+            }
+
             base.DisplayName = "Dodaj Sposobu Platnosci";
         }
         #endregion Constructor
@@ -39,7 +47,16 @@ namespace UrlopyApiXaml.ViewModels.Dodawanie
         #region Helpers
         public override void Save()
         {
-            urlopyApiXaml.SPP_SposobPlatnosci.Add(item);
+            if (item.SPP_SppID == 0)
+            {
+                urlopyApiXaml.SPP_SposobPlatnosci.Add(item);
+            }
+            else
+            {
+                var zdarzenie = urlopyApiXaml.SPP_SposobPlatnosci.FirstOrDefault(x => x.SPP_SppID == item.SPP_SppID);
+                zdarzenie.SPP_Nazwa = SPP_Nazwa.Trim();
+            }
+
             urlopyApiXaml.SaveChanges();
         }
 

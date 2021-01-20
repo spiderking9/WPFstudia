@@ -1,0 +1,57 @@
+﻿<UserControl x:Class="UrlopyApiXaml.Views.Dodawanie.DodajDelegacjeView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:UrlopyApiXaml.Views.Dodawanie"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="150"/>
+            <ColumnDefinition Width="200"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="40"/>
+            <RowDefinition Height="40"/>
+            <RowDefinition Height="80"/>
+            <RowDefinition Height="40"/>
+            <RowDefinition Height="40"/>
+            <RowDefinition Height="40"/>
+            <RowDefinition Height="40"/>
+            <RowDefinition Height="40"/>
+            <RowDefinition Height="40"/>
+
+            <RowDefinition Height="50"/>
+        </Grid.RowDefinitions>
+        <Label Grid.Row="0" Grid.Column="0" Content="Pracownik" Margin="0,8,0,8"/>
+        <ComboBox 
+                                Grid.Row="0" 
+                                Grid.Column="1" 
+                                ItemsSource="{Binding  PracownicyComboBoxItems}" 
+                                DisplayMemberPath="ImieNazwisko"  
+                                SelectedValuePath="PraID"  
+                                SelectedValue="{Binding Path=DEL_PraID,Mode=TwoWay}"
+                                VerticalAlignment="Center"
+                                />
+
+        <Label Grid.Row="1" Grid.Column="0" Content="Tytul" Margin="0,8,0,8" VerticalContentAlignment="Center" HorizontalContentAlignment="Left"/>
+        <TextBox Grid.Row="1" Grid.Column="1" Margin="0,8,0,8" Width="169" HorizontalAlignment="Left" Text="{Binding DEL_Tytul,UpdateSourceTrigger=PropertyChanged}" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"/>
+        <Label Grid.Row="2" Grid.Column="0" Content="Rodzaj transportu" Margin="0,8,0,8" VerticalContentAlignment="Center" HorizontalContentAlignment="Left"/>
+        <TextBox Grid.Row="2" Grid.Column="1" Margin="0,8,0,8" Width="169" HorizontalAlignment="Left" Text="{Binding DEL_JakiTransport,UpdateSourceTrigger=PropertyChanged}" 
+                 VerticalContentAlignment="Top" HorizontalContentAlignment="Left" TextWrapping="Wrap"/>
+        <Label Grid.Row="3" Grid.Column="0" Content="Miejscowosc Startu" Margin="0,8,0,8" VerticalContentAlignment="Center" HorizontalContentAlignment="Left"/>
+        <TextBox Grid.Row="3" Grid.Column="1" Margin="0,8,0,8" Width="169" HorizontalAlignment="Left" Text="{Binding DEL_MiejscowoscStartu,UpdateSourceTrigger=PropertyChanged}" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"/>
+        <Label Grid.Row="4" Grid.Column="0" Content="Miejscowosc Celu" Margin="0,8,0,8" VerticalContentAlignment="Center" HorizontalContentAlignment="Left"/>
+        <TextBox Grid.Row="4" Grid.Column="1" Margin="0,8,0,8" Width="169" HorizontalAlignment="Left" Text="{Binding DEL_MiejscowoscCelu,UpdateSourceTrigger=PropertyChanged}" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"/>
+        <Label Grid.Row="5" Grid.Column="0" Content="Dzien Od" Margin="0,8,0,8" VerticalContentAlignment="Center" HorizontalContentAlignment="Left"/>
+        <DatePicker Grid.Row="5" Grid.Column="1" VerticalAlignment="Center" SelectedDate="{Binding Path=DEL_DzienOd, UpdateSourceTrigger=PropertyChanged}"/>
+        <Label Grid.Row="6" Grid.Column="0" Content="Dzien Do" Margin="0,8,0,8" VerticalContentAlignment="Center" HorizontalContentAlignment="Left"/>
+        <DatePicker Grid.Row="6" Grid.Column="1" VerticalAlignment="Center" SelectedDate="{Binding Path=DEL_DzienDo, UpdateSourceTrigger=PropertyChanged}"/>
+        <Label Grid.Row="7" Grid.Column="0" Content="Komentarz" Margin="0,8,0,8" VerticalContentAlignment="Center" HorizontalContentAlignment="Left"/>
+        <TextBox Grid.Row="7" Grid.Column="1" Margin="0,8,0,8" Width="169" HorizontalAlignment="Left" Text="{Binding DEL_Komentarz,UpdateSourceTrigger=PropertyChanged}" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"/>
+
+        <Button Grid.Row="9" Margin="20,4,0,0" Grid.ColumnSpan="2" Content="Dodaj Delegacje" Foreground="White" Command="{Binding SaveCommand}" FontSize="20"/>
+    </Grid>
+</UserControl>
+

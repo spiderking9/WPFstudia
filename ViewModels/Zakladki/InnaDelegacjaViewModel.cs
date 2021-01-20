@@ -7,10 +7,10 @@ using UrlopyApiXaml.Views;
 
 namespace UrlopyApiXaml.ViewModels.Zakladki
 {
-    class DelegacjeViewModel : WorkspaceViewModel
+    class InnaDelegacjaViewModel : WorkspaceViewModel
     {
         #region Construktor
-        public DelegacjeViewModel()
+        public InnaDelegacjaViewModel()
         {
             base.DisplayName = "Delegacje";
         }

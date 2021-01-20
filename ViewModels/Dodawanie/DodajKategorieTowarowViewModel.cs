@@ -9,10 +9,18 @@ namespace UrlopyApiXaml.ViewModels.Dodawanie
     public class DodajKategorieTowarowViewModel : NowyViewModel<KAT_KategorieTowarow>
     {
         #region Constructor
-        public DodajKategorieTowarowViewModel() : base()
+        public DodajKategorieTowarowViewModel(KAT_KategorieTowarow itemEdytowany) : base()
         {
-            item = new KAT_KategorieTowarow();
-            item.KAT_CzyAktywny = true;
+            if (itemEdytowany == null)
+            {
+                item = new KAT_KategorieTowarow();
+                item.KAT_CzyAktywny = true;
+            }
+            else
+            {
+                item = itemEdytowany;
+            }
+
             base.DisplayName = "Dodaj KategorieTowarow";
         }
         #endregion Constructor
@@ -56,7 +64,18 @@ namespace UrlopyApiXaml.ViewModels.Dodawanie
         #region Helpers
         public override void Save()
         {
-            urlopyApiXaml.KAT_KategorieTowarow.Add(item);
+            if (item.KAT_KatID == 0)
+            {
+                urlopyApiXaml.KAT_KategorieTowarow.Add(item);
+
+            }
+            else
+            {
+                var zdarzenie = urlopyApiXaml.KAT_KategorieTowarow.FirstOrDefault(x => x.KAT_KatID == item.KAT_KatID);
+                zdarzenie.KAT_Nazwa = KAT_Nazwa.Trim();
+                zdarzenie.KAT_Opis = KAT_Opis.Trim();
+
+            }
             urlopyApiXaml.SaveChanges();
         }
 

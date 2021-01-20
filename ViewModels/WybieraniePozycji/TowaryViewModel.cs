@@ -29,9 +29,8 @@ namespace UrlopyApiXaml.ViewModels.WybieraniePozycji
                 if (_WybranTowar != value)
                 {
                     _WybranTowar = value;
-                    Messenger.Default.Send(_WybranTowar);
-                    OnRequestClose();
-
+                        Messenger.Default.Send(_WybranTowar);
+                        OnRequestClose();
                 }
             }
         }

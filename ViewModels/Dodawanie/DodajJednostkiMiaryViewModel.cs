@@ -9,10 +9,17 @@ namespace UrlopyApiXaml.ViewModels.Dodawanie
     class DodajJednostkiMiaryViewModel : NowyViewModel<JEM_JednostkiMiary>
     {
         #region Constructor
-        public DodajJednostkiMiaryViewModel() : base()
+        public DodajJednostkiMiaryViewModel(JEM_JednostkiMiary itemEdytowany) : base()
         {
-            item = new JEM_JednostkiMiary();
-            item.JEM_CzyAktywny = true;
+            if (itemEdytowany == null)
+            {
+                item = new JEM_JednostkiMiary();
+                item.JEM_CzyAktywny = true;
+            }
+            else
+            {
+                item = itemEdytowany;
+            }
             base.DisplayName = "Dodaj JednostkiMiary";
         }
         #endregion Constructor
@@ -56,7 +63,17 @@ namespace UrlopyApiXaml.ViewModels.Dodawanie
         #region Helpers
         public override void Save()
         {
-            urlopyApiXaml.JEM_JednostkiMiary.Add(item);
+
+            if (item.JEM_JemID == 0)
+            {
+                urlopyApiXaml.JEM_JednostkiMiary.Add(item);
+            }
+            else
+            {
+                var zdarzenie = urlopyApiXaml.JEM_JednostkiMiary.FirstOrDefault(x => x.JEM_JemID == item.JEM_JemID);
+                zdarzenie.JEM_Opis = JEM_Opis.Trim();
+                zdarzenie.JEM_Nazwa = JEM_Nazwa.Trim();
+            }
             urlopyApiXaml.SaveChanges();
         }
 

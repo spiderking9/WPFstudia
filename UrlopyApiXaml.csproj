@@ -128,8 +128,10 @@
     <Compile Include="Helper\BaseCommand.cs" />
     <Compile Include="Models\BusinessLogic\DatebaseClass.cs" />
     <Compile Include="Models\BusinessLogic\UrlopAlboZmianaPracy.cs" />
+    <Compile Include="Models\EntitiesForView\DelegacjaView.cs" />
     <Compile Include="Models\EntitiesForView\DzialLiczbaPracownikow.cs" />
     <Compile Include="Models\EntitiesForView\FakturyView.cs" />
+    <Compile Include="Models\EntitiesForView\FotorejestracjaView.cs" />
     <Compile Include="Models\EntitiesForView\ListaWnioskowUrlopowychView.cs" />
     <Compile Include="Models\EntitiesForView\PracownicyView.cs" />
     <Compile Include="Models\EntitiesForView\TowarView.cs" />
@@ -208,7 +210,10 @@
     </Compile>
     <Compile Include="ViewModels\BaseViewModel.cs" />
     <Compile Include="ViewModels\CommandViewModel.cs" />
+    <Compile Include="ViewModels\Dodawanie\DodajDelegacjeViewModel.cs" />
+    <Compile Include="ViewModels\Dodawanie\DodajDzialViewModel.cs" />
     <Compile Include="ViewModels\Dodawanie\DodajFaktureViewModel.cs" />
+    <Compile Include="ViewModels\Dodawanie\DodajFotorejestracjeViewModel.cs" />
     <Compile Include="ViewModels\Dodawanie\DodajGrafikPracyViewModel.cs" />
     <Compile Include="ViewModels\Dodawanie\DodajJednostkiMiaryViewModel.cs" />
     <Compile Include="ViewModels\Dodawanie\DodajKategorieTowarowViewModel.cs" />
@@ -223,7 +228,18 @@
     <Compile Include="ViewModels\Dodawanie\DodajJezykAplikacjiViewModel.cs" />
     <Compile Include="ViewModels\Dodawanie\DodajWniosekUrlopowyViewModel.cs" />
     <Compile Include="ViewModels\Dodawanie\DodajZdarzenieViewModel.cs" />
+    <Compile Include="ViewModels\Listy\DelegacjeViewModel.cs" />
+    <Compile Include="ViewModels\Listy\DzialViewModel.cs" />
+    <Compile Include="ViewModels\Listy\FotorejestracjaViewModel.cs" />
+    <Compile Include="ViewModels\Listy\JednostkaMiaryViewModel.cs" />
+    <Compile Include="ViewModels\Listy\JezykAplikacjiViewModel.cs" />
+    <Compile Include="ViewModels\Listy\KategorieTowarowViewModel.cs" />
+    <Compile Include="ViewModels\Listy\KlientViewModel.cs" />
     <Compile Include="ViewModels\Listy\ListaWnioskowUrlopowychViewModel.cs" />
+    <Compile Include="ViewModels\Listy\RodzajUrlopuViewModel.cs" />
+    <Compile Include="ViewModels\Listy\SposobPlatnosciViewModel.cs" />
+    <Compile Include="ViewModels\Listy\StrefaCzasowaViewModel.cs" />
+    <Compile Include="ViewModels\Listy\TowarViewModel.cs" />
     <Compile Include="ViewModels\MainWindowViewModel.cs" />
     <Compile Include="ViewModels\NowaFakturaViewModel.cs" />
     <Compile Include="ViewModels\NowyViewModel.cs" />
@@ -236,7 +252,7 @@
     <Compile Include="ViewModels\WybieraniePozycji\FakturyViewModel.cs" />
     <Compile Include="ViewModels\WybieraniePozycji\JednostkiMiaryViewModel.cs" />
     <Compile Include="ViewModels\WybieraniePozycji\TowaryViewModel.cs" />
-    <Compile Include="ViewModels\Zakladki\DelegacjeViewModel.cs" />
+    <Compile Include="ViewModels\Zakladki\InnaDelegacjaViewModel.cs" />
     <Compile Include="ViewModels\Zakladki\OAplikacjiViewModel.cs" />
     <Compile Include="ViewModels\Zakladki\OpcjeViewModel.cs" />
     <Compile Include="ViewModels\Zakladki\TwojKodViewModel.cs" />
@@ -245,8 +261,17 @@
     <Compile Include="ViewModel\MainViewModel.cs" />
     <Compile Include="ViewModel\ViewModelLocator.cs" />
     <Compile Include="Views\DodajUsunEdytujOdswiezViewBase.cs" />
+    <Compile Include="Views\Dodawanie\DodajDelegacjeView.xaml.cs">
+      <DependentUpon>DodajDelegacjeView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Dodawanie\DodajDzialView.xaml.cs">
+      <DependentUpon>DodajDzialView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\Dodawanie\DodajFaktureView.xaml.cs">
       <DependentUpon>DodajFaktureView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Dodawanie\DodajFotorejestracjeView.xaml.cs">
+      <DependentUpon>DodajFotorejestracjeView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\Dodawanie\DodajGrafikPracyView.xaml.cs">
       <DependentUpon>DodajGrafikPracyView.xaml</DependentUpon>
@@ -291,8 +316,41 @@
       <DependentUpon>DodajZdarzenieView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\Filtrowanie1ViewBase.cs" />
+    <Compile Include="Views\Listy\DelegacjeView.xaml.cs">
+      <DependentUpon>DelegacjeView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Listy\DzialView.xaml.cs">
+      <DependentUpon>DzialView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Listy\FotorejestracjaView.xaml.cs">
+      <DependentUpon>FotorejestracjaView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Listy\JednostkaMiaryView.xaml.cs">
+      <DependentUpon>JednostkaMiaryView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Listy\JezykAplikacjiView.xaml.cs">
+      <DependentUpon>JezykAplikacjiView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Listy\KategorieTowarowView.xaml.cs">
+      <DependentUpon>KategorieTowarowView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Listy\KlientView.xaml.cs">
+      <DependentUpon>KlientView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\Listy\ListaWnioskowUrlopowychView.xaml.cs">
       <DependentUpon>ListaWnioskowUrlopowychView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Listy\RodzajUrlopuView.xaml.cs">
+      <DependentUpon>RodzajUrlopuView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Listy\SposobPlatnosciView.xaml.cs">
+      <DependentUpon>SposobPlatnosciView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Listy\StrefaCzasowaView.xaml.cs">
+      <DependentUpon>StrefaCzasowaView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Listy\TowarView.xaml.cs">
+      <DependentUpon>TowarView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
@@ -321,8 +379,8 @@
     <Compile Include="Views\WybieraniePozycji\TowaryView.xaml.cs">
       <DependentUpon>TowaryView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\Zakladki\DelegacjeView.xaml.cs">
-      <DependentUpon>DelegacjeView.xaml</DependentUpon>
+    <Compile Include="Views\Zakladki\InnaDelegacjaView.xaml.cs">
+      <DependentUpon>InnaDelegacjaView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\Zakladki\OAplikacjiView.xaml.cs">
       <DependentUpon>OAplikacjiView.xaml</DependentUpon>
@@ -423,7 +481,19 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
+    <Page Include="Views\Dodawanie\DodajDelegacjeView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Dodawanie\DodajDzialView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\Dodawanie\DodajFaktureView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Dodawanie\DodajFotorejestracjeView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -483,7 +553,51 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Views\Listy\DelegacjeView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Listy\DzialView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Listy\FotorejestracjaView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Listy\JednostkaMiaryView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Listy\JezykAplikacjiView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Listy\KategorieTowarowView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Listy\KlientView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\Listy\ListaWnioskowUrlopowychView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Listy\RodzajUrlopuView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Listy\SposobPlatnosciView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Listy\StrefaCzasowaView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Listy\TowarView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -531,7 +645,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Views\Zakladki\DelegacjeView.xaml">
+    <Page Include="Views\Zakladki\InnaDelegacjaView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

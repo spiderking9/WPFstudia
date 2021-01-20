@@ -158,11 +158,6 @@ namespace UrlopyApiXaml.ViewModels
                 return _PrzesunWLewo;
             }
         }
-        //public void setDataString()
-        //{
-
-        //    DataString = Data.ToString("dd MMMM yyy") + " - " + Data2.ToString("dd MMMM yyy");
-        //}
 
         public PrzegladViewModel()
         {

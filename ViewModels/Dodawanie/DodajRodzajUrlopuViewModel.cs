@@ -9,10 +9,18 @@ namespace UrlopyApiXaml.ViewModels.Dodawanie
     class DodajRodzajUrlopuViewModel : NowyViewModel<RUR_RodzajeUrlopow>
     {
         #region Constructor
-        public DodajRodzajUrlopuViewModel() : base()
+        public DodajRodzajUrlopuViewModel(RUR_RodzajeUrlopow itemEdytowany) : base()
         {
-            item = new RUR_RodzajeUrlopow();
-            item.RUR_CzyAktywny = true;
+            if (itemEdytowany == null)
+            {
+                item = new RUR_RodzajeUrlopow();
+                item.RUR_CzyAktywny = true;
+            }
+            else
+            {
+                item = itemEdytowany;
+            }
+
             base.DisplayName = "Dodaj RodzajUrlopu";
         }
         #endregion Constructor
@@ -39,7 +47,15 @@ namespace UrlopyApiXaml.ViewModels.Dodawanie
         #region Helpers
         public override void Save()
         {
-            urlopyApiXaml.RUR_RodzajeUrlopow.Add(item);
+            if (item.RUR_RurID ==0)
+            {
+                urlopyApiXaml.RUR_RodzajeUrlopow.Add(item);
+            }
+            else
+            {
+                var zdarzenie = urlopyApiXaml.RUR_RodzajeUrlopow.FirstOrDefault(x => x.RUR_RurID == item.RUR_RurID);
+                zdarzenie.RUR_Nazwa = RUR_Nazwa.Trim();
+            }
             urlopyApiXaml.SaveChanges();
         }
 

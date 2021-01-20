@@ -1,0 +1,19 @@
+﻿<local:DodajUsunEdytujOdswiezViewBase x:Class="UrlopyApiXaml.Views.Listy.KlientView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:UrlopyApiXaml.Views"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800">
+    <Grid>
+        <DataGrid ItemsSource="{Binding List}" AutoGenerateColumns="False" SelectedItem="{Binding Path=Wybrane, Mode=TwoWay}">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Lp" Binding="{Binding KLI_KliID}"/>
+                <DataGridTextColumn Header="Nazwa" Binding="{Binding KLI_Nazwa}"/>
+                <DataGridTextColumn Header="Adres" Binding="{Binding KLI_Adres}"/>
+                <DataGridTextColumn Header="Telefon" Binding="{Binding KLI_Telefon}"/>
+            </DataGrid.Columns>
+        </DataGrid>
+    </Grid>
+</local:DodajUsunEdytujOdswiezViewBase>

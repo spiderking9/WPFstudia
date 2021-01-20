@@ -69,6 +69,53 @@ namespace UrlopyApiXaml.ViewModels
                 return _DodajCommand;
             }
         }
+        public string SortField { get; set; }
+        //to jest lista stringow po ktorych moge sortowac, ktore wyswietlaja sie w rozwijanym comboboxie
+        public List<string> SortComboboxItems
+        {
+            get
+            {
+                return GetComboboxSortList();
+            }
+        }
+        //to jest komenda ktora zostanie podpieta pod przycisk sortuj i wywola ona metode Sort
+        private BaseCommand _SortCommand;
+
+        public ICommand SortCommand
+        {
+            get
+            {
+                if (_SortCommand == null)
+                {
+                    _SortCommand = new BaseCommand(() => Sort());
+                }
+                return _SortCommand;
+            }
+        }
+
+        public string FindField { get; set; }
+        //to jest poczatek wyszukiwanej frazy wpisywanej w textboxie
+        public string FindText { get; set; }
+        //to jest wlasciwosc ktora wypelnia liste wyboru w comboboxie
+        public List<string> FindComboboxItems
+        {
+            get
+            {
+                return GetComboboxFindList();
+            }
+        }
+        private BaseCommand _FindCommand;
+        public ICommand FindCommand
+        {
+            get
+            {
+                if (_FindCommand == null)
+                {
+                    _FindCommand = new BaseCommand(() => Find());
+                }
+                return _FindCommand;
+            }
+        }
         public ObservableCollection<T> List
         {
             get
@@ -95,6 +142,10 @@ namespace UrlopyApiXaml.ViewModels
         public virtual void add() { }
         public virtual void del() { }
         public virtual void edit() { }
+        public virtual void Sort() { }
+        public virtual List<string> GetComboboxSortList() { return new List<string>(); }
+        public virtual void Find() { }
+        public virtual List<string> GetComboboxFindList() { return new List<string>(); }
         #endregion Helpers
 
     }

@@ -9,10 +9,18 @@ namespace UrlopyApiXaml.ViewModels.Dodawanie
     public class DodajTowarViewModel : NowyViewModel<TOW_Towary>
     {
         #region Constructor
-        public DodajTowarViewModel() : base()
+        public DodajTowarViewModel(TOW_Towary itemEdytowany) : base()
         {
-            item = new TOW_Towary();
-            item.TOW_CzyAktywny = true;
+            if (itemEdytowany == null)
+            {
+                item = new TOW_Towary();
+                item.TOW_CzyAktywny = true;
+            }
+            else
+            {
+                item = itemEdytowany;
+            }
+
             base.DisplayName = "Dodaj Towar";
 
         }
@@ -130,7 +138,20 @@ namespace UrlopyApiXaml.ViewModels.Dodawanie
         #region Helpers
         public override void Save()
         {
-            urlopyApiXaml.TOW_Towary.Add(item);
+            if (item.TOW_TowID == 0)
+            {
+                urlopyApiXaml.TOW_Towary.Add(item);
+            }
+            else
+            {
+                var zdarzenie = urlopyApiXaml.TOW_Towary.FirstOrDefault(x => x.TOW_TowID == item.TOW_TowID);
+                zdarzenie.TOW_Kod = TOW_Kod.Trim();
+                zdarzenie.TOW_Nazwa = TOW_Nazwa.Trim();
+                zdarzenie.TOW_Opis = TOW_Opis.Trim();
+                zdarzenie.TOW_StanIlosciowy = TOW_StanIlosciowy;
+                zdarzenie.TOW_KatID = TOW_KatID;
+                zdarzenie.TOW_Zdjecie = TOW_Zdjecie.Trim();
+            }
             urlopyApiXaml.SaveChanges();
         }
 

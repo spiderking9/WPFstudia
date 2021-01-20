@@ -62,17 +62,46 @@
                     <Grid VerticalAlignment="Top">
                         <Grid.RowDefinitions>
                             <RowDefinition Height="*"/>
+                            <RowDefinition Height="*"/>
                             <RowDefinition Height="50"/>
                             <RowDefinition Height="50"/>
                             <RowDefinition Height="50"/>
                             <RowDefinition Height="50"/>
                         </Grid.RowDefinitions>
-                        <ContentPresenter Grid.Row="0" Margin="0,5,0,5"/>
+                        <Grid Margin="0,6,0,6" Grid.Row="0">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="32"/>
+                                <RowDefinition Height="32"/>
+                                <RowDefinition Height="32"/>
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="230"/>
+                                <ColumnDefinition Width="60"/>
+                                <ColumnDefinition Width="230"/>
+                            </Grid.ColumnDefinitions>
+                            <Label Grid.Row="0" Grid.Column="0" Content="Sortowanie" Margin="2"/>
+                            <ComboBox 
+                            Grid.Row="1" Grid.Column="0" Margin="0,0,60,0"
+                            ItemsSource="{Binding  SortComboboxItems}" 
+                            SelectedValue="{Binding Path=SortField,Mode=TwoWay}"
+                            />
+                            <Button Grid.Row="1" Grid.Column="0" Margin="170,0,0,0" Content="Sortuj" Command="{Binding SortCommand}"/>
 
-                        <Button Grid.Row="1" Command="{Binding  DodajCommand}" Background="Blue" Content="Dodaj Zdarzenie" Foreground="White" FontSize="20" MaxWidth="640"/>
-                        <Button Grid.Row="2" Command="{Binding  EditCommand}" Background="MediumBlue" Content="Edytuj Zdarzenie" Foreground="White" FontSize="20" MaxWidth="640"/>
-                        <Button Grid.Row="3" Command="{Binding  DelCommand}" Background="Blue" Content="Usun Zdarzenie" Foreground="White" FontSize="20" MaxWidth="640"/>
-                        <Button Grid.Row="4" Command="{Binding  LoadCommand}" Background="MediumBlue" Content="Odswiez" Foreground="White" FontSize="20" MaxWidth="640"/>
+                            <Label Grid.Row="0" Grid.Column="2" Content="Wyszukiwanie" Margin="2"/>
+                            <ComboBox 
+                            Grid.Row="1" Grid.Column="2" Margin="2"
+                            ItemsSource="{Binding  FindComboboxItems}" 
+                            SelectedValue="{Binding Path=FindField,Mode=TwoWay}"
+                            />
+                            <TextBox Grid.Row="2" Grid.Column="2" Margin="0,5,60,0" Text="{Binding FindText, Mode=TwoWay}"/>
+                            <Button Grid.Row="2" Grid.Column="2" Margin="170,0,0,0" Content="Szukaj" Command="{Binding FindCommand}"/>
+                        </Grid>
+                        <ContentPresenter Grid.Row="1" Margin="0,5,0,5"/>
+
+                        <Button Grid.Row="2" Command="{Binding  DodajCommand}" Background="{DynamicResource gradientBrushSegmentedTabItem}" Content="Dodaj" Foreground="White" FontSize="20" MaxWidth="640"/>
+                        <Button Grid.Row="3" Command="{Binding  EditCommand}" Background="{DynamicResource gradientBrushSegmentedTabItem}" Content="Edytuj" Foreground="White" FontSize="20" MaxWidth="640"/>
+                        <Button Grid.Row="4" Command="{Binding  DelCommand}" Background="{DynamicResource gradientBrushSegmentedTabItem}" Content="Usun" Foreground="White" FontSize="20" MaxWidth="640"/>
+                        <Button Grid.Row="5" Command="{Binding  LoadCommand}" Background="{DynamicResource gradientBrushSegmentedTabItem}" Content="Odswiez" Foreground="White" FontSize="20" MaxWidth="640"/>
                     </Grid>
                 </ControlTemplate>
             </Setter.Value>

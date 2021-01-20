@@ -9,10 +9,18 @@ namespace UrlopyApiXaml.ViewModels.Dodawanie
     public class DodajJezykAplikacjiViewModel : NowyViewModel<JAP_JezykAplikacji>
     {
         #region Constructor
-        public DodajJezykAplikacjiViewModel() : base()
+        public DodajJezykAplikacjiViewModel(JAP_JezykAplikacji itemEdytowany) : base()
         {
-            item = new JAP_JezykAplikacji();
-            item.JAP_CzyAktywny = true;
+            if (itemEdytowany == null)
+            {
+                item = new JAP_JezykAplikacji();
+                item.JAP_CzyAktywny = true;
+            }
+            else
+            {
+                item = itemEdytowany;
+            }
+
             base.DisplayName = "Dodaj JezykAplikacji";
         }
         #endregion Constructor
@@ -40,7 +48,16 @@ namespace UrlopyApiXaml.ViewModels.Dodawanie
         #region Helpers
         public override void Save()
         {
-            urlopyApiXaml.JAP_JezykAplikacji.Add(item);
+            if (item.JAP_JapID == 0)
+            {
+                urlopyApiXaml.JAP_JezykAplikacji.Add(item);
+            }
+            else
+            {
+                var zdarzenie = urlopyApiXaml.JAP_JezykAplikacji.FirstOrDefault(x => x.JAP_JapID == item.JAP_JapID);
+                zdarzenie.JAP_Nazwa = JAP_Nazwa.Trim();
+            }
+
             urlopyApiXaml.SaveChanges();
         }
 

@@ -9,10 +9,17 @@ namespace UrlopyApiXaml.ViewModels.Dodawanie
     public class DodajStrefeCzasowaViewModel : NowyViewModel<STC_StrefaCzasowa>
     {
         #region Constructor
-        public DodajStrefeCzasowaViewModel() : base()
+        public DodajStrefeCzasowaViewModel(STC_StrefaCzasowa itemEdytowany) : base()
         {
-            item = new STC_StrefaCzasowa();
-            item.STC_CzyAktywny = true;
+            if (itemEdytowany == null)
+            {
+                item = new STC_StrefaCzasowa();
+                item.STC_CzyAktywny = true;
+            }
+            else
+            {
+                item = itemEdytowany;
+            }
             base.DisplayName = "Dodaj Strefe Czasowa";
         }
         #endregion Constructor
@@ -39,7 +46,16 @@ namespace UrlopyApiXaml.ViewModels.Dodawanie
         #region Helpers
         public override void Save()
         {
-            urlopyApiXaml.STC_StrefaCzasowa.Add(item);
+            if (item.STC_StcID == 0)
+            {
+                urlopyApiXaml.STC_StrefaCzasowa.Add(item);
+
+            }
+            else
+            {
+                var zdarzenie = urlopyApiXaml.STC_StrefaCzasowa.FirstOrDefault(x => x.STC_StcID == item.STC_StcID);
+                zdarzenie.STC_Nazwa = STC_Nazwa.Trim();
+            }
             urlopyApiXaml.SaveChanges();
         }
 

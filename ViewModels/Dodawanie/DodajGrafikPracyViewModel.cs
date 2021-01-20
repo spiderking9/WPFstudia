@@ -9,13 +9,20 @@ namespace UrlopyApiXaml.ViewModels.Dodawanie
     public class DodajGrafikPracyViewModel : NowyViewModel<GRP_GrafikPracy>
     {
         #region Constructor
-        public DodajGrafikPracyViewModel() : base()
+        public DodajGrafikPracyViewModel(GRP_GrafikPracy itemEdytowany) : base()
         {
-            item = new GRP_GrafikPracy();
-            item.GRP_CzyAktywny = true;
+            if (itemEdytowany == null)
+            {
+                item = new GRP_GrafikPracy();
+                item.GRP_CzyAktywny = true;
+                GRP_Dzien = DateTime.Now;
+            }
+            else
+            {
+                item = itemEdytowany;
+            }
             base.DisplayName = "Dodaj GrafikPracy";
-            GRP_Dzien = DateTime.Now;
-            GRP_PraID = urlopyApiXaml.PRA_Pracownicy.FirstOrDefault().PRA_PraID;
+
         }
         #endregion Constructor
 
@@ -88,11 +95,21 @@ namespace UrlopyApiXaml.ViewModels.Dodawanie
         #region Helpers
         public override void Save()
         {
-            urlopyApiXaml.GRP_GrafikPracy.Add(item);
-            urlopyApiXaml.SaveChanges();
+            if (item.GRP_GrpID == 0)
+            {
+                urlopyApiXaml.GRP_GrafikPracy.Add(item);
+            }
+            else
+            {
+                var zdarzenie = urlopyApiXaml.GRP_GrafikPracy.FirstOrDefault(x => x.GRP_GrpID == item.GRP_GrpID);
+                zdarzenie.GRP_PraID = GRP_PraID;
+                zdarzenie.GRP_Zmiana = GRP_Zmiana.Trim();
+                zdarzenie.GRP_Dzien = GRP_Dzien;
+
+                urlopyApiXaml.SaveChanges();
+            }
+
+            #endregion Helpers
         }
-
-        #endregion Helpers
-
     }
 }
