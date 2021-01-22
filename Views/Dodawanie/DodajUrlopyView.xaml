@@ -24,8 +24,8 @@
                                 Grid.Row="0" 
                                 Grid.Column="1" 
                                 ItemsSource="{Binding  PracownikComboBoxItems}" 
-                                DisplayMemberPath="PRA_Imie"  
-                                SelectedValuePath="PRA_PraID"  
+                                DisplayMemberPath="ImieNazwisko"  
+                                SelectedValuePath="PraID"  
                                 SelectedValue="{Binding Path=URL_PraID,Mode=TwoWay}"
                                 VerticalAlignment="Center"
                                 />

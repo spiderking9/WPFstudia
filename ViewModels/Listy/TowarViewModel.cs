@@ -68,5 +68,42 @@ namespace UrlopyApiXaml.ViewModels.Listy
             Messenger.Default.Send("DodajNowyTowar");
         }
         #endregion Helpers
+        #region Sort and Find
+        public override void Sort()
+        {
+            if (SortField == "Nazwa ASC")
+                List = new ObservableCollection<TowarView>(List.OrderBy(item => item.TOW_Nazwa));
+            if (SortField == "Nazwa DSC")
+                List = new ObservableCollection<TowarView>(List.OrderByDescending(item => item.TOW_Nazwa));
+            if (SortField == "Kategoria ASC")
+                List = new ObservableCollection<TowarView>(List.OrderBy(item => item.TOW_KatNazwa));
+            if (SortField == "Kategoria DSC")
+                List = new ObservableCollection<TowarView>(List.OrderByDescending(item => item.TOW_KatNazwa));
+            if (SortField == "Stan Ilosciowy ASC")
+                List = new ObservableCollection<TowarView>(List.OrderBy(item => item.TOW_StanIlosciowy));
+            if (SortField == "Stan Ilosciowy DSC")
+                List = new ObservableCollection<TowarView>(List.OrderByDescending(item => item.TOW_StanIlosciowy));
+        }
+        public override void Find()
+        {
+            if (FindField == "Nazwa" && FindText != null)
+                List = new ObservableCollection<TowarView>(List.Where(item => item.TOW_Nazwa != null && item.TOW_Nazwa.StartsWith(FindText)));
+            if (FindField == "Opis" && FindText != null)
+                List = new ObservableCollection<TowarView>(List.Where(item => item.TOW_Opis != null && item.TOW_Opis.StartsWith(FindText)));
+            if (FindField == "Stan Ilosciowy")
+                List = new ObservableCollection<TowarView>(List.Where(item => item.TOW_StanIlosciowy != null && item.TOW_StanIlosciowy == Convert.ToInt32(FindText)));
+        }
+
+        public override List<string> GetComboboxFindList()
+        {
+            return new List<string> { "Nazwa", "Opis", "Stan Ilosciowy" };
+        }
+
+        public override List<string> GetComboboxSortList()
+        {
+            return new List<string> { "Nazwa ASC", "Nazwa DSC", "Kategoria ASC", "Kategoria DSC", "Stan Ilosciowy ASC", "Stan Ilosciowy DSC" };
+
+        }
+        #endregion Sort and Find
     }
 }

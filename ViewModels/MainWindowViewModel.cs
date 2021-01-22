@@ -242,7 +242,7 @@ namespace UrlopyApiXaml.ViewModels
                 return _FotorejestracjaCommand;
             }
         }
-
+        
         private BaseCommand _LokalizacjeCommand;
         public ICommand LokalizacjeCommand
         {
@@ -251,6 +251,17 @@ namespace UrlopyApiXaml.ViewModels
                 if (_LokalizacjeCommand == null)
                     _LokalizacjeCommand = new BaseCommand(ShowAllObjects<LokalizacjeViewModel>);
                 return _LokalizacjeCommand;
+            }
+        }
+
+        private BaseCommand _PracListaCommand;
+        public ICommand PracListaCommand
+        {
+            get
+            {
+                if (_PracListaCommand == null)
+                    _PracListaCommand = new BaseCommand(ShowAllObjects<PracowListaViewModel>);
+                return _PracListaCommand;
             }
         }
         private BaseCommand _DelegacjeCommand;
@@ -317,11 +328,12 @@ namespace UrlopyApiXaml.ViewModels
             Messenger.Default.Register<STC_StrefaCzasowa>(this, openStrefaCzas);
             Messenger.Default.Register<DEL_Delegacje>(this, openDelegacje);
             Messenger.Default.Register<FOT_Fotorejestracja>(this, openFotorejestracje);
+            Messenger.Default.Register<PRA_Pracownicy>(this, openPracownik);
 
             return new List<CommandViewModel>
             {
                 new CommandViewModel("DodajGrafikPracy",new BaseCommand(() => this.CreateView(new DodajGrafikPracyViewModel(null))),"\uf2bb"),
-                new CommandViewModel("DodajPracownika",new BaseCommand(() => this.CreateView(new DodajPracownikaViewModel())),"\uf2cd"),
+                new CommandViewModel("DodajPracownika",new BaseCommand(() => this.CreateView(new DodajPracownikaViewModel(null))),"\uf2cd"),
                 new CommandViewModel("DodajFakture",new BaseCommand(() => this.CreateView(new DodajFaktureViewModel())),"\uf1f3"),
                 new CommandViewModel("DodajUrlopy",DodajUrlopyCommand,"\uf030"),
                 new CommandViewModel("DodajJezykApp",new BaseCommand(() => this.CreateView(new DodajJezykAplikacjiViewModel(null))),"\uf2cd"),
@@ -349,6 +361,7 @@ namespace UrlopyApiXaml.ViewModels
                 new CommandViewModel("Zdarzenia",ZdarzeniaCommand, "\uf270"),
                 new CommandViewModel("GrafikPracy",GrafikPracyCommand,"\uf2bb"),
                 new CommandViewModel("Pracownicy",PracownicyCommand,"\uf2cd"),
+                new CommandViewModel("PracLista",PracListaCommand,"\uf2cd"),
                 new CommandViewModel("Faktura",NowaFakturaCommand,"\uf1f3"),
                 new CommandViewModel("Lokalizacje",LokalizacjeCommand,"\uf030"),
                 new CommandViewModel("Urlopy",UrlopyCommand,"\uf030"),
@@ -410,7 +423,7 @@ namespace UrlopyApiXaml.ViewModels
             if (name == "DodajZdarzenie")
                 CreateView(new DodajZdarzenieViewModel(null));
             if (name == "EdytujPracownika")
-                CreateView(new DodajPracownikaViewModel());
+                CreateView(new DodajPracownikaViewModel(null));
             if (name == "ShowTowarPF")
                 ShowAllObjects<TowaryViewModel>();
             if (name == "DodajNowyTowar")
@@ -440,7 +453,10 @@ namespace UrlopyApiXaml.ViewModels
             if (name == "DodajDelegacje")
                 CreateView(new DodajDelegacjeViewModel(null));
         }
-        
+        private void openPracownik(PRA_Pracownicy objekt)
+        {
+            CreateView(new DodajPracownikaViewModel(objekt));
+        }
         private void openFotorejestracje(FOT_Fotorejestracja objekt)
         {
             CreateView(new DodajFotorejestracjeViewModel(objekt));

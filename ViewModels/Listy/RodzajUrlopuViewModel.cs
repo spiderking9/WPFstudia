@@ -56,5 +56,30 @@ namespace UrlopyApiXaml.ViewModels.Listy
             Messenger.Default.Send("DodajRodzajUrlopu");
         }
         #endregion Helpers
+        #region Sort and Find
+        public override void Sort()
+        {
+            if (SortField == "Nazwa ASC")
+                List = new ObservableCollection<RUR_RodzajeUrlopow>(List.OrderBy(item => item.RUR_Nazwa));
+            if (SortField == "Nazwa DSC")
+                List = new ObservableCollection<RUR_RodzajeUrlopow>(List.OrderByDescending(item => item.RUR_Nazwa));
+        }
+        public override void Find()
+        {
+            if (FindField == "Nazwa" && FindText != null)
+                List = new ObservableCollection<RUR_RodzajeUrlopow>(List.Where(item => item.RUR_Nazwa != null && item.RUR_Nazwa.StartsWith(FindText)));
+        }
+
+        public override List<string> GetComboboxFindList()
+        {
+            return new List<string> { "Nazwa" };
+        }
+
+        public override List<string> GetComboboxSortList()
+        {
+            return new List<string> { "Nazwa ASC", "Nazwa DSC" };
+
+        }
+        #endregion Sort and Find
     }
 }

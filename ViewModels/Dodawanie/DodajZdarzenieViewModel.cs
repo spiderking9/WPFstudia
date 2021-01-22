@@ -49,6 +49,7 @@ namespace UrlopyApiXaml.ViewModels.Dodawanie
                     (
                         //zapytanie pobiera 
                         from klient in urlopyApiXaml.PRA_Pracownicy
+                        where klient.PRA_CzyAktywny==true
                         select klient
                     ).ToList().AsQueryable();
             }

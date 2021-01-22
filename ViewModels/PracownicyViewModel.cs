@@ -53,7 +53,7 @@ namespace UrlopyApiXaml.ViewModels
                     from prac in urlopyApiXaml.PRA_Pracownicy
                     select new PracownicyView
                     {
-                        PraID= prac.PRA_PraID,
+                        PRA_PraID= prac.PRA_PraID,
                         ImieNazwisko= prac.PRA_Imie+" "+prac.PRA_Nazwisko,
                         NazwaDzialu= prac.DZI_Dzialy.DZI_Nazwa
                     }

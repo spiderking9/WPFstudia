@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using UrlopyApiXaml.Models.Entities;
+using UrlopyApiXaml.Models.EntitiesForView;
 
 namespace UrlopyApiXaml.ViewModels.Dodawanie
 {
@@ -35,7 +36,7 @@ namespace UrlopyApiXaml.ViewModels.Dodawanie
                 }
             }
         }
-        public IQueryable<PRA_Pracownicy> PracownikComboBoxItems
+        public IQueryable<PracownicyView> PracownikComboBoxItems
         {
             get
             {
@@ -43,7 +44,12 @@ namespace UrlopyApiXaml.ViewModels.Dodawanie
                     (
                         //zapytanie pobiera 
                         from prac in urlopyApiXaml.PRA_Pracownicy
-                        select prac
+                        where prac.PRA_CzyAktywny==true
+                        select new PracownicyView
+                        {
+                            PRA_PraID = prac.PRA_PraID,
+                            ImieNazwisko = prac.PRA_Imie+" "+prac.PRA_Nazwisko
+                        }
                     ).ToList().AsQueryable();
             }
         }
@@ -104,6 +110,7 @@ namespace UrlopyApiXaml.ViewModels.Dodawanie
                     (
                         //zapytanie pobiera 
                         from rodz in urlopyApiXaml.RUR_RodzajeUrlopow
+                        where rodz.RUR_CzyAktywny==true
                         select rodz
                     ).ToList().AsQueryable();
             }

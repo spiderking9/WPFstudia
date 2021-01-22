@@ -159,30 +159,6 @@
                     </DataGrid>
                 </Grid>
             </TabItem>
-            <TabItem Header="Dzialy">
-                <DataGrid ItemsSource="{Binding ListaDzialy}" AutoGenerateColumns="False">
-                    <DataGrid.Columns>
-                        <DataGridTextColumn Header="Lp" Binding="{Binding DZI_DziID}"/>
-                        <DataGridTextColumn Header="Nazwa" Binding="{Binding DZI_Nazwa}"/>
-                    </DataGrid.Columns>
-                </DataGrid>
-            </TabItem>
-            <TabItem Header="Dodaj Dzial">
-                <Grid>
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="150"/>
-                        <ColumnDefinition Width="200"/>
-                    </Grid.ColumnDefinitions>
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="60"/>
-                        <RowDefinition Height="50"/>
-                    </Grid.RowDefinitions>
-                    <Label Grid.Row="0" Grid.Column="0" Content="Nazwa działu" Margin="0,8,0,8" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"/>
-                    <TextBox Grid.Row="0" Grid.Column="1" Margin="0,8,0,8" Width="169" HorizontalAlignment="Left" Text="{Binding DZI_Nazwa,UpdateSourceTrigger=PropertyChanged}" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"/>
-
-                    <Button Grid.Row="5" Margin="20,4,0,0" Grid.ColumnSpan="2" Background="Red" Content="Dodaj Dzial" Foreground="White" Command="{Binding SaveCommand}" FontSize="20"/>
-                </Grid>
-            </TabItem>
             <TabItem Header="Pracownicy">
                 <DataGrid ItemsSource="{Binding ListaPracownicy}" AutoGenerateColumns="False">
                     <DataGrid.Columns>

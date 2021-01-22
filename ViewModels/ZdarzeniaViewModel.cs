@@ -75,6 +75,37 @@ namespace UrlopyApiXaml.ViewModels
         }
         #endregion Helpers
 
+        #region Sort and Find
+        public override void Sort()
+        {
+            if (SortField == "Nazwa ASC")
+                List = new ObservableCollection<ZdarzeniaView>(List.OrderBy(item => item.ZDA_Nazwa));
+            if (SortField == "Nazwa DSC")
+                List = new ObservableCollection<ZdarzeniaView>(List.OrderByDescending(item => item.ZDA_Nazwa));
+            if (SortField == "Pracownik ASC")
+                List = new ObservableCollection<ZdarzeniaView>(List.OrderBy(item => item.ImieNazwisko));
+            if (SortField == "Pracownik DSC")
+                List = new ObservableCollection<ZdarzeniaView>(List.OrderByDescending(item => item.ImieNazwisko));
 
+        }
+        public override void Find()
+        {
+            if (FindField == "Nazwa" && FindText != null)
+                List = new ObservableCollection<ZdarzeniaView>(List.Where(item => item.ZDA_Nazwa != null && item.ZDA_Nazwa.ToLower().Contains(FindText.ToLower())));
+            if (FindField == "Pracownik")
+                List = new ObservableCollection<ZdarzeniaView>(List.Where(item => item.ImieNazwisko != null && item.ImieNazwisko.ToLower().Contains(FindText.ToLower())));
+        }
+
+        public override List<string> GetComboboxFindList()
+        {
+            return new List<string> { "Nazwa", "Pracownik"};
+        }
+
+        public override List<string> GetComboboxSortList()
+        {
+            return new List<string> { "Nazwa ASC", "Nazwa DSC", "Pracownik ASC", "Pracownik DSC"};
+
+        }
+        #endregion Sort and Find
     }
 }

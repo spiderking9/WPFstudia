@@ -56,5 +56,30 @@ namespace UrlopyApiXaml.ViewModels.Listy
             Messenger.Default.Send("DodajSposobPlatnosci");
         }
         #endregion Helpers
+        #region Sort and Find
+        public override void Sort()
+        {
+            if (SortField == "Nazwa ASC")
+                List = new ObservableCollection<SPP_SposobPlatnosci>(List.OrderBy(item => item.SPP_Nazwa));
+            if (SortField == "Nazwa DSC")
+                List = new ObservableCollection<SPP_SposobPlatnosci>(List.OrderByDescending(item => item.SPP_Nazwa));
+        }
+        public override void Find()
+        {
+            if (FindField == "Nazwa" && FindText != null)
+                List = new ObservableCollection<SPP_SposobPlatnosci>(List.Where(item => item.SPP_Nazwa != null && item.SPP_Nazwa.StartsWith(FindText)));
+        }
+
+        public override List<string> GetComboboxFindList()
+        {
+            return new List<string> { "Nazwa" };
+        }
+
+        public override List<string> GetComboboxSortList()
+        {
+            return new List<string> { "Nazwa ASC", "Nazwa DSC" };
+
+        }
+        #endregion Sort and Find
     }
 }

@@ -49,6 +49,7 @@ namespace UrlopyApiXaml.ViewModels.Dodawanie
                 return
                     (
                         from prac in urlopyApiXaml.PRA_Pracownicy
+                        where prac.PRA_CzyAktywny==true
                         select prac
                     ).ToList().AsQueryable();
             }

@@ -132,6 +132,7 @@
     <Compile Include="Models\EntitiesForView\DzialLiczbaPracownikow.cs" />
     <Compile Include="Models\EntitiesForView\FakturyView.cs" />
     <Compile Include="Models\EntitiesForView\FotorejestracjaView.cs" />
+    <Compile Include="Models\EntitiesForView\GrafikPracyView.cs" />
     <Compile Include="Models\EntitiesForView\ListaWnioskowUrlopowychView.cs" />
     <Compile Include="Models\EntitiesForView\PracownicyView.cs" />
     <Compile Include="Models\EntitiesForView\TowarView.cs" />
@@ -208,6 +209,8 @@
     <Compile Include="Models\Entities\ZDA_Zdarzenia.cs">
       <DependentUpon>ModelUrlopy.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\Validators\TextValidator.cs" />
+    <Compile Include="Models\Validators\Validator.cs" />
     <Compile Include="ViewModels\BaseViewModel.cs" />
     <Compile Include="ViewModels\CommandViewModel.cs" />
     <Compile Include="ViewModels\Dodawanie\DodajDelegacjeViewModel.cs" />
@@ -236,6 +239,7 @@
     <Compile Include="ViewModels\Listy\KategorieTowarowViewModel.cs" />
     <Compile Include="ViewModels\Listy\KlientViewModel.cs" />
     <Compile Include="ViewModels\Listy\ListaWnioskowUrlopowychViewModel.cs" />
+    <Compile Include="ViewModels\Listy\PracowListaViewModel.cs" />
     <Compile Include="ViewModels\Listy\RodzajUrlopuViewModel.cs" />
     <Compile Include="ViewModels\Listy\SposobPlatnosciViewModel.cs" />
     <Compile Include="ViewModels\Listy\StrefaCzasowaViewModel.cs" />
@@ -339,6 +343,9 @@
     </Compile>
     <Compile Include="Views\Listy\ListaWnioskowUrlopowychView.xaml.cs">
       <DependentUpon>ListaWnioskowUrlopowychView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Listy\PracowListaView.xaml.cs">
+      <DependentUpon>PracowListaView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\Listy\RodzajUrlopuView.xaml.cs">
       <DependentUpon>RodzajUrlopuView.xaml</DependentUpon>
@@ -582,6 +589,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\Listy\ListaWnioskowUrlopowychView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Listy\PracowListaView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

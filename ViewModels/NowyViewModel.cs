@@ -40,13 +40,28 @@ namespace UrlopyApiXaml.ViewModels
             }
         }
         #endregion Command
+        #region Validation
+        public virtual bool IsValid()
+        {
+            return true;
+        }
+
+        #endregion
 
         #region Helpers
         public abstract void Save();
         private void SaveAndClose()
         {
-            Save();
-            OnRequestClose();
+            if (IsValid())
+            {
+                Save();
+                ShowMessageBox("Dokument  został  zapisany  do  bazy");
+                OnRequestClose();
+            }
+            else
+            {
+                ShowMessageBox("Popraw Błędy");
+            }
         }
         #endregion Helpers
 

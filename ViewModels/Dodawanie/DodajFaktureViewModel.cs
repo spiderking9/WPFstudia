@@ -58,6 +58,7 @@ namespace UrlopyApiXaml.ViewModels.Dodawanie
                     (
                         //zapytanie pobiera 
                         from klient in urlopyApiXaml.KLI_Klienci
+                        where klient.KLI_CzyAktywny == true
                         select klient
                     ).ToList().AsQueryable();
             }
@@ -89,6 +90,7 @@ namespace UrlopyApiXaml.ViewModels.Dodawanie
                 return
                     (
                         from sposob in urlopyApiXaml.SPP_SposobPlatnosci
+                        where sposob.SPP_CzyAktywny == true
                         select sposob
                     ).ToList().AsQueryable();
             }

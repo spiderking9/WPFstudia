@@ -96,6 +96,7 @@ namespace UrlopyApiXaml.ViewModels.Dodawanie
                     (
                         //zapytanie pobiera 
                         from katTowarow in urlopyApiXaml.KAT_KategorieTowarow
+                        where katTowarow.KAT_CzyAktywny==true
                         select katTowarow
                     ).ToList().AsQueryable();
             }

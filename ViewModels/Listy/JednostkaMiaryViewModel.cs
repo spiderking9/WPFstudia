@@ -56,5 +56,36 @@ namespace UrlopyApiXaml.ViewModels.Listy
             Messenger.Default.Send("DodajJednostkeMiary");
         }
         #endregion Helpers
+        #region Sort and Find
+        public override void Sort()
+        {
+            if (SortField == "Nazwa ASC")
+                List = new ObservableCollection<JEM_JednostkiMiary>(List.OrderBy(item => item.JEM_Nazwa));
+            if (SortField == "Nazwa DSC")
+                List = new ObservableCollection<JEM_JednostkiMiary>(List.OrderByDescending(item => item.JEM_Nazwa));
+            if (SortField == "Opis ASC")
+                List = new ObservableCollection<JEM_JednostkiMiary>(List.OrderBy(item => item.JEM_Opis));
+            if (SortField == "Opis DSC")
+                List = new ObservableCollection<JEM_JednostkiMiary>(List.OrderByDescending(item => item.JEM_Opis));
+        }
+        public override void Find()
+        {
+            if (FindField == "Nazwa" && FindText != null)
+                List = new ObservableCollection<JEM_JednostkiMiary>(List.Where(item => item.JEM_Nazwa != null && item.JEM_Nazwa.StartsWith(FindText)));
+            if (FindField == "Opis" && FindText != null)
+                List = new ObservableCollection<JEM_JednostkiMiary>(List.Where(item => item.JEM_Opis != null && item.JEM_Opis.StartsWith(FindText)));
+        }
+
+        public override List<string> GetComboboxFindList()
+        {
+            return new List<string> { "Nazwa", "Opis" };
+        }
+
+        public override List<string> GetComboboxSortList()
+        {
+            return new List<string> { "Nazwa ASC", "Nazwa DSC", "Opis ASC", "Opis DSC" };
+
+        }
+        #endregion Sort and Find
     }
 }

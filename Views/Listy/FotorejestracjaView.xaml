@@ -13,8 +13,8 @@
                 <DataGridTextColumn Header="Godzina Wejscia" Binding="{Binding FOT_GodzinaWejscia}"/>
                 <DataGridTextColumn Header="Godzina Wyjscia" Binding="{Binding FOT_GodzinaWyjscia}"/>
                 <DataGridTextColumn Header="Pracownik" Binding="{Binding PracownikNazwa}"/>
-                <DataGridTextColumn Header="Data Wejscia" Binding="{Binding FOT_DataWejscia}"/>
-                <DataGridTextColumn Header="Data Wyjscia" Binding="{Binding FOT_DataWyjscia}"/>
+                <DataGridTextColumn Header="Data Wejscia" Binding="{Binding FOT_DataWejscia, StringFormat=d, ConverterCulture=pl-PL}"/>
+                <DataGridTextColumn Header="Data Wyjscia" Binding="{Binding FOT_DataWyjscia, StringFormat=d, ConverterCulture=pl-PL}"/>
             </DataGrid.Columns>
         </DataGrid>
     </Grid>

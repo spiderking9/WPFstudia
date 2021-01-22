@@ -73,9 +73,10 @@ namespace UrlopyApiXaml.ViewModels.Dodawanie
                     (
                         //zapytanie pobiera 
                         from prac in urlopyApiXaml.PRA_Pracownicy
+                        where prac.PRA_CzyAktywny==true
                         select new PracownicyView
                         {
-                            PraID = prac.PRA_PraID,
+                            PRA_PraID = prac.PRA_PraID,
                             ImieNazwisko = prac.PRA_Imie + " " + prac.PRA_Nazwisko
                         }
                     ).ToList().AsQueryable();

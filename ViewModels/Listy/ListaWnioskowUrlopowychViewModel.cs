@@ -66,5 +66,37 @@ namespace UrlopyApiXaml.ViewModels.Listy
             Messenger.Default.Send("DodajNowyWniosekUrlopowy");
         }
         #endregion Helpers
+        #region Sort and Find
+        public override void Sort()
+        {
+            if (SortField == "Rodzaj Urlopu ASC")
+                List = new ObservableCollection<ListaWnioskowUrlopowychView>(List.OrderBy(item => item.RodzajUrlopu));
+            if (SortField == "Rodzaj Urlopu DSC")
+                List = new ObservableCollection<ListaWnioskowUrlopowychView>(List.OrderByDescending(item => item.RodzajUrlopu));
+            if (SortField == "Pracownik ASC")
+                List = new ObservableCollection<ListaWnioskowUrlopowychView>(List.OrderBy(item => item.NazwaPracownika));
+            if (SortField == "Pracownik DSC")
+                List = new ObservableCollection<ListaWnioskowUrlopowychView>(List.OrderByDescending(item => item.NazwaPracownika));
+
+        }
+        public override void Find()
+        {
+            if (FindField == "Rodzaj Urlopu" && FindText != null)
+                List = new ObservableCollection<ListaWnioskowUrlopowychView>(List.Where(item => item.RodzajUrlopu != null && item.RodzajUrlopu.ToLower().Contains(FindText.ToLower())));
+            if (FindField == "Pracownik" && FindText != null)
+                List = new ObservableCollection<ListaWnioskowUrlopowychView>(List.Where(item => item.NazwaPracownika != null && item.NazwaPracownika.ToLower().Contains(FindText.ToLower())));
+        }
+
+        public override List<string> GetComboboxFindList()
+        {
+            return new List<string> { "Rodzaj Urlopu", "Pracownik" };
+        }
+
+        public override List<string> GetComboboxSortList()
+        {
+            return new List<string> { "Rodzaj Urlopu ASC", "Rodzaj Urlopu DSC", "Pracownik ASC", "Pracownik DSC" };
+
+        }
+        #endregion Sort and Find
     }
 }

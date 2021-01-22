@@ -15,8 +15,8 @@
                 <DataGridTextColumn Header="Transport" Binding="{Binding DEL_JakiTransport}"/>
                 <DataGridTextColumn Header="Miejsce Startu" Binding="{Binding DEL_MiejscowoscStartu}"/>
                 <DataGridTextColumn Header="Miejsce Celu" Binding="{Binding DEL_MiejscowoscCelu}"/>
-                <DataGridTextColumn Header="Kiedy start" Binding="{Binding DEL_DzienOd}"/>
-                <DataGridTextColumn Header="Kiedy koniec" Binding="{Binding DEL_DzienDo}"/>
+                <DataGridTextColumn Header="Kiedy start" Binding="{Binding DEL_DzienOd, StringFormat=d, ConverterCulture=pl-PL}"/>
+                <DataGridTextColumn Header="Kiedy koniec" Binding="{Binding DEL_DzienDo, StringFormat=d, ConverterCulture=pl-PL}"/>
                 <DataGridTextColumn Header="Komentarz" Binding="{Binding DEL_Komentarz}"/>
             </DataGrid.Columns>
         </DataGrid>

@@ -1,21 +1,28 @@
 ﻿using GalaSoft.MvvmLight.Messaging;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using UrlopyApiXaml.Models.Entities;
+using UrlopyApiXaml.Models.Validators;
 
 namespace UrlopyApiXaml.ViewModels.Dodawanie
 {
-    public class DodajPracownikaViewModel : NowyViewModel<PRA_Pracownicy>
+    public class DodajPracownikaViewModel : NowyViewModel<PRA_Pracownicy>, IDataErrorInfo
     {
         #region Constructor
-        public DodajPracownikaViewModel() : base()
+        public DodajPracownikaViewModel(PRA_Pracownicy itemEdytowany) : base()
         {
-
+            if (itemEdytowany == null)
+            {
+                item = new PRA_Pracownicy();
+            }
+            else
+            {
+                item = itemEdytowany;
+            }
             Messenger.Default.Register<int>(this, getPracownikId);
-            item = new PRA_Pracownicy();
-            item.PRA_CzyAktywny = true;
             base.DisplayName = "Dodaj Pracownika";
             //Messenger.Default.Register<PRA_Pracownicy>(this, getWybranyKontrahent);
         }
@@ -78,6 +85,7 @@ namespace UrlopyApiXaml.ViewModels.Dodawanie
                     (
                         //zapytanie pobiera 
                         from dzial in urlopyApiXaml.DZI_Dzialy
+                        where dzial.DZI_CzyAktywny==true
                         select dzial
                     ).ToList().AsQueryable();
             }
@@ -166,6 +174,7 @@ namespace UrlopyApiXaml.ViewModels.Dodawanie
                     (
                         //zapytanie pobiera 
                         from strefa in urlopyApiXaml.STC_StrefaCzasowa
+                        where strefa.STC_CzyAktywny==true
                         select strefa
                     ).ToList().AsQueryable();
             }
@@ -283,6 +292,7 @@ namespace UrlopyApiXaml.ViewModels.Dodawanie
                 return
                     (
                         from jezyk in urlopyApiXaml.JAP_JezykAplikacji
+                        where jezyk.JAP_CzyAktywny==true
                         select jezyk
                     ).ToList().AsQueryable();
             }
@@ -350,13 +360,81 @@ namespace UrlopyApiXaml.ViewModels.Dodawanie
 
 
         #endregion Properties
+        #region Validation
+        public string Error
+        {
+            get
+            {
+                return null;
+            }
+        }
+
+        public string this[string name]
+        {
+            get
+            {
+                string komunikat = null;
+                if (name == "PRA_ILogin")
+                    komunikat = TextValidator.ValidateLoginCzyNieDubel(this.PRA_ILogin,urlopyApiXaml,PRA_PraID);
+                if (name == "PRA_Imie")
+                    komunikat = TextValidator.Max50Znakow(PRA_Imie);
+                if (name == "PRA_Nazwisko")
+                    komunikat = TextValidator.Max50Znakow(PRA_Nazwisko);
+                if (name == "PRA_UrlZdjecia")
+                    komunikat = TextValidator.Max255Znakow(PRA_UrlZdjecia);
+                if (name == "PRA_Email")
+                    komunikat = TextValidator.ValidateEmail(PRA_Email);
+                if (name == "PRA_Telefon")
+                    komunikat = TextValidator.SprawdzCzyPoprawnyNrTel(PRA_Telefon);
+                if (name == "PRA_Ulica")
+                    komunikat = TextValidator.Max127Znakow(PRA_Ulica);
+                if (name == "PRA_Miasto")
+                    komunikat = TextValidator.Max127Znakow(PRA_Miasto);
+                if (name == "PRA_KodPocztowy")
+                    komunikat = TextValidator.Max127Znakow(PRA_KodPocztowy);
+                if (name == "PRA_Wojewodztwo")
+                    komunikat = TextValidator.Max10Znakow(PRA_Wojewodztwo);
+                if (name == "PRA_NrDomu")
+                    komunikat = TextValidator.Max10Znakow(PRA_NrDomu);
+                if (name == "PRA_Gmina")
+                    komunikat = TextValidator.Max10Znakow(PRA_Gmina);
+
+                return komunikat;
+            }
+        }
+        //dodajemy funkcje ktora przed zapisem bedzie sprawdzala czy mozna zapisac rekord, jezeli ta funkcja zwroci true,
+        //rekord bedzie zapisywany, jezeli false nie pozwoli zapisac rekordu
+
+        public override bool IsValid()
+        {
+            if (this["PRA_ILogin"] == null && 
+                this["PRA_Imie"] == null && 
+                this["PRA_Nazwisko"] == null && 
+                this["PRA_UrlZdjecia"] == null &&
+                this["PRA_Email"] == null &&
+                this["PRA_Telefon"] == null &&
+                this["PRA_Ulica"] == null &&
+                this["PRA_Miasto"] == null &&
+                this["PRA_KodPocztowy"] == null &&
+                this["PRA_Wojewodztwo"] == null &&
+                this["PRA_NrDomu"] == null &&
+                this["PRA_Gmina"] == null) return true;
+            return false;
+        }
+        #endregion Validation
 
         #region Helpers
         public override void Save()
         {
             item.PRA_CzyAktywny = true;
-            if (item.PRA_PraID== 0)
+            if (item.PRA_PraID == 0)
+            {
                 urlopyApiXaml.PRA_Pracownicy.Add(item);
+            }
+            else
+            {
+                var zdarzenie = urlopyApiXaml.PRA_Pracownicy.FirstOrDefault(x => x.PRA_PraID == item.PRA_PraID);
+            }
             urlopyApiXaml.SaveChanges();
         }
         private void getPracownikId(int pracId)

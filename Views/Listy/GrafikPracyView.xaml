@@ -15,8 +15,8 @@
         <DataGrid Grid.Row="3" ItemsSource="{Binding List}" AutoGenerateColumns="False" SelectedItem="{Binding Path=Wybrane, Mode=TwoWay}">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Lp" Binding="{Binding GRP_GrpID}"/>
-                <DataGridTextColumn Header="Pracownik Id" Binding="{Binding GRP_PraID}"/>
-                <DataGridTextColumn Header="Dzien" Binding="{Binding GRP_Dzien}"/>
+                <DataGridTextColumn Header="Pracownik" Binding="{Binding PracownikNazwisko}"/>
+                <DataGridTextColumn Header="Dzien" Binding="{Binding GRP_Dzien, StringFormat=d, ConverterCulture=pl-PL}"/>
                 <DataGridTextColumn Header="Zmiana" Binding="{Binding GRP_Zmiana}"/>
             </DataGrid.Columns>
         </DataGrid>

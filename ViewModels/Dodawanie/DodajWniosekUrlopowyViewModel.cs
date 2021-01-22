@@ -82,6 +82,7 @@ namespace UrlopyApiXaml.ViewModels.Dodawanie
                     (
                         //zapytanie pobiera 
                         from rodzUrlop in urlopyApiXaml.RUR_RodzajeUrlopow
+                        where rodzUrlop.RUR_CzyAktywny==true
                         select rodzUrlop
                     ).ToList().AsQueryable();
             }
@@ -112,6 +113,7 @@ namespace UrlopyApiXaml.ViewModels.Dodawanie
                     (
                         //zapytanie pobiera 
                         from prac in urlopyApiXaml.PRA_Pracownicy
+                        where prac.PRA_CzyAktywny==true
                         select prac
                     ).ToList().AsQueryable();
             }
