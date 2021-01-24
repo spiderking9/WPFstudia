@@ -434,6 +434,23 @@ namespace UrlopyApiXaml.ViewModels.Dodawanie
             else
             {
                 var zdarzenie = urlopyApiXaml.PRA_Pracownicy.FirstOrDefault(x => x.PRA_PraID == item.PRA_PraID);
+                zdarzenie.PRA_Imie = PRA_Imie;
+                zdarzenie.PRA_DziID = PRA_DziID;
+                zdarzenie.PRA_Nazwisko = PRA_Nazwisko;
+                zdarzenie.PRA_ILogin = PRA_ILogin;
+                zdarzenie.PRA_UrlZdjecia = PRA_UrlZdjecia;
+                zdarzenie.PRA_StcID = PRA_StcID;
+                zdarzenie.PRA_Email = PRA_Email;
+                zdarzenie.PRA_Telefon = PRA_Telefon;
+                zdarzenie.PRA_Ulica = PRA_Ulica;
+                zdarzenie.PRA_Miasto = PRA_Miasto;
+                zdarzenie.PRA_KodPocztowy = PRA_KodPocztowy;
+                zdarzenie.PRA_CzyZatrudniony = PRA_CzyZatrudniony;
+                zdarzenie.PRA_JapID = PRA_JapID;
+                zdarzenie.PRA_ZgodaMarketingowa = PRA_ZgodaMarketingowa;
+                zdarzenie.PRA_Wojewodztwo = PRA_Wojewodztwo;
+                zdarzenie.PRA_NrDomu = PRA_NrDomu;
+                zdarzenie.PRA_Gmina = PRA_Gmina;
             }
             urlopyApiXaml.SaveChanges();
         }

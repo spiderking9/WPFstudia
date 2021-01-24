@@ -24,11 +24,11 @@
                                 ItemsSource="{Binding  PracownikComboBoxItems}" 
                                 DisplayMemberPath="PRA_Imie"  
                                 SelectedValuePath="PRA_PraID"  
-                                SelectedValue="{Binding Path=ZDA_PraID,Mode=TwoWay}"
+                                SelectedValue="{Binding Path=ZDA_PraID,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged,ValidatesOnDataErrors=True}"
                                 VerticalAlignment="Center"
                                 />
         <Label Grid.Row="1" Grid.Column="0" Content="Opis zdarzenia" Margin="0,8,0,8"/>
-        <TextBox Grid.Row="1" Grid.Column="1" Margin="0,8,0,8" Width="169" HorizontalAlignment="Left" Text="{Binding ZDA_Nazwa,UpdateSourceTrigger=PropertyChanged}" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"/>
+        <TextBox Grid.Row="1" Grid.Column="1" Margin="0,8,0,8" Width="169" HorizontalAlignment="Left" Text="{Binding ZDA_Nazwa,UpdateSourceTrigger=PropertyChanged,ValidatesOnDataErrors=True}" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"/>
 
         <Button Grid.Row="3" Margin="20,4,0,0" Grid.ColumnSpan="2" Content="Dodaj Zdarzenie" Foreground="White" Command="{Binding SaveCommand}" FontSize="20"/>
     </Grid>

@@ -1,16 +1,18 @@
 ﻿using GalaSoft.MvvmLight.Messaging;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Windows.Input;
 using UrlopyApiXaml.Helper;
 using UrlopyApiXaml.Models.Entities;
 using UrlopyApiXaml.Models.EntitiesForView;
+using UrlopyApiXaml.Models.Validators;
 
 namespace UrlopyApiXaml.ViewModels.Dodawanie
 {
-    public class DodajPozycjeFakturViewModel : NowyViewModel<POF_PozycjeFaktury>
+    public class DodajPozycjeFakturViewModel : NowyViewModel<POF_PozycjeFaktury>, IDataErrorInfo
     {
         #region Constructor
         public DodajPozycjeFakturViewModel() : base()
@@ -20,7 +22,7 @@ namespace UrlopyApiXaml.ViewModels.Dodawanie
             base.DisplayName = "Dodaj PozycjeFaktury";
             Messenger.Default.Register<TowarView>(this, getWybranyTowar);
             Messenger.Default.Register<FakturyView>(this, getWybranaFaktura);
-            Messenger.Default.Register<JEM_JednostkiMiary>(this, getWybranaJednostkaMiary);
+            Messenger.Default.Register<JednostkaMiaryView>(this, getWybranaJednostkaMiary);
         }
         #endregion Constructor
 
@@ -235,7 +237,47 @@ namespace UrlopyApiXaml.ViewModels.Dodawanie
 
 
         #endregion Properties
+        #region Validation
+        public string Error
+        {
+            get
+            {
+                return null;
+            }
+        }
 
+        public string this[string name]
+        {
+            get
+            {
+                string komunikat = null;
+                if (name == "POF_Nazwa")
+                    komunikat = TextValidator.Max50Znakow(POF_Nazwa);
+                if (name == "POF_Ilosc")
+                    komunikat = TextValidator.IloscSztuk(POF_Ilosc);
+                if (name == "POF_Cena")
+                    komunikat = TextValidator.SpradzDecimal(POF_Cena);
+                if (name == "POF_Rabat")
+                    komunikat = TextValidator.SpradzDecimal(POF_Rabat);
+                if (name == "POF_Marza")
+                    komunikat = TextValidator.SpradzDecimal(POF_Marza);
+
+                return komunikat;
+            }
+        }
+        //dodajemy funkcje ktora przed zapisem bedzie sprawdzala czy mozna zapisac rekord, jezeli ta funkcja zwroci true,
+        //rekord bedzie zapisywany, jezeli false nie pozwoli zapisac rekordu
+
+        public override bool IsValid()
+        {
+            if (this["POF_Nazwa"] == null &&
+                this["POF_Ilosc"] == null &&
+                this["POF_Cena"] == null &&
+                this["POF_Rabat"] == null &&
+                this["POF_Marza"] == null) return true;
+            return false;
+        }
+        #endregion Validation
         #region Helpers
         public override void Save()
         {
@@ -253,7 +295,7 @@ namespace UrlopyApiXaml.ViewModels.Dodawanie
             POF_FakID = fakt.FAK_FakID;
             FakturaNazwa = "nr: "+ fakt.FAK_FakID+ " klient: "+ fakt.NazwaKlienta;
         }
-        private void getWybranaJednostkaMiary(JEM_JednostkiMiary jedn)
+        private void getWybranaJednostkaMiary(JednostkaMiaryView jedn)
         {
             POF_JemID = jedn.JEM_JemID;
             JednostkaMiaryNazwa = jedn.JEM_Nazwa;

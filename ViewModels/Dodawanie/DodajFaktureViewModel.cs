@@ -1,8 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using UrlopyApiXaml.Models.Entities;
+using UrlopyApiXaml.Models.Validators;
 
 namespace UrlopyApiXaml.ViewModels.Dodawanie
 {

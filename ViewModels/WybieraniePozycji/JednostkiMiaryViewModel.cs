@@ -5,10 +5,11 @@ using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using UrlopyApiXaml.Models.Entities;
+using UrlopyApiXaml.Models.EntitiesForView;
 
 namespace UrlopyApiXaml.ViewModels.WybieraniePozycji
 {
-    public class JednostkiMiaryViewModel : WszystkieViewModel<JEM_JednostkiMiary>
+    public class JednostkiMiaryViewModel : WszystkieViewModel<JednostkaMiaryView>
     {
         #region Konstruktor
         public JednostkiMiaryViewModel()
@@ -16,8 +17,8 @@ namespace UrlopyApiXaml.ViewModels.WybieraniePozycji
             base.DisplayName = "JednostkiMiary";
         }
         #endregion Konstruktor
-        private JEM_JednostkiMiary _WybranaJednostkaMiary;
-        public JEM_JednostkiMiary WybranaJednostkaMiary
+        private JednostkaMiaryView _WybranaJednostkaMiary;
+        public JednostkaMiaryView WybranaJednostkaMiary
         {
             get
             {
@@ -37,7 +38,11 @@ namespace UrlopyApiXaml.ViewModels.WybieraniePozycji
         #region Helpers
         public override void load()
         {
-            List = new ObservableCollection<JEM_JednostkiMiary>(urlopyApiXaml.JEM_JednostkiMiary);
+            List = new ObservableCollection<JednostkaMiaryView>(urlopyApiXaml.JEM_JednostkiMiary.Select(x=>new JednostkaMiaryView {
+                JEM_JemID=x.JEM_JemID,
+                JEM_Nazwa=x.JEM_Nazwa,
+                JEM_Opis=x.JEM_Opis
+            }));
         }
         #endregion Helpers
     }

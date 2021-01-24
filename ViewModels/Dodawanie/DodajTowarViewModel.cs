@@ -1,12 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using UrlopyApiXaml.Models.Entities;
+using UrlopyApiXaml.Models.Validators;
 
 namespace UrlopyApiXaml.ViewModels.Dodawanie
 {
-    public class DodajTowarViewModel : NowyViewModel<TOW_Towary>
+    public class DodajTowarViewModel : NowyViewModel<TOW_Towary>, IDataErrorInfo
     {
         #region Constructor
         public DodajTowarViewModel(TOW_Towary itemEdytowany) : base()
@@ -135,7 +137,46 @@ namespace UrlopyApiXaml.ViewModels.Dodawanie
         }
 
         #endregion Properties
+        #region Validation
+        public string Error
+        {
+            get
+            {
+                return null;
+            }
+        }
 
+        public string this[string name]
+        {
+            get
+            {
+                string komunikat = null;
+                if (name == "TOW_Nazwa")
+                    komunikat = TextValidator.Max50Znakow(TOW_Nazwa);
+                if (name == "TOW_Kod")
+                    komunikat = TextValidator.Max50Znakow(TOW_Kod);
+                if (name == "TOW_Opis")
+                    komunikat = TextValidator.Max50Znakow(TOW_Opis);
+                if (name == "TOW_StanIlosciowy")
+                    komunikat = TextValidator.IloscSztuk(TOW_StanIlosciowy);
+                if (name == "TOW_Zdjecie")
+                    komunikat = TextValidator.Max50Znakow(TOW_Zdjecie);
+                return komunikat;
+            }
+        }
+        //dodajemy funkcje ktora przed zapisem bedzie sprawdzala czy mozna zapisac rekord, jezeli ta funkcja zwroci true,
+        //rekord bedzie zapisywany, jezeli false nie pozwoli zapisac rekordu
+
+        public override bool IsValid()
+        {
+            if (this["TOW_Nazwa"] == null&&
+                this["TOW_Kod"] == null &&
+                this["TOW_Opis"] == null &&
+                this["TOW_StanIlosciowy"] == null &&
+                this["TOW_Zdjecie"] == null) return true;
+            return false;
+        }
+        #endregion Validation
         #region Helpers
         public override void Save()
         {

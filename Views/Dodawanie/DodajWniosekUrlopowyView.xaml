@@ -21,9 +21,9 @@
         </Grid.RowDefinitions>
 
         <Label Grid.Row="0" Grid.Column="0" Content="Urlop od" Margin="0,8,0,8"/>
-        <DatePicker Grid.Row="0" Grid.Column="1" VerticalAlignment="Center" SelectedDate="{Binding Path=WUR_DataOd, UpdateSourceTrigger=PropertyChanged}"/>
+        <DatePicker Grid.Row="0" Grid.Column="1" VerticalAlignment="Center" SelectedDate="{Binding Path=WUR_DataOd, UpdateSourceTrigger=LostFocus,ValidatesOnDataErrors=True}"/>
         <Label Grid.Row="1" Grid.Column="0" Content="Urlop do" Margin="0,8,0,8"/>
-        <DatePicker Grid.Row="1" Grid.Column="1" VerticalAlignment="Center" SelectedDate="{Binding Path=WUR_DataDo, UpdateSourceTrigger=PropertyChanged}"/>
+        <DatePicker Grid.Row="1" Grid.Column="1" VerticalAlignment="Center" SelectedDate="{Binding Path=WUR_DataDo, UpdateSourceTrigger=LostFocus,ValidatesOnDataErrors=True}"/>
         <Label Grid.Row="2" Grid.Column="0" Content="Rodzaj urlopu" Margin="0,8,0,8"/>
         <ComboBox 
                                 Grid.Row="2" 
@@ -31,7 +31,7 @@
                                 ItemsSource="{Binding  RodzajUrlopuComboBoxItems}" 
                                 DisplayMemberPath="RUR_Nazwa"  
                                 SelectedValuePath="RUR_RurID"  
-                                SelectedValue="{Binding Path=WUR_RurID,Mode=TwoWay}"
+                                SelectedValue="{Binding Path=WUR_RurID,Mode=TwoWay,UpdateSourceTrigger=LostFocus,ValidatesOnDataErrors=True}"
                                 VerticalAlignment="Center"
                                 />
         <Label Grid.Row="3" Grid.Column="0" Content="Pracownik" Margin="0,8,0,8"/>
@@ -41,7 +41,7 @@
                                 ItemsSource="{Binding  PracownikComboBoxItems}" 
                                 DisplayMemberPath="PRA_Imie"  
                                 SelectedValuePath="PRA_PraID"  
-                                SelectedValue="{Binding Path=WUR_PraID,Mode=TwoWay}"
+                                SelectedValue="{Binding Path=WUR_PraID,Mode=TwoWay,UpdateSourceTrigger=LostFocus,ValidatesOnDataErrors=True}"
                                 VerticalAlignment="Center"
                                 />
 

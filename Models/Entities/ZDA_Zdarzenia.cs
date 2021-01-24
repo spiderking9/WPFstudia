@@ -17,7 +17,7 @@ namespace UrlopyApiXaml.Models.Entities
         public int ZDA_ZdaID { get; set; }
         public string ZDA_Nazwa { get; set; }
         public Nullable<bool> ZDA_CzyAktywny { get; set; }
-        public Nullable<int> ZDA_PraID { get; set; }
+        public int ZDA_PraID { get; set; }
     
         public virtual PRA_Pracownicy PRA_Pracownicy { get; set; }
     }

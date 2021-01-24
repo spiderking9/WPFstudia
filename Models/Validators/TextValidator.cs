@@ -1,13 +1,15 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
+using System.Windows.Controls;
 using UrlopyApiXaml.Models.Entities;
 
 namespace UrlopyApiXaml.Models.Validators
 {
-    public class TextValidator: Validator
+    public class TextValidator: ValidationRule
     {
         public static string MusiszWpisacMax50Znakow(string text)
         {
@@ -68,21 +70,28 @@ namespace UrlopyApiXaml.Models.Validators
         }
         public static string SprawdzCzyPoprawnyNrTel(string text)
         {
-            double value;
-            if (text == null || text.Length == 0 || text.Length > 11 && double.TryParse(text, out value))
+            Regex EmailRegex = new Regex(@"^(\+48)?\d{9}$");
+            if (text == null || !EmailRegex.IsMatch(text))
                 return "Wpisz poprawny nr telefonu";
             return null;
         }
         public static string PoprawnaDataWnioskuUrlopowego(DateTime dataOd, DateTime dataDo)
         {
-            if (dataOd<= dataDo&& dataOd>= DateTime.Today && dataDo >= DateTime.Today)
+            if ((dataOd - dataDo).TotalDays > 0 && (dataOd - DateTime.Today).TotalDays > 0 && (dataDo - DateTime.Today).TotalDays > 0)
                 return "Wpisz date przyszla, tak aby start byl rowny lub mniejszy od konca";
             return null;
         }
         public static string PoprawnaDataUrlopu(DateTime dataOd, DateTime dataDo)
         {
-            if (dataOd <= dataDo && dataOd <= DateTime.Today && dataDo <= DateTime.Today)
-                return "Wpisz date przeszla, tak aby start byl rowny lub mniejszy od konca";
+            if ((dataOd - dataDo).TotalDays>0)
+                return "Roznica dni jest mniejsza ";
+            return null;
+        }
+
+        public static string PoprawnaDataDelegacji(DateTime dataOd, DateTime dataDo)
+        {
+            if ((dataOd - dataDo).TotalDays > 0)
+                return "Sprawdz obie daty delegacji";
             return null;
         }
 
@@ -90,6 +99,19 @@ namespace UrlopyApiXaml.Models.Validators
         {
             if (text == null || text.Length == 0 || text !="1"|| text != "2" || text != "3")
                 return "Wpisz zmiane 1 , 2 lub 3";
+            return null;
+        }
+        
+        public static string SprawdzKluczObcyInt(int text)
+        {
+            if (text == 0)
+                return "Wpisz zmiane 1 , 2 lub 3";
+            return null;
+        }
+        public static string SprawdzKluczObcy<T>(string key, T defaultValue)
+        {
+            if (defaultValue == null)
+                return "Nie wybrano elementu";
             return null;
         }
 
@@ -137,6 +159,15 @@ namespace UrlopyApiXaml.Models.Validators
                 return "Zmien login, juz ktos taki ma";
 
             return null;
+        }
+
+        public override ValidationResult Validate(object value, CultureInfo cultureInfo)
+        {
+            int i;
+            if (int.TryParse(value.ToString(), out i))
+                return new ValidationResult(true, CultureInfo.CurrentCulture);
+
+            return new ValidationResult(false, "sdfsdfsdf");
         }
     }
 }

@@ -107,8 +107,8 @@ namespace UrlopyApiXaml.ViewModels.Dodawanie
                 zdarzenie.GRP_Zmiana = GRP_Zmiana.Trim();
                 zdarzenie.GRP_Dzien = GRP_Dzien;
 
-                urlopyApiXaml.SaveChanges();
             }
+                urlopyApiXaml.SaveChanges();
 
             #endregion Helpers
         }

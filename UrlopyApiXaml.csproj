@@ -133,6 +133,7 @@
     <Compile Include="Models\EntitiesForView\FakturyView.cs" />
     <Compile Include="Models\EntitiesForView\FotorejestracjaView.cs" />
     <Compile Include="Models\EntitiesForView\GrafikPracyView.cs" />
+    <Compile Include="Models\EntitiesForView\JednostkaMiaryView.cs" />
     <Compile Include="Models\EntitiesForView\ListaWnioskowUrlopowychView.cs" />
     <Compile Include="Models\EntitiesForView\PracownicyView.cs" />
     <Compile Include="Models\EntitiesForView\TowarView.cs" />

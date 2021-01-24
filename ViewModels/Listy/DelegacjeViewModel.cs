@@ -30,7 +30,7 @@ namespace UrlopyApiXaml.ViewModels.Listy
         #region Konstruktor
         public DelegacjeViewModel()
         {
-            base.DisplayName = "Lista Dzialow";
+            base.DisplayName = "Lista Delegacji";
         }
         #endregion Konstruktor
         #region Helpers

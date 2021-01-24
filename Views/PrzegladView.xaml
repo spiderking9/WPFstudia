@@ -26,10 +26,9 @@
             <RowDefinition Height="100"/>               <!--tabela-->
             <RowDefinition Height="40"/> <!--przerwa-->
             <RowDefinition Height="40"/>                <!--Twoje statystyki-->
-            <RowDefinition Height="40"/>                <!--trzy przyciski tutaj damy 3 x columndefinition-->
-            <RowDefinition Height="10"/> <!--przerwa-->
-            <RowDefinition Height="150"/>               <!--szesc okienek z statystykami-->
-        </Grid.RowDefinitions>
+            <RowDefinition Height="100"/>                <!--trzy przyciski tutaj damy 3 x columndefinition-->
+
+            </Grid.RowDefinitions>
         <Label Grid.Row="0" Content="Rejestr Czasu Pracy" FontSize="20" />
         <Button Grid.Row="1" Content="Wirtualne RCP (Dodaj sttatus)" Width="300" HorizontalAlignment="Left"/>
         <Label Grid.Row="3" Content="Zarządzanie urlopami" FontSize="20" />
@@ -116,44 +115,46 @@
                 </ItemsControl>
             </Grid>
         <Label Grid.Row="13" Content="Twoje statystyki" FontSize="20"/>
-        <Grid Grid.Row="14">
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="*" MaxWidth="20"/>
-                <ColumnDefinition Width="*" MaxWidth="120"/>
-                <ColumnDefinition Width="*" MaxWidth="20"/>
-            </Grid.ColumnDefinitions>
-            <Button Grid.Column="0" Content="&#60;" />
-            <Button Grid.Column="1" Content="CZERWIEC 2020"/>
-            <Button Grid.Column="2" Content=">"/>
-        </Grid>
-        <Grid Grid.Row="16">
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="200"/>
-                <ColumnDefinition Width="10"/>
-                <ColumnDefinition Width="200"/>
-                <ColumnDefinition Width="10"/>
-                <ColumnDefinition Width="200"/>
-            </Grid.ColumnDefinitions>
-            <Grid.RowDefinitions>
-                <RowDefinition Height="70"/>
-                <RowDefinition Height="10"/>
-                <RowDefinition Height="70"/>
-            </Grid.RowDefinitions>
-            <Border Grid.Row="0" Grid.Column="0">
-                <Label Content="Czas pracy&#10;O h" FontSize="15"/>
-            </Border>
-            <Border Grid.Row="0" Grid.Column="2">
-                <Label Content="Nadgodziny&#10;O h" FontSize="15"/>
-            </Border>
-            <Border Grid.Row="0" Grid.Column="4">
-                <Label Content="Spóźnienia, braki normy&#10;O h" FontSize="15"/>
-            </Border>
-            <Border Grid.Row="2" Grid.Column="0">
-                <Label Content="Obecnosci&#10;O dni" FontSize="15"/>
-            </Border>
-            <Border Grid.Row="2" Grid.Column="2">
-                <Label Content="Nieobecnośći&#10;O dni" FontSize="15"/>
-            </Border>
+
+            <Grid Grid.Row="14">
+            <ItemsControl ItemsSource="{Binding ListaUrlopowPracownika}">
+                <ItemsControl.ItemsPanel>
+                    <ItemsPanelTemplate>
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="170"/>
+                                    <ColumnDefinition Width="170"/>
+                                    <ColumnDefinition Width="170"/>
+                                    <ColumnDefinition Width="170"/>
+                                    <ColumnDefinition Width="170"/>
+                                    <ColumnDefinition Width="170"/>
+                                    <ColumnDefinition Width="170"/>
+                                    <ColumnDefinition Width="170"/>
+                                    <ColumnDefinition Width="170"/>
+                                </Grid.ColumnDefinitions>
+                        </Grid>
+                    </ItemsPanelTemplate>
+                </ItemsControl.ItemsPanel>
+                <ItemsControl.ItemTemplate>
+                    <DataTemplate >
+                            <Border Height="70" BorderBrush="LightGray" BorderThickness="1" Background="White" Padding="7" CornerRadius="4" Margin="5">
+                              <Grid>
+                                  <Grid.RowDefinitions>
+                                      <RowDefinition Height="26"/>
+                                      <RowDefinition Height="26"/>
+                                  </Grid.RowDefinitions>
+                                  <Label Grid.Row="0" Content="{Binding RodzajUrlopu,UpdateSourceTrigger=PropertyChanged}" FontSize="15" Padding="-2" Margin="2" HorizontalAlignment="Center"/>
+                                  <Label Grid.Row="1" Content="{Binding LiczbaDni,UpdateSourceTrigger=PropertyChanged}" FontSize="15" Padding="-2" Margin="2" HorizontalAlignment="Center"/>
+                              </Grid>
+                         </Border>
+                    </DataTemplate>
+                </ItemsControl.ItemTemplate>
+                <ItemsControl.ItemContainerStyle>
+                    <Style>
+                        <Setter Property="Grid.Column" Value="{Binding IdRodzaju}" />
+                    </Style>
+                </ItemsControl.ItemContainerStyle>
+            </ItemsControl>
         </Grid>
     </Grid>
     </ScrollViewer>

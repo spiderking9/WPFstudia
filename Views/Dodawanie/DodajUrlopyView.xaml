@@ -25,14 +25,14 @@
                                 Grid.Column="1" 
                                 ItemsSource="{Binding  PracownikComboBoxItems}" 
                                 DisplayMemberPath="ImieNazwisko"  
-                                SelectedValuePath="PraID"  
+                                SelectedValuePath="PRA_PraID"  
                                 SelectedValue="{Binding Path=URL_PraID,Mode=TwoWay}"
                                 VerticalAlignment="Center"
                                 />
         <Label Grid.Row="1" Grid.Column="0" Content="Urlop od" Margin="0,8,0,8"/>
-        <DatePicker Grid.Row="1" Grid.Column="1" VerticalAlignment="Center" SelectedDate="{Binding Path=URL_DzienOd, UpdateSourceTrigger=PropertyChanged}"/>
+        <DatePicker Grid.Row="1" Grid.Column="1" VerticalAlignment="Center" SelectedDate="{Binding Path=URL_DzienOd, UpdateSourceTrigger=LostFocus,ValidatesOnDataErrors=True}"/>
         <Label Grid.Row="2" Grid.Column="0" Content="Urlop do" Margin="0,8,0,8"/>
-        <DatePicker Grid.Row="2" Grid.Column="1" VerticalAlignment="Center" SelectedDate="{Binding Path=URL_DzienDo, UpdateSourceTrigger=PropertyChanged}"/>
+        <DatePicker Grid.Row="2" Grid.Column="1" VerticalAlignment="Center" SelectedDate="{Binding Path=URL_DzienDo, UpdateSourceTrigger=LostFocus,ValidatesOnDataErrors=True}"/>
         <Label Grid.Row="3" Grid.Column="0" Content="Rodzaj urlopu" Margin="0,8,0,8"/>
         <ComboBox 
                                 Grid.Row="3" 

@@ -1,12 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using UrlopyApiXaml.Models.Entities;
+using UrlopyApiXaml.Models.Validators;
 
 namespace UrlopyApiXaml.ViewModels.Dodawanie
 {
-    public class DodajWniosekUrlopowyViewModel : NowyViewModel<WUR_WnioskiUrlopowe>
+    public class DodajWniosekUrlopowyViewModel : NowyViewModel<WUR_WnioskiUrlopowe>, IDataErrorInfo
     {
         #region Constructor
         public DodajWniosekUrlopowyViewModel(WUR_WnioskiUrlopowe itemEdytowany) : base()
@@ -121,7 +123,43 @@ namespace UrlopyApiXaml.ViewModels.Dodawanie
 
 
         #endregion Properties
+        #region Validation
+        public string Error
+        {
+            get
+            {
+                return null;
+            }
+        }
 
+        public string this[string name]
+        {
+            get
+            {
+                string komunikat = null;
+                if (name == "WUR_DataOd")
+                    komunikat = TextValidator.PoprawnaDataUrlopu(WUR_DataOd, WUR_DataDo);
+                if (name == "WUR_DataDo")
+                    komunikat = TextValidator.PoprawnaDataUrlopu(WUR_DataOd, WUR_DataDo);
+                if (name == "WUR_RurID")
+                    komunikat = TextValidator.SprawdzKluczObcyInt(WUR_RurID);
+                if (name == "WUR_PraID")
+                    komunikat = TextValidator.SprawdzKluczObcyInt(WUR_PraID);
+                return komunikat;
+            }
+        }
+        //dodajemy funkcje ktora przed zapisem bedzie sprawdzala czy mozna zapisac rekord, jezeli ta funkcja zwroci true,
+        //rekord bedzie zapisywany, jezeli false nie pozwoli zapisac rekordu
+
+        public override bool IsValid()
+        {
+            if (this["WUR_DataOd"] == null &&
+                this["WUR_DataDo"] == null &&
+                this["WUR_PraID"] == null &&
+                this["WUR_RurID"] == null) return true;
+            return false;
+        }
+        #endregion Validation
         #region Helpers
         public override void Save()
         {

@@ -22,11 +22,11 @@
             <RowDefinition Height="50"/>
         </Grid.RowDefinitions>
         <Label Grid.Row="0" Grid.Column="0" Content="Nazwa" Margin="0,8,0,8" VerticalContentAlignment="Center" HorizontalContentAlignment="Left"/>
-        <TextBox Grid.Row="0" Grid.Column="1" Margin="0,8,0,8" Width="169" HorizontalAlignment="Left" Text="{Binding TOW_Nazwa,UpdateSourceTrigger=PropertyChanged}" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"/>
+        <TextBox Grid.Row="0" Grid.Column="1" Margin="0,8,0,8" Width="169" HorizontalAlignment="Left" Text="{Binding TOW_Nazwa,UpdateSourceTrigger=LostFocus,ValidatesOnDataErrors=True}" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"/>
         <Label Grid.Row="1" Grid.Column="0" Content="Kod" Margin="0,8,0,8" VerticalContentAlignment="Center" HorizontalContentAlignment="Left"/>
-        <TextBox Grid.Row="1" Grid.Column="1" Margin="0,8,0,8" Width="169" HorizontalAlignment="Left" Text="{Binding TOW_Kod,UpdateSourceTrigger=PropertyChanged}" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"/>
+        <TextBox Grid.Row="1" Grid.Column="1" Margin="0,8,0,8" Width="169" HorizontalAlignment="Left" Text="{Binding TOW_Kod,UpdateSourceTrigger=LostFocus,ValidatesOnDataErrors=True}" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"/>
         <Label Grid.Row="2" Grid.Column="0" Content="Opis" Margin="0,8,0,8" VerticalContentAlignment="Center" HorizontalContentAlignment="Left"/>
-        <TextBox Grid.Row="2" Grid.Column="1" Margin="0,8,0,8" Width="169" HorizontalAlignment="Left" Text="{Binding KLI_Adres,UpdateSourceTrigger=PropertyChanged}" 
+        <TextBox Grid.Row="2" Grid.Column="1" Margin="0,8,0,8" Width="169" HorizontalAlignment="Left" Text="{Binding TOW_Opis,UpdateSourceTrigger=LostFocus,ValidatesOnDataErrors=True}" 
                  VerticalContentAlignment="Top" HorizontalContentAlignment="Left" TextWrapping="Wrap"/>
         <Label Grid.Row="3" Grid.Column="0" Content="Kategoria Towarow" Margin="0,8,0,8"/>
         <ComboBox 
@@ -38,10 +38,10 @@
                                 SelectedValue="{Binding Path=TOW_KatID,Mode=TwoWay}"
                                 VerticalAlignment="Center"
                                 />
-        <Label Grid.Row="4" Grid.Column="0" Content="Stan ilościowy" Margin="0,8,0,8" VerticalContentAlignment="Center" HorizontalContentAlignment="Left"/>
-        <TextBox Grid.Row="4" Grid.Column="1" Margin="0,8,0,8" Width="169" HorizontalAlignment="Left" Text="{Binding TOW_StanIlosciowy,UpdateSourceTrigger=PropertyChanged}" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"/>
+        <Label Grid.Row="4" Grid.Column="0" Content="Stan ilościowy" Margin="0,8,0,8" VerticalContentAlignment="Center" HorizontalContentAlignment="Left" />
+        <TextBox Grid.Row="4" Grid.Column="1" Margin="0,8,0,8" Width="169" HorizontalAlignment="Left" Text="{Binding TOW_StanIlosciowy,UpdateSourceTrigger=LostFocus,ValidatesOnDataErrors=True}" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"/>
         <Label Grid.Row="5" Grid.Column="0" Content="Zdjecie" Margin="0,8,0,8" VerticalContentAlignment="Center" HorizontalContentAlignment="Left"/>
-        <TextBox Grid.Row="5" Grid.Column="1" Margin="0,8,0,8" Width="169" HorizontalAlignment="Left" Text="{Binding TOW_Zdjecie,UpdateSourceTrigger=PropertyChanged}" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"/>
+        <TextBox Grid.Row="5" Grid.Column="1" Margin="0,8,0,8" Width="169" HorizontalAlignment="Left" Text="{Binding TOW_Zdjecie,UpdateSourceTrigger=LostFocus,ValidatesOnDataErrors=True}" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Validation.ErrorTemplate="{StaticResource errorTemplate}"/>
         
         <Button Grid.Row="7" Margin="20,4,0,0" Grid.ColumnSpan="2" Content="Dodaj Towar" Foreground="White" Command="{Binding SaveCommand}" FontSize="20"/>
     </Grid>

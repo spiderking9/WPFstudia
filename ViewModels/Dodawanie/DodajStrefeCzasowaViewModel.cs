@@ -1,12 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using UrlopyApiXaml.Models.Entities;
+using UrlopyApiXaml.Models.Validators;
 
 namespace UrlopyApiXaml.ViewModels.Dodawanie
 {
-    public class DodajStrefeCzasowaViewModel : NowyViewModel<STC_StrefaCzasowa>
+    public class DodajStrefeCzasowaViewModel : NowyViewModel<STC_StrefaCzasowa>, IDataErrorInfo
     {
         #region Constructor
         public DodajStrefeCzasowaViewModel(STC_StrefaCzasowa itemEdytowany) : base()
@@ -42,7 +44,34 @@ namespace UrlopyApiXaml.ViewModels.Dodawanie
         }
 
         #endregion Properties
+        #region Validation
+        public string Error
+        {
+            get
+            {
+                return null;
+            }
+        }
 
+        public string this[string name]
+        {
+            get
+            {
+                string komunikat = null;
+                if (name == "STC_Nazwa")
+                    komunikat = TextValidator.Max10Znakow(STC_Nazwa);
+                return komunikat;
+            }
+        }
+        //dodajemy funkcje ktora przed zapisem bedzie sprawdzala czy mozna zapisac rekord, jezeli ta funkcja zwroci true,
+        //rekord bedzie zapisywany, jezeli false nie pozwoli zapisac rekordu
+
+        public override bool IsValid()
+        {
+            if (this["STC_Nazwa"] == null) return true;
+            return false;
+        }
+        #endregion Validation
         #region Helpers
         public override void Save()
         {

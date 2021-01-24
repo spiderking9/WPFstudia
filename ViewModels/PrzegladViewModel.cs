@@ -22,6 +22,20 @@ namespace UrlopyApiXaml.ViewModels
         private DateTime _Data=DateTime.Now;
         private DateTime _Data2 = DateTime.Now.AddDays(14);
         private int _PraID;
+        private ObservableCollection<RodzajeUrlopowZLiczbami> _ListaUrlopowPracownika;
+
+        public ObservableCollection<RodzajeUrlopowZLiczbami> ListaUrlopowPracownika
+        {
+            get
+            {
+                if (_ListaUrlopowPracownika == null) load();
+                return _ListaUrlopowPracownika;
+            }
+            set
+            {
+                _ListaUrlopowPracownika = value; OnPropertyChanged(() => ListaUrlopowPracownika);
+            }
+        }
         public int PraID
         {
             get
@@ -168,6 +182,8 @@ namespace UrlopyApiXaml.ViewModels
         public override void load()
         {
             List = new UrlopAlboZmianaPracy(urlopyApiXaml).GetZmiana(Data, PraID);
+            if(PraID!=0)
+                ListaUrlopowPracownika = new UrlopAlboZmianaPracy(urlopyApiXaml).PobierzRodzajeUrlopowWedlugIdPracownika(PraID);
         }
     }
 }

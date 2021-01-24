@@ -30,26 +30,26 @@
                                 Grid.Column="1" 
                                 ItemsSource="{Binding  PracownicyComboBoxItems}" 
                                 DisplayMemberPath="ImieNazwisko"  
-                                SelectedValuePath="PraID"  
+                                SelectedValuePath="PRA_PraID"  
                                 SelectedValue="{Binding Path=DEL_PraID,Mode=TwoWay}"
                                 VerticalAlignment="Center"
                                 />
 
         <Label Grid.Row="1" Grid.Column="0" Content="Tytul" Margin="0,8,0,8" VerticalContentAlignment="Center" HorizontalContentAlignment="Left"/>
-        <TextBox Grid.Row="1" Grid.Column="1" Margin="0,8,0,8" Width="169" HorizontalAlignment="Left" Text="{Binding DEL_Tytul,UpdateSourceTrigger=PropertyChanged}" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"/>
+        <TextBox Grid.Row="1" Grid.Column="1" Margin="0,8,0,8" Width="169" HorizontalAlignment="Left" Text="{Binding DEL_Tytul,UpdateSourceTrigger=LostFocus, ValidatesOnDataErrors=True}" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"/>
         <Label Grid.Row="2" Grid.Column="0" Content="Rodzaj transportu" Margin="0,8,0,8" VerticalContentAlignment="Center" HorizontalContentAlignment="Left"/>
-        <TextBox Grid.Row="2" Grid.Column="1" Margin="0,8,0,8" Width="169" HorizontalAlignment="Left" Text="{Binding DEL_JakiTransport,UpdateSourceTrigger=PropertyChanged}" 
+        <TextBox Grid.Row="2" Grid.Column="1" Margin="0,8,0,8" Width="169" HorizontalAlignment="Left" Text="{Binding DEL_JakiTransport,UpdateSourceTrigger=LostFocus, ValidatesOnDataErrors=True}" 
                  VerticalContentAlignment="Top" HorizontalContentAlignment="Left" TextWrapping="Wrap"/>
         <Label Grid.Row="3" Grid.Column="0" Content="Miejscowosc Startu" Margin="0,8,0,8" VerticalContentAlignment="Center" HorizontalContentAlignment="Left"/>
-        <TextBox Grid.Row="3" Grid.Column="1" Margin="0,8,0,8" Width="169" HorizontalAlignment="Left" Text="{Binding DEL_MiejscowoscStartu,UpdateSourceTrigger=PropertyChanged}" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"/>
+        <TextBox Grid.Row="3" Grid.Column="1" Margin="0,8,0,8" Width="169" HorizontalAlignment="Left" Text="{Binding DEL_MiejscowoscStartu,UpdateSourceTrigger=LostFocus, ValidatesOnDataErrors=True}" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"/>
         <Label Grid.Row="4" Grid.Column="0" Content="Miejscowosc Celu" Margin="0,8,0,8" VerticalContentAlignment="Center" HorizontalContentAlignment="Left"/>
-        <TextBox Grid.Row="4" Grid.Column="1" Margin="0,8,0,8" Width="169" HorizontalAlignment="Left" Text="{Binding DEL_MiejscowoscCelu,UpdateSourceTrigger=PropertyChanged}" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"/>
+        <TextBox Grid.Row="4" Grid.Column="1" Margin="0,8,0,8" Width="169" HorizontalAlignment="Left" Text="{Binding DEL_MiejscowoscCelu,UpdateSourceTrigger=LostFocus, ValidatesOnDataErrors=True}" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"/>
         <Label Grid.Row="5" Grid.Column="0" Content="Dzien Od" Margin="0,8,0,8" VerticalContentAlignment="Center" HorizontalContentAlignment="Left"/>
-        <DatePicker Grid.Row="5" Grid.Column="1" VerticalAlignment="Center" SelectedDate="{Binding Path=DEL_DzienOd, UpdateSourceTrigger=PropertyChanged}"/>
+        <DatePicker Grid.Row="5" Grid.Column="1" VerticalAlignment="Center" SelectedDate="{Binding Path=DEL_DzienOd, UpdateSourceTrigger=LostFocus, ValidatesOnDataErrors=True}"/>
         <Label Grid.Row="6" Grid.Column="0" Content="Dzien Do" Margin="0,8,0,8" VerticalContentAlignment="Center" HorizontalContentAlignment="Left"/>
-        <DatePicker Grid.Row="6" Grid.Column="1" VerticalAlignment="Center" SelectedDate="{Binding Path=DEL_DzienDo, UpdateSourceTrigger=PropertyChanged}"/>
+        <DatePicker Grid.Row="6" Grid.Column="1" VerticalAlignment="Center" SelectedDate="{Binding Path=DEL_DzienDo, UpdateSourceTrigger=LostFocus, ValidatesOnDataErrors=True}"/>
         <Label Grid.Row="7" Grid.Column="0" Content="Komentarz" Margin="0,8,0,8" VerticalContentAlignment="Center" HorizontalContentAlignment="Left"/>
-        <TextBox Grid.Row="7" Grid.Column="1" Margin="0,8,0,8" Width="169" HorizontalAlignment="Left" Text="{Binding DEL_Komentarz,UpdateSourceTrigger=PropertyChanged}" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"/>
+        <TextBox Grid.Row="7" Grid.Column="1" Margin="0,8,0,8" Width="169" HorizontalAlignment="Left" Text="{Binding DEL_Komentarz,UpdateSourceTrigger=LostFocus, ValidatesOnDataErrors=True}" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"/>
 
         <Button Grid.Row="9" Margin="20,4,0,0" Grid.ColumnSpan="2" Content="Dodaj Delegacje" Foreground="White" Command="{Binding SaveCommand}" FontSize="20"/>
     </Grid>

@@ -3,10 +3,12 @@ using System.Collections.Generic;
 using System.Linq;
 using UrlopyApiXaml.Models.Entities;
 using System.Text;
+using System.ComponentModel;
+using UrlopyApiXaml.Models.Validators;
 
 namespace UrlopyApiXaml.ViewModels.Dodawanie
 {
-    class DodajJednostkiMiaryViewModel : NowyViewModel<JEM_JednostkiMiary>
+    class DodajJednostkiMiaryViewModel : NowyViewModel<JEM_JednostkiMiary>, IDataErrorInfo
     {
         #region Constructor
         public DodajJednostkiMiaryViewModel(JEM_JednostkiMiary itemEdytowany) : base()
@@ -59,6 +61,37 @@ namespace UrlopyApiXaml.ViewModels.Dodawanie
 
 
         #endregion Properties
+        #region Validation
+        public string Error
+        {
+            get
+            {
+                return null;
+            }
+        }
+
+        public string this[string name]
+        {
+            get
+            {
+                string komunikat = null;
+                if (name == "JEM_Nazwa")
+                    komunikat = TextValidator.Max50Znakow(this.JEM_Nazwa);
+                if (name == "JEM_Opis")
+                    komunikat = TextValidator.Max50Znakow(this.JEM_Opis);
+                return komunikat;
+            }
+        }
+        //dodajemy funkcje ktora przed zapisem bedzie sprawdzala czy mozna zapisac rekord, jezeli ta funkcja zwroci true,
+        //rekord bedzie zapisywany, jezeli false nie pozwoli zapisac rekordu
+
+        public override bool IsValid()
+        {
+            if (this["JEM_Nazwa"] == null &&
+                this["JEM_Opis"] == null) return true;
+            return false;
+        }
+        #endregion Validation
 
         #region Helpers
         public override void Save()

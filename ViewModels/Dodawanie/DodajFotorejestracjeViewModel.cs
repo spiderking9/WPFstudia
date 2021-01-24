@@ -1,18 +1,30 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using UrlopyApiXaml.Models.Entities;
 using UrlopyApiXaml.Models.EntitiesForView;
+using UrlopyApiXaml.Models.Validators;
 
 namespace UrlopyApiXaml.ViewModels.Dodawanie
 {
-    public class DodajFotorejestracjeViewModel : NowyViewModel<FOT_Fotorejestracja>
+    public class DodajFotorejestracjeViewModel : NowyViewModel<FOT_Fotorejestracja>, IDataErrorInfo
     {
         #region Constructor
         public DodajFotorejestracjeViewModel(FOT_Fotorejestracja itemEdytowany) : base()
         {
+            if (itemEdytowany == null)
+            {
+                item = new FOT_Fotorejestracja();
+                item.FOT_CzyAktywny = true;
+                FOT_DataWejscia = DateTime.Today;
+                FOT_DataWyjscia = DateTime.Today;
+            }
+            else
+            {
                 item = itemEdytowany;
+            }
 
             base.DisplayName = "Dodaj Fotorejestracje";
 
@@ -113,16 +125,54 @@ namespace UrlopyApiXaml.ViewModels.Dodawanie
             }
         }
         #endregion Properties
+        #region Validation
+        public string Error
+        {
+            get
+            {
+                return null;
+            }
+        }
 
+        public string this[string name]
+        {
+            get
+            {
+                string komunikat = null;
+                if (name == "FOT_DataWejscia")
+                    komunikat = TextValidator.PoprawnaDataDelegacji(this.FOT_DataWejscia, FOT_DataWyjscia);
+                if (name == "FOT_DataWyjscia")
+                    komunikat = TextValidator.PoprawnaDataDelegacji(this.FOT_DataWejscia, FOT_DataWyjscia);
+
+                return komunikat;
+            }
+        }
+        //dodajemy funkcje ktora przed zapisem bedzie sprawdzala czy mozna zapisac rekord, jezeli ta funkcja zwroci true,
+        //rekord bedzie zapisywany, jezeli false nie pozwoli zapisac rekordu
+
+        public override bool IsValid()
+        {
+            if (this["FOT_DataWejscia"] == null &&
+                this["FOT_DataWyjscia"] == null) return true;
+            return false;
+        }
+        #endregion Validation
         #region Helpers
         public override void Save()
         {
+            if (item.FOT_FotID == 0)
+            {
+                urlopyApiXaml.FOT_Fotorejestracja.Add(item);
+            }
+            else
+            {
                 var zdarzenie = urlopyApiXaml.FOT_Fotorejestracja.FirstOrDefault(x => x.FOT_FotID == item.FOT_FotID);
                 zdarzenie.FOT_PraID = FOT_PraID;
                 zdarzenie.FOT_GodzinaWejscia = FOT_GodzinaWejscia;
                 zdarzenie.FOT_GodzinaWyjscia = FOT_GodzinaWyjscia;
                 zdarzenie.FOT_DataWejscia = FOT_DataWejscia;
                 zdarzenie.FOT_DataWyjscia = FOT_DataWyjscia;
+            }
             urlopyApiXaml.SaveChanges();
         }
 

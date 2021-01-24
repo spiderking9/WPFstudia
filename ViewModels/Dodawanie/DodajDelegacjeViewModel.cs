@@ -1,13 +1,15 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using UrlopyApiXaml.Models.Entities;
 using UrlopyApiXaml.Models.EntitiesForView;
+using UrlopyApiXaml.Models.Validators;
 
 namespace UrlopyApiXaml.ViewModels.Dodawanie
 {
-    class DodajDelegacjeViewModel : NowyViewModel<DEL_Delegacje>
+    class DodajDelegacjeViewModel : NowyViewModel<DEL_Delegacje>, IDataErrorInfo
     {
         #region Constructor
         public DodajDelegacjeViewModel(DEL_Delegacje itemEdytowany) : base()
@@ -170,7 +172,49 @@ namespace UrlopyApiXaml.ViewModels.Dodawanie
             }
         }
         #endregion Properties
+        #region Validation
+        public string Error
+        {
+            get
+            {
+                return null;
+            }
+        }
 
+        public string this[string name]
+        {
+            get
+            {
+                string komunikat = null;
+                if (name == "DEL_Tytul")
+                    komunikat = TextValidator.Max50Znakow(this.DEL_Tytul);
+                if (name == "DEL_JakiTransport")
+                    komunikat = TextValidator.Max50Znakow(this.DEL_JakiTransport);
+                if (name == "DEL_MiejscowoscStartu")
+                    komunikat = TextValidator.Max50Znakow(this.DEL_MiejscowoscStartu);
+                if (name == "DEL_MiejscowoscCelu")
+                    komunikat = TextValidator.Max50Znakow(this.DEL_MiejscowoscCelu);
+                if (name == "DEL_DzienOd")
+                    komunikat = TextValidator.PoprawnaDataDelegacji(this.DEL_DzienOd, DEL_DzienDo);
+                if (name == "DEL_DzienDo")
+                    komunikat = TextValidator.PoprawnaDataDelegacji(this.DEL_DzienOd, DEL_DzienDo);
+                return komunikat;
+            }
+        }
+        //dodajemy funkcje ktora przed zapisem bedzie sprawdzala czy mozna zapisac rekord, jezeli ta funkcja zwroci true,
+        //rekord bedzie zapisywany, jezeli false nie pozwoli zapisac rekordu
+
+        public override bool IsValid()
+        {
+            if (this["DEL_Tytul"] == null&&
+                this["DEL_JakiTransport"] == null &&
+                this["DEL_MiejscowoscStartu"] == null &&
+                this["DEL_MiejscowoscCelu"] == null &&
+                this["DEL_DzienOd"] == null &&
+                this["DEL_DzienDo"] == null) return true;
+            return false;
+        }
+        #endregion Validation
         #region Helpers
         public override void Save()
         {

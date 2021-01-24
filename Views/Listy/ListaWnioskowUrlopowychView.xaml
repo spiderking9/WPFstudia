@@ -12,8 +12,8 @@
         <DataGrid Grid.Row="3" ItemsSource="{Binding List}" AutoGenerateColumns="False" SelectedItem="{Binding Path=Wybrane, Mode=TwoWay}">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Lp" Binding="{Binding WUR_WurID}"/>
-                <DataGridTextColumn Header="Urlop od" Binding="{Binding WUR_DataOd}"/>
-                <DataGridTextColumn Header="Urlop do" Binding="{Binding WUR_DataDo}"/>
+                <DataGridTextColumn Header="Urlop od" Binding="{Binding WUR_DataOd, StringFormat=d, ConverterCulture=pl-PL}"/>
+                <DataGridTextColumn Header="Urlop do" Binding="{Binding WUR_DataDo, StringFormat=d, ConverterCulture=pl-PL}"/>
                 <DataGridTextColumn Header="Pracownik" Binding="{Binding NazwaPracownika}"/>
                 <DataGridTextColumn Header="Rodzaj urlopu" Binding="{Binding RodzajUrlopu}"/>
             </DataGrid.Columns>

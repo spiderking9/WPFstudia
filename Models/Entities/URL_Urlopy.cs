@@ -16,8 +16,8 @@ namespace UrlopyApiXaml.Models.Entities
     {
         public int URL_UrlID { get; set; }
         public Nullable<int> URL_PraID { get; set; }
-        public Nullable<System.DateTime> URL_DzienOd { get; set; }
-        public Nullable<System.DateTime> URL_DzienDo { get; set; }
+        public DateTime URL_DzienOd { get; set; }
+        public DateTime URL_DzienDo { get; set; }
         public Nullable<int> URL_RurID { get; set; }
         public Nullable<bool> URL_CzyAktywny { get; set; }
     

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Data.Entity;
 using System.Linq;
 using System.Text;
 using UrlopyApiXaml.Models.Entities;
@@ -45,11 +46,36 @@ namespace UrlopyApiXaml.Models.BusinessLogic
 
             return Data.ToString("dd MMMM yyy") + " - " + Data2.ToString("dd MMMM yyy");
         }
+
+        public ObservableCollection<RodzajeUrlopowZLiczbami> PobierzRodzajeUrlopowWedlugIdPracownika(int PraID)
+        {
+            ObservableCollection<RodzajeUrlopowZLiczbami> List = new ObservableCollection<RodzajeUrlopowZLiczbami>();
+            int i = 0;
+            foreach (var item in urlopyApiXaml.RUR_RodzajeUrlopow.Where(w=>w.RUR_CzyAktywny==true))
+            {
+                RodzajeUrlopowZLiczbami urlopowZLiczbami = new RodzajeUrlopowZLiczbami();
+                urlopowZLiczbami.IdRodzaju = i;
+                urlopowZLiczbami.RodzajUrlopu = item.RUR_Nazwa;
+                urlopowZLiczbami.LiczbaDni = (urlopyApiXaml.URL_Urlopy.Where(w => w.URL_PraID == PraID && w.URL_RurID == item.RUR_RurID)
+                    .Sum(x => DbFunctions.DiffDays(x.URL_DzienOd, x.URL_DzienDo) + 1)??0).ToString()+" dni";
+
+                List.Add(urlopowZLiczbami);
+                i++;
+            }
+
+            return List;
+        }
     }
     public class Nowa
     {
         public int id { get; set; }
         public string data { get; set; }
         public string rodzajZmiany { get; set; }
+    }
+    public class RodzajeUrlopowZLiczbami
+    {
+        public int IdRodzaju { get; set; }
+        public string RodzajUrlopu { get; set; }
+        public string LiczbaDni { get; set; }
     }
 }

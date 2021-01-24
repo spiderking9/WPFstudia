@@ -348,6 +348,8 @@ namespace UrlopyApiXaml.ViewModels
                 new CommandViewModel("DodajDzial",new BaseCommand(() => this.CreateView(new DodajDzialViewModel(null))),"\uf2bb"),
                 new CommandViewModel("DodajStrefeCzas",new BaseCommand(() => this.CreateView(new DodajStrefeCzasowaViewModel(null))),"\uf2cd"),
                 new CommandViewModel("DodajDelegac",new BaseCommand(() => this.CreateView(new DodajDelegacjeViewModel(null))),"\uf030"),
+                new CommandViewModel("DodajFotore",new BaseCommand(() => this.CreateView(new DodajFotorejestracjeViewModel(null))),"\uf2cd"),
+
             };
         }
 

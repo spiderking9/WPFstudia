@@ -74,7 +74,7 @@ namespace UrlopyApiXaml.ViewModels.Dodawanie
             if (this["DZI_Nazwa"] == null) return true;
             return false;
         }
-        #endregion
+        #endregion Validation
 
         #region Helpers
         public override void Save()

@@ -32,14 +32,14 @@
                                 Grid.Column="1" 
                                 ItemsSource="{Binding  PracownicyComboBoxItems}" 
                                 DisplayMemberPath="ImieNazwisko"  
-                                SelectedValuePath="PraID"  
+                                SelectedValuePath="PRA_PraID"  
                                 SelectedValue="{Binding Path=FOT_PraID,Mode=TwoWay}"
                                 VerticalAlignment="Center"
                                 />
         <Label Grid.Row="3" Grid.Column="0" Content="Data Wejscia" Margin="0,8,0,8" VerticalContentAlignment="Center" HorizontalContentAlignment="Left"/>
-        <DatePicker Grid.Row="3" Grid.Column="1" VerticalAlignment="Center" SelectedDate="{Binding Path=FOT_DataWejscia, UpdateSourceTrigger=PropertyChanged}"/>
+        <DatePicker Grid.Row="3" Grid.Column="1" VerticalAlignment="Center" SelectedDate="{Binding Path=FOT_DataWejscia, UpdateSourceTrigger=LostFocus, ValidatesOnDataErrors=True}"/>
         <Label Grid.Row="4" Grid.Column="0" Content="Data Wyjscia" Margin="0,8,0,8" VerticalContentAlignment="Center" HorizontalContentAlignment="Left"/>
-        <DatePicker Grid.Row="4" Grid.Column="1" VerticalAlignment="Center" SelectedDate="{Binding Path=FOT_DataWyjscia, UpdateSourceTrigger=PropertyChanged}"/>
+        <DatePicker Grid.Row="4" Grid.Column="1" VerticalAlignment="Center" SelectedDate="{Binding Path=FOT_DataWyjscia, UpdateSourceTrigger=LostFocus, ValidatesOnDataErrors=True}"/>
         
         <Button Grid.Row="6" Margin="20,4,0,0" Grid.ColumnSpan="2" Content="Edytuj Fotorejestracje" Foreground="White" Command="{Binding SaveCommand}" FontSize="20"/>
     </Grid>
